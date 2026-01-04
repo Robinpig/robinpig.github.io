@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/images/avator.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/leetcode/">LeetCode</a></li>
+				<li><a href="/tags/LeetCode/">LeetCode</a></li>
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
@@ -97,7 +97,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/images/avator.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -127,7 +127,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/leetcode/">LeetCode</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 		        
@@ -145,6 +145,101 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leetcode/0629-K-Inverse-Pairs-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0629-K-Inverse-Pairs-Array/">0629. K Inverse Pairs Array</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0629-K-Inverse-Pairs-Array/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0629-k-inverse-pairs-array"><a class="markdownIt-Anchor" href="#0629-k-inverse-pairs-array"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/k-inverse-pairs-array/">0629. K Inverse Pairs Array</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>For an integer array <code>nums</code>, an <strong>inverse pair</strong> is a pair of integers <code>[i, j]</code> where <code>0 &lt;= i &lt; j &lt; nums.length</code> and <code>nums[i] &gt; nums[j]</code>.</p>
+<p>Given two integers n and k, return the number of different arrays consist of numbers from <code>1</code> to <code>n</code> such that there are exactly <code>k</code> <strong>inverse pairs</strong>. Since the answer can be huge, return it <strong>modulo</strong> <code>109 + 7</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3, k = 0</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: Only the array [1,2,3] which consists of numbers from 1 to 3 has exactly 0 inverse pairs.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3, k = 1</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The array [1,3,2] and [2,1,3] have exactly 1 inverse pair.</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 1000</code></li>
+<li><code>0 &lt;= k &lt;= 1000</code></li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<!-- tabs:start -->
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">kInversePairs</span><span class="params">(n, k <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> mod <span class="type">int</span> = <span class="number">1e9</span> + <span class="number">7</span></span><br><span class="line">    f := [<span class="number">2</span>][]<span class="type">int</span>&#123;<span class="built_in">make</span>([]<span class="type">int</span>, k+<span class="number">1</span>), <span class="built_in">make</span>([]<span class="type">int</span>, k+<span class="number">1</span>)&#125;</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j := <span class="number">0</span>; j &lt;= k; j++ &#123;</span><br><span class="line">            cur := i &amp; <span class="number">1</span></span><br><span class="line">            prev := cur ^ <span class="number">1</span></span><br><span class="line">            f[cur][j] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> j &gt; <span class="number">0</span> &#123;</span><br><span class="line">                f[cur][j] = f[cur][j<span class="number">-1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> j &gt;= i &#123;</span><br><span class="line">                f[cur][j] -= f[prev][j-i]</span><br><span class="line">            &#125;</span><br><span class="line">            f[cur][j] += f[prev][j]</span><br><span class="line">            <span class="keyword">if</span> f[cur][j] &gt;= mod &#123;</span><br><span class="line">                f[cur][j] -= mod</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> f[cur][j] &lt; <span class="number">0</span> &#123;</span><br><span class="line">                f[cur][j] += mod</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[n&amp;<span class="number">1</span>][k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- tabs:end -->
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0629-K-Inverse-Pairs-Array/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode/0598-Range-Addition-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1029,111 +1124,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/01/23/leetcode/0638-Shopping-Offers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0682-Baseball-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0682-Baseball-Game/">0682. Baseball Game</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0682-Baseball-Game/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0682-baseball-game"><a class="markdownIt-Anchor" href="#0682-baseball-game"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/baseball-game/">0682. Baseball Game</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are keeping score for a baseball game with strange rules. The game consists of several rounds, where the scores of past rounds may affect future rounds’ scores.</p>
-<p>At the beginning of the game, you start with an empty record. You are given a list of strings <code>ops</code>, where <code>ops[i]</code> is the <code>ith</code> operation you must apply to the record and is one of the following:</p>
-<ol>
-<li>An integer <code>x</code> - Record a new score of <code>x</code>.</li>
-<li><code>&quot;+&quot;</code> - Record a new score that is the sum of the previous two scores. It is guaranteed there will always be two previous scores.</li>
-<li><code>&quot;D&quot;</code> - Record a new score that is double the previous score. It is guaranteed there will always be a previous score.</li>
-<li><code>&quot;C&quot;</code> - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.</li>
-</ol>
-<p>Return <em>the sum of all the scores on the record</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;5&quot;,&quot;2&quot;,&quot;C&quot;,&quot;D&quot;,&quot;+&quot;]</span><br><span class="line">Output: 30</span><br><span class="line">Explanation:</span><br><span class="line">&quot;5&quot; - Add 5 to the record, record is now [5].</span><br><span class="line">&quot;2&quot; - Add 2 to the record, record is now [5, 2].</span><br><span class="line">&quot;C&quot; - Invalidate and remove the previous score, record is now [5].</span><br><span class="line">&quot;D&quot; - Add 2 * 5 = 10 to the record, record is now [5, 10].</span><br><span class="line">&quot;+&quot; - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].</span><br><span class="line">The total sum is 5 + 10 + 15 = 30.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;5&quot;,&quot;-2&quot;,&quot;4&quot;,&quot;C&quot;,&quot;D&quot;,&quot;9&quot;,&quot;+&quot;,&quot;+&quot;]</span><br><span class="line">Output: 27</span><br><span class="line">Explanation:</span><br><span class="line">&quot;5&quot; - Add 5 to the record, record is now [5].</span><br><span class="line">&quot;-2&quot; - Add -2 to the record, record is now [5, -2].</span><br><span class="line">&quot;4&quot; - Add 4 to the record, record is now [5, -2, 4].</span><br><span class="line">&quot;C&quot; - Invalidate and remove the previous score, record is now [5, -2].</span><br><span class="line">&quot;D&quot; - Add 2 * -2 = -4 to the record, record is now [5, -2, -4].</span><br><span class="line">&quot;9&quot; - Add 9 to the record, record is now [5, -2, -4, 9].</span><br><span class="line">&quot;+&quot; - Add -4 + 9 = 5 to the record, record is now [5, -2, -4, 9, 5].</span><br><span class="line">&quot;+&quot; - Add 9 + 5 = 14 to the record, record is now [5, -2, -4, 9, 5, 14].</span><br><span class="line">The total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;1&quot;]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= ops.length &lt;= 1000</code></li>
-<li><code>ops[i]</code> is <code>&quot;C&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;+&quot;</code>, or a string representing an integer in the range <code>[-3 * 104, 3 * 104]</code>.</li>
-<li>For operation <code>&quot;+&quot;</code>, there will always be at least two previous scores on the record.</li>
-<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calPoints</span><span class="params">(ops []<span class="type">string</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    points := []<span class="type">int</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> _, op := <span class="keyword">range</span> ops &#123;</span><br><span class="line">        n := <span class="built_in">len</span>(points)</span><br><span class="line">        <span class="keyword">switch</span> op[<span class="number">0</span>] &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">            ans += points[n<span class="number">-1</span>] + points[n<span class="number">-2</span>]</span><br><span class="line">            points = <span class="built_in">append</span>(points, points[n<span class="number">-1</span>]+points[n<span class="number">-2</span>])</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>:</span><br><span class="line">            ans += points[n<span class="number">-1</span>] * <span class="number">2</span></span><br><span class="line">            points = <span class="built_in">append</span>(points, <span class="number">2</span>*points[n<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>:</span><br><span class="line">            ans -= points[n<span class="number">-1</span>]</span><br><span class="line">            points = points[:<span class="built_in">len</span>(points)<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            pt, _ := strconv.Atoi(op)</span><br><span class="line">            ans += pt</span><br><span class="line">            points = <span class="built_in">append</span>(points, pt)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0682-Baseball-Game/">展开全文 >></a>
         </p>
       
 

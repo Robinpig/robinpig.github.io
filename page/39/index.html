@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/images/avator.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/leetcode/">LeetCode</a></li>
+				<li><a href="/tags/LeetCode/">LeetCode</a></li>
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
@@ -97,7 +97,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/images/avator.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -127,7 +127,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/leetcode/">LeetCode</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 		        
@@ -145,6 +145,106 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leetcode/2022-Convert-1D-Array-Into-2D-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/2022-Convert-1D-Array-Into-2D-Array/">2022. Convert 1D Array Into 2D Array</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/2022-Convert-1D-Array-Into-2D-Array/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2022-convert-1d-array-into-2d-array"><a class="markdownIt-Anchor" href="#2022-convert-1d-array-into-2d-array"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-1d-array-into-2d-array/">2022. Convert 1D Array Into 2D Array</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>You are given a <strong>0-indexed</strong> 1-dimensional (1D) integer array <code>original</code>, and two integers, <code>m</code> and <code>n</code>. You are tasked with creating a 2-dimensional (2D) array with <code>m</code> rows and <code>n</code> columns using <strong>all</strong> the elements from <code>original</code>.</p>
+<p>The elements from indices <code>0</code> to <code>n - 1</code> (<strong>inclusive</strong>) of <code>original</code> should form the first row of the constructed 2D array, the elements from indices <code>n</code> to <code>2 * n - 1</code> (<strong>inclusive</strong>) should form the second row of the constructed 2D array, and so on.</p>
+<p>Return <em>an</em> <code>m x n</code> <em>2D array constructed according to the above procedure, or an empty 2D array if it is impossible</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/08/26/image-20210826114243-1.png" alt="img" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: original = [1,2,3,4], m = 2, n = 2</span><br><span class="line">Output: [[1,2],[3,4]]</span><br><span class="line">Explanation: The constructed 2D array should contain 2 rows and 2 columns.</span><br><span class="line">The first group of n=2 elements in original, [1,2], becomes the first row in the constructed 2D array.</span><br><span class="line">The second group of n=2 elements in original, [3,4], becomes the second row in the constructed 2D array.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: original = [1,2,3], m = 1, n = 3</span><br><span class="line">Output: [[1,2,3]]</span><br><span class="line">Explanation: The constructed 2D array should contain 1 row and 3 columns.</span><br><span class="line">Put all three elements in original into the first row of the constructed 2D array.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: original = [1,2], m = 1, n = 1</span><br><span class="line">Output: []</span><br><span class="line">Explanation: There are 2 elements in original.</span><br><span class="line">It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D array.</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= original.length &lt;= 5 * 104</code></li>
+<li><code>1 &lt;= original[i] &lt;= 105</code></li>
+<li><code>1 &lt;= m, n &lt;= 4 * 104</code></li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<!-- tabs:start -->
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">construct2DArray</span><span class="params">(original []<span class="type">int</span>, m, n <span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">    k := <span class="built_in">len</span>(original)</span><br><span class="line">    <span class="keyword">if</span> k != m*n &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    ans := <span class="built_in">make</span>([][]<span class="type">int</span>, <span class="number">0</span>, m)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; k; i += n &#123;</span><br><span class="line">        ans = <span class="built_in">append</span>(ans, original[i:i+n])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- tabs:end -->
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/2022-Convert-1D-Array-Into-2D-Array/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode/2044-Count-Number-of-Maximum-Bitwise-OR-Subsets" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -965,90 +1065,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/01/23/leetcode/2094-Finding-3-Digit-Even-Numbers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/2104-Sum-of-Subarray-Ranges" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/2104-Sum-of-Subarray-Ranges/">2104. Sum of Subarray Ranges</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/2104-Sum-of-Subarray-Ranges/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="2104-sum-of-subarray-ranges"><a class="markdownIt-Anchor" href="#2104-sum-of-subarray-ranges"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-subarray-ranges/">2104. Sum of Subarray Ranges</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>nums</code>. The <strong>range</strong> of a subarray of <code>nums</code> is the difference between the largest and smallest element in the subarray.</p>
-<p>Return <em>the <strong>sum of all</strong> subarray ranges of</em> <code>nums</code><em>.</em></p>
-<p>A subarray is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/2104-Sum-of-Subarray-Ranges/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/2104-Sum-of-Subarray-Ranges/">展开全文 >></a>
         </p>
       
 

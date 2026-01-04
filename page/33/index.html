@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/images/avator.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/leetcode/">LeetCode</a></li>
+				<li><a href="/tags/LeetCode/">LeetCode</a></li>
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
@@ -97,7 +97,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/images/avator.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -127,7 +127,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/leetcode/">LeetCode</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 		        
@@ -145,6 +145,108 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leetcode/1034-Coloring-A-Border" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/1034-Coloring-A-Border/">1034. Coloring A Border</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/1034-Coloring-A-Border/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1034-coloring-a-border"><a class="markdownIt-Anchor" href="#1034-coloring-a-border"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coloring-a-border/">1034. Coloring A Border</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>You are given an <code>m x n</code> integer matrix <code>grid</code>, and three integers <code>row</code>, <code>col</code>, and <code>color</code>. Each value in the grid represents the color of the grid square at that location.</p>
+<p>Two squares belong to the same <strong>connected component</strong> if they have the same color and are next to each other in any of the 4 directions.</p>
+<p>The <strong>border of a connected component</strong> is all the squares in the connected component that are either <strong>4-directionally</strong> adjacent to a square not in the component, or on the boundary of the grid (the first or last row or column).</p>
+<p>You should color the <strong>border</strong> of the <strong>connected component</strong> that contains the square <code>grid[row][col]</code> with <code>color</code>.</p>
+<p>Return <em>the final grid</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid = [[1,1],[1,2]], row = 0, col = 0, color = 3</span><br><span class="line">Output: [[3,3],[3,2]]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid = [[1,2,2],[2,3,2]], row = 0, col = 1, color = 3</span><br><span class="line">Output: [[1,3,3],[2,3,3]]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid = [[1,1,1],[1,1,1],[1,1,1]], row = 1, col = 1, color = 2</span><br><span class="line">Output: [[2,2,2],[2,1,2],[2,2,2]]</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>m == grid.length</code></li>
+<li><code>n == grid[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 50</code></li>
+<li><code>1 &lt;= grid[i][j], color &lt;= 1000</code></li>
+<li><code>0 &lt;= row &lt; m</code></li>
+<li><code>0 &lt;= col &lt; n</code></li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> Golang</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dirs = []<span class="keyword">struct</span>&#123; x, y <span class="type">int</span> &#125;&#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">colorBorder</span><span class="params">(grid [][]<span class="type">int</span>, row, col, color <span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">    m, n := <span class="built_in">len</span>(grid), <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">type</span> point <span class="keyword">struct</span>&#123; x, y <span class="type">int</span> &#125;</span><br><span class="line">    borders := []point&#123;&#125;</span><br><span class="line">    originalColor := grid[row][col]</span><br><span class="line">    vis := <span class="built_in">make</span>([][]<span class="type">bool</span>, m)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> vis &#123;</span><br><span class="line">        vis[i] = <span class="built_in">make</span>([]<span class="type">bool</span>, n)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    q := []point&#123;&#123;row, col&#125;&#125;</span><br><span class="line">    vis[row][col] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span> &#123;</span><br><span class="line">        p := q[<span class="number">0</span>]</span><br><span class="line">        q = q[<span class="number">1</span>:]</span><br><span class="line">        x, y := p.x, p.y</span><br><span class="line">        isBorder := <span class="literal">false</span></span><br><span class="line">        <span class="keyword">for</span> _, dir := <span class="keyword">range</span> dirs &#123;</span><br><span class="line">            nx, ny := x+dir.x, y+dir.y</span><br><span class="line">            <span class="keyword">if</span> !(<span class="number">0</span> &lt;= nx &amp;&amp; nx &lt; m &amp;&amp; <span class="number">0</span> &lt;= ny &amp;&amp; ny &lt; n &amp;&amp; grid[nx][ny] == originalColor) &#123;</span><br><span class="line">                isBorder = <span class="literal">true</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> !vis[nx][ny] &#123;</span><br><span class="line">                vis[nx][ny] = <span class="literal">true</span></span><br><span class="line">                q = <span class="built_in">append</span>(q, point&#123;nx, ny&#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> isBorder &#123;</span><br><span class="line">            borders = <span class="built_in">append</span>(borders, point&#123;x, y&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _, p := <span class="keyword">range</span> borders &#123;</span><br><span class="line">        grid[p.x][p.y] = color</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> grid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/1034-Coloring-A-Border/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode/1005-Maximize-Sum-Of-Array-After-K-Negations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1004,101 +1106,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/01/23/leetcode/1137-N-th-Tribonacci-Number/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/1305-All-Elements-in-Two-Binary-Search-Trees" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1305-All-Elements-in-Two-Binary-Search-Trees/">1305. All Elements in Two Binary Search Trees</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/1305-All-Elements-in-Two-Binary-Search-Trees/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1305-all-elements-in-two-binary-search-trees"><a class="markdownIt-Anchor" href="#1305-all-elements-in-two-binary-search-trees"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-elements-in-two-binary-search-trees/">1305. All Elements in Two Binary Search Trees</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given two binary search trees <code>root1</code> and <code>root2</code>, return <em>a list containing all the integers from both trees sorted in <strong>ascending</strong> order</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/12/18/q2-e1.png" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root1 = [2,1,4], root2 = [1,0,3]</span><br><span class="line">Output: [0,1,1,2,3,4]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/12/18/q2-e5-.png" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root1 = [1,null,8], root2 = [8,1]</span><br><span class="line">Output: [1,1,8,8]</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in each tree is in the range <code>[0, 5000]</code>.</li>
-<li><code>-105 &lt;= Node.val &lt;= 105</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inorder</span><span class="params">(root *TreeNode)</span></span> (res []<span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(*TreeNode)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(node *TreeNode)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> node == <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        dfs(node.Left)</span><br><span class="line">        res = <span class="built_in">append</span>(res, node.Val)</span><br><span class="line">        dfs(node.Right)</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(root)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getAllElements</span><span class="params">(root1, root2 *TreeNode)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    nums1 := inorder(root1)</span><br><span class="line">    nums2 := inorder(root2)</span><br><span class="line"></span><br><span class="line">    p1, n1 := <span class="number">0</span>, <span class="built_in">len</span>(nums1)</span><br><span class="line">    p2, n2 := <span class="number">0</span>, <span class="built_in">len</span>(nums2)</span><br><span class="line">    merged := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">0</span>, n1+n2)</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> p1 == n1 &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">append</span>(merged, nums2[p2:]...)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> p2 == n2 &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">append</span>(merged, nums1[p1:]...)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> nums1[p1] &lt; nums2[p2] &#123;</span><br><span class="line">            merged = <span class="built_in">append</span>(merged, nums1[p1])</span><br><span class="line">            p1++</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            merged = <span class="built_in">append</span>(merged, nums2[p2])</span><br><span class="line">            p2++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1305-All-Elements-in-Two-Binary-Search-Trees/">展开全文 >></a>
         </p>
       
 

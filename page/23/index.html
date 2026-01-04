@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/images/avator.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/leetcode/">LeetCode</a></li>
+				<li><a href="/tags/LeetCode/">LeetCode</a></li>
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
@@ -97,7 +97,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/images/avator.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -127,7 +127,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/leetcode/">LeetCode</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 		        
@@ -145,6 +145,108 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leetcode/0506-Relative-Ranks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0506-Relative-Ranks/">0506. Relative Ranks</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0506-Relative-Ranks/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0506-relative-ranks"><a class="markdownIt-Anchor" href="#0506-relative-ranks"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/relative-ranks/">0506. Relative Ranks</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>You are given an integer array <code>score</code> of size <code>n</code>, where <code>score[i]</code> is the score of the <code>ith</code> athlete in a competition. All the scores are guaranteed to be <strong>unique</strong>.</p>
+<p>The athletes are <strong>placed</strong> based on their scores, where the <code>1st</code> place athlete has the highest score, the <code>2nd</code> place athlete has the <code>2nd</code> highest score, and so on. The placement of each athlete determines their rank:</p>
+<ul>
+<li>The <code>1st</code> place athlete’s rank is <code>&quot;Gold Medal&quot;</code>.</li>
+<li>The <code>2nd</code> place athlete’s rank is <code>&quot;Silver Medal&quot;</code>.</li>
+<li>The <code>3rd</code> place athlete’s rank is <code>&quot;Bronze Medal&quot;</code>.</li>
+<li>For the <code>4th</code> place to the <code>nth</code> place athlete, their rank is their placement number (i.e., the <code>xth</code> place athlete’s rank is <code>&quot;x&quot;</code>).</li>
+</ul>
+<p>Return an array <code>answer</code> of size <code>n</code> where <code>answer[i]</code> is the <strong>rank</strong> of the <code>ith</code> athlete.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: score = [5,4,3,2,1]</span><br><span class="line">Output: [&quot;Gold Medal&quot;,&quot;Silver Medal&quot;,&quot;Bronze Medal&quot;,&quot;4&quot;,&quot;5&quot;]</span><br><span class="line">Explanation: The placements are [1st, 2nd, 3rd, 4th, 5th].</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: score = [10,3,8,9,4]</span><br><span class="line">Output: [&quot;Gold Medal&quot;,&quot;5&quot;,&quot;Bronze Medal&quot;,&quot;Silver Medal&quot;,&quot;4&quot;]</span><br><span class="line">Explanation: The placements are [1st, 5th, 3rd, 2nd, 4th].</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == score.length</code></li>
+<li><code>1 &lt;= n &lt;= 104</code></li>
+<li><code>0 &lt;= score[i] &lt;= 106</code></li>
+<li>All the values in <code>score</code> are <strong>unique</strong>.</li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> Golang</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> desc = [<span class="number">3</span>]<span class="type">string</span>&#123;<span class="string">&quot;Gold Medal&quot;</span>, <span class="string">&quot;Silver Medal&quot;</span>, <span class="string">&quot;Bronze Medal&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findRelativeRanks</span><span class="params">(score []<span class="type">int</span>)</span></span> []<span class="type">string</span> &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(score)</span><br><span class="line">    <span class="keyword">type</span> pair <span class="keyword">struct</span>&#123; score, idx <span class="type">int</span> &#125;</span><br><span class="line">    arr := <span class="built_in">make</span>([]pair, n)</span><br><span class="line">    <span class="keyword">for</span> i, s := <span class="keyword">range</span> score &#123;</span><br><span class="line">        arr[i] = pair&#123;s, i&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort.Slice(arr, <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123; <span class="keyword">return</span> arr[i].score &gt; arr[j].score &#125;)</span><br><span class="line"></span><br><span class="line">    ans := <span class="built_in">make</span>([]<span class="type">string</span>, n)</span><br><span class="line">    <span class="keyword">for</span> i, p := <span class="keyword">range</span> arr &#123;</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">3</span> &#123;</span><br><span class="line">            ans[p.idx] = desc[i]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ans[p.idx] = strconv.Itoa(i + <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0506-Relative-Ranks/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leetcode/0509-Fibonacci-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1017,102 +1119,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2025/01/23/leetcode/0563-Binary-Tree-Tilt/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0564-Find-the-Closest-Palindrome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0564-Find-the-Closest-Palindrome/">0564. Find the Closest Palindrome</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0564-Find-the-Closest-Palindrome/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0564-find-the-closest-palindrome"><a class="markdownIt-Anchor" href="#0564-find-the-closest-palindrome"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-closest-palindrome/">0564. Find the Closest Palindrome</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>n</code> representing an integer, return <em>the closest integer (not including itself), which is a palindrome</em>. If there is a tie, return <em><strong>the smaller one</strong></em>.</p>
-<p>The closest is defined as the absolute difference minimized between two integers.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = &quot;123&quot;</span><br><span class="line">Output: &quot;121&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = &quot;1&quot;</span><br><span class="line">Output: &quot;0&quot;</span><br><span class="line">Explanation: 0 and 2 are the closest palindromes but we return the smallest which is 0.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n.length &lt;= 18</code></li>
-<li><code>n</code> consists of only digits.</li>
-<li><code>n</code> does not have leading zeros.</li>
-<li><code>n</code> is representing an integer in the range <code>[1, 1018 - 1]</code>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> Golang</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">nearestPalindromic</span><span class="params">(n <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    m := <span class="built_in">len</span>(n)</span><br><span class="line">    candidates := []<span class="type">int</span>&#123;<span class="type">int</span>(math.Pow10(m<span class="number">-1</span>)) - <span class="number">1</span>, <span class="type">int</span>(math.Pow10(m)) + <span class="number">1</span>&#125;</span><br><span class="line">    selfPrefix, _ := strconv.Atoi(n[:(m+<span class="number">1</span>)/<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">for</span> _, x := <span class="keyword">range</span> []<span class="type">int</span>&#123;selfPrefix - <span class="number">1</span>, selfPrefix, selfPrefix + <span class="number">1</span>&#125; &#123;</span><br><span class="line">        y := x</span><br><span class="line">        <span class="keyword">if</span> m&amp;<span class="number">1</span> == <span class="number">1</span> &#123;</span><br><span class="line">            y /= <span class="number">10</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> ; y &gt; <span class="number">0</span>; y /= <span class="number">10</span> &#123;</span><br><span class="line">            x = x*<span class="number">10</span> + y%<span class="number">10</span></span><br><span class="line">        &#125;</span><br><span class="line">        candidates = <span class="built_in">append</span>(candidates, x)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ans := <span class="number">-1</span></span><br><span class="line">    selfNumber, _ := strconv.Atoi(n)</span><br><span class="line">    <span class="keyword">for</span> _, candidate := <span class="keyword">range</span> candidates &#123;</span><br><span class="line">        <span class="keyword">if</span> candidate != selfNumber &#123;</span><br><span class="line">            <span class="keyword">if</span> ans == <span class="number">-1</span> ||</span><br><span class="line">                abs(candidate-selfNumber) &lt; abs(ans-selfNumber) ||</span><br><span class="line">                abs(candidate-selfNumber) == abs(ans-selfNumber) &amp;&amp; candidate &lt; ans &#123;</span><br><span class="line">                ans = candidate</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strconv.Itoa(ans)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">abs</span><span class="params">(x <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0564-Find-the-Closest-Palindrome/">展开全文 >></a>
         </p>
       
 
