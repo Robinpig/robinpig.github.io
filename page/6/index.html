@@ -146,6 +146,557 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ctci/删除中间节点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/17/ctci/%E5%88%A0%E9%99%A4%E4%B8%AD%E9%97%B4%E8%8A%82%E7%82%B9/">删除中间节点</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/17/ctci/%E5%88%A0%E9%99%A4%E4%B8%AD%E9%97%B4%E8%8A%82%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2025-12-17T06:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="删除中间节点"><a class="markdownIt-Anchor" href="#删除中间节点"></a> 删除中间节点</h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/17/ctci/%E5%88%A0%E9%99%A4%E4%B8%AD%E9%97%B4%E8%8A%82%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctci/数字流的秩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/17/ctci/%E6%95%B0%E5%AD%97%E6%B5%81%E7%9A%84%E7%A7%A9/">数字流的秩</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/17/ctci/%E6%95%B0%E5%AD%97%E6%B5%81%E7%9A%84%E7%A7%A9/" class="archive-article-date">
+  	<time datetime="2025-12-17T06:37:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数字流的秩"><a class="markdownIt-Anchor" href="#数字流的秩"></a> 数字流的秩</h2>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>假设你正在读取一串整数。每隔一段时间，你希望能找出数字 x 的秩（小于或等于 x的值的个数）<br />
+请实现数据结构和算法来支持这些操作，也就是说，实现 track(int x)方法，每读入一个数字都会调用该方法；<br />
+实现 getRankOfNumber(int x)方法，返回小于或等于 x （x除外）的值的个数。</p>
+<p>示例：</p>
+<p>数据流为（按出现的先后顺序） ：5, 1, 4, 4, 5, 9, 7, 13, 3</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getRankOfNumber(1) = 0</span><br><span class="line">getRankOfNumber(3) = 1</span><br><span class="line">getRankOfNumber(4) = 3</span><br></pre></td></tr></table></figure>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>需要组织一个能够实现排序逻辑的数据结构 不需要实现去重<br />
+排序数组对于插入不友好 可以使用搜索二叉树来实现 getRankOfNumber 时进行搜索 计数器统计小于或等于 x的值的个数</p>
+<p>track方法和 getRankOfNumber方法在平衡树中的运行时间为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(logn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，在不平衡树中为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/17/ctci/%E6%95%B0%E5%AD%97%E6%B5%81%E7%9A%84%E7%A7%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctci/移除重复节点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/17/ctci/%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9/">移除重复节点</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/17/ctci/%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2025-12-17T06:36:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="移除重复节点"><a class="markdownIt-Anchor" href="#移除重复节点"></a> 移除重复节点</h1>
+<h2 id="descritption"><a class="markdownIt-Anchor" href="#descritption"></a> Descritption</h2>
+<p>编写代码，移除未排序链表中的重复节点。</p>
+<p>进阶：如果不得使用临时缓冲区，该怎么解决？</p>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>首先需要知道哪些节点是重复的</p>
+<p>遍历链表 使用一个map记录节点数值 如果重复出现则 使用后继节点replace</p>
+<p>时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 空间复杂度为  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">removeDuplicateNode</span><span class="params">(ListNode list)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不使用额外空间 则需要通过两个指针 一个 cur 指向当前遍历数值, 另一个用于遍历后续节点 判断是否有重复节点</p>
+<p>时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 空间复杂度为  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">removeDuplicateNode</span><span class="params">(ListNode list)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/17/ctci/%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctci/最小高度树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/17/ctci/%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/">最小高度树</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/17/ctci/%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2025-12-17T03:32:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="最小高度树"><a class="markdownIt-Anchor" href="#最小高度树"></a> 最小高度树</h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>给定一个有序整数数组，元素各不相同且按升序排列，编写一个算法，创建一棵高度最小的二叉搜索树</p>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>高度最小 意味着 rootNode 需要为数组的中间值</p>
+<p>利用对数组的 binary search 获取到中间节点 左区间为左子树 右区间为右子树<br />
+依次递归 返回每一层的 rootNode 递归终止条件是区间内 left &gt;= right</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span>[] nums)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/17/ctci/%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctci/节点间通路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/17/ctci/%E8%8A%82%E7%82%B9%E9%97%B4%E9%80%9A%E8%B7%AF/">节点间通路</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/17/ctci/%E8%8A%82%E7%82%B9%E9%97%B4%E9%80%9A%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2025-12-17T03:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="节点间通路"><a class="markdownIt-Anchor" href="#节点间通路"></a> 节点间通路</h1>
+<h2 id="descritption"><a class="markdownIt-Anchor" href="#descritption"></a> Descritption</h2>
+<p>给定有向图，设计一个算法，找出两个节点之间是否存在一条路径</p>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>本题主要是考图的搜索 DFS 和 BFS 实现都可以</p>
+<h3 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> BFS</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bfs</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        LinkedList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="dfs"><a class="markdownIt-Anchor" href="#dfs"></a> DFS</h3>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/17/ctci/%E8%8A%82%E7%82%B9%E9%97%B4%E9%80%9A%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ctci/整数转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/12/16/ctci/%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/">整数转换</a>
+    </h1>
+  
+
+        
+        <a href="/2025/12/16/ctci/%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
+  	<time datetime="2025-12-16T10:15:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="整数转换"><a class="markdownIt-Anchor" href="#整数转换"></a> 整数转换</h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>编写一个函数，确定需要改变几个位才能将整数 A转成整数 B</p>
+<p>示例：<br />
+输入：29 (或者：11101), 15 (或者：01111)<br />
+输出：2</p>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>两个数进行异或操作 每个二进制位上为 1 即代表该位不同</p>
+<p>c = a ^ b</p>
+<p>当 c 不为 0 时 可以有两种方式判断是否存在不同的位</p>
+<ul>
+<li>c &gt;&gt;&gt; 1, c &amp; 1 == 1 时 存在</li>
+<li>c &amp; (c - 1) 能消除最低的有效位</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/12/16/ctci/%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode/0707-Design-Linked-List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,25 +722,9 @@
 <p>你可以选择使用单链表或者双链表，设计并实现自己的链表。</p>
 <p>单链表中的节点应该具备两个属性：<code>val</code> 和 <code>next</code> 。<code>val</code> 是当前节点的值，<code>next</code> 是指向下一个节点的指针/引用。</p>
 <p>如果是双向链表，则还需要属性 <code>prev</code> 以指示链表中的上一个节点。假设链表中的所有节点下标从 <strong>0</strong> 开始。</p>
-<p>实现 <code>MyLinkedList</code> 类：</p>
-<ul>
-<li><code>MyLinkedList()</code> 初始化 <code>MyLinkedList</code> 对象。</li>
-<li><code>int get(int index)</code> 获取链表中下标为 <code>index</code> 的节点的值。如果下标无效，则返回 <code>-1</code> 。</li>
-<li><code>void addAtHead(int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中第一个元素之前。在插入完成后，新节点会成为链表的第一个节点。</li>
-<li><code>void addAtTail(int val)</code> 将一个值为 <code>val</code> 的节点追加到链表中作为链表的最后一个元素。</li>
-<li><code>void addAtIndex(int index, int val)</code> 将一个值为 <code>val</code> 的节点插入到链表中下标为 <code>index</code> 的节点之前。如果 <code>index</code> 等于链表的长度，那么该节点会被追加到链表的末尾。如果 <code>index</code> 比长度更大，该节点将 <strong>不会插入</strong> 到链表中。</li>
-<li><code>void deleteAtIndex(int index)</code> 如果下标有效，则删除链表中下标为 <code>index</code> 的节点。</li>
-</ul>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">[&quot;MyLinkedList&quot;, &quot;addAtHead&quot;, &quot;addAtTail&quot;, &quot;addAtIndex&quot;, &quot;get&quot;, &quot;deleteAtIndex&quot;, &quot;get&quot;]</span><br><span class="line">[[], [1], [3], [1, 2], [1], [1], [1]]</span><br><span class="line">输出</span><br><span class="line">[null, null, null, null, 2, null, 3]</span><br><span class="line"></span><br><span class="line">解释</span><br><span class="line">MyLinkedList myLinkedList = new MyLinkedList();</span><br><span class="line">myLinkedList.addAtHead(1);</span><br><span class="line">myLinkedList.addAtTail(3);</span><br><span class="line">myLinkedList.addAtIndex(1, 2);    // 链表变为 1-&gt;2-&gt;3</span><br><span class="line">myLinkedList.get(1);              // 返回 2</span><br><span class="line">myLinkedList.deleteAtIndex(1);    // 现在，链表变为 1-&gt;3</span><br><span class="line">myLinkedList.get(1);              // 返回 3</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>0 &lt;= index, val &lt;= 1000</code></li>
-<li>请不要使用内置的 LinkedList 库。</li>
-<li>调用 <code>get</code>、<code>addAtHead</code>、<code>addAtTail</code>、<code>addAtIndex</code> 和 <code>deleteAtIndex</code> 的次数不超过 <code>2000</code> 。</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-
+        
+          <a class="article-more-a" href="/2025/12/13/leetcode/0707-Design-Linked-List/#more">more >></a>
+        
       
 
       
@@ -270,26 +805,9 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> <strong>。</strong></p>
 <p>找出该数组中满足其总和大于等于 <code>target</code> 的长度最小的 <strong>子数组</strong> <code>[numsl, numsl+1, ..., numsr-1, numsr]</code> ，并返回其长度**。**如果不存在符合条件的子数组，返回 <code>0</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：target = 7, nums = [2,3,1,2,4,3]</span><br><span class="line">输出：2</span><br><span class="line">解释：子数组 [4,3] 是该条件下的长度最小的子数组。</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target = 4, nums = [1,4,4]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target = 11, nums = [1,1,1,1,1,1,1,1]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= target &lt;= 109</code></li>
-<li><code>1 &lt;= nums.length &lt;= 105</code></li>
-<li><code>1 &lt;= nums[i] &lt;= 104</code></li>
-</ul>
-<p><strong>进阶：</strong></p>
-<ul>
-<li>如果你已经实现 <code>O(n)</code> 时间复杂度的解法, 请尝试设计一个 <code>O(n log(n))</code> 时间复杂度的解法。</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>寻找一个最短的连续子数组 可以使用双指针</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, <span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">            sum += nums[j];</span><br><span class="line">            <span class="comment">// 缩小窗口</span></span><br><span class="line">            <span class="keyword">while</span> (target &lt;= sum) &#123;</span><br><span class="line">                <span class="comment">// 获取当前子数组长度 并取历史最小值</span></span><br><span class="line">                <span class="type">int</span> <span class="variable">subLength</span> <span class="operator">=</span> j - i + <span class="number">1</span>;</span><br><span class="line">                result = Math.min(result, subLength);</span><br><span class="line">                sum -= nums[i++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2025/12/11/leetcode/0209-Minimum-Size-Subarray-Sum/#more">more >></a>
+        
       
 
       
@@ -524,572 +1042,9 @@
 
 
   
-    <article id="post-leetcode/0077-Combinations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/02/leetcode/0077-Combinations/">0077. Combinations</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/02/leetcode/0077-Combinations/" class="archive-article-date">
-  	<time datetime="2025-12-02T05:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0077-combinations"><a class="markdownIt-Anchor" href="#0077-combinations"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/combinations/">0077. Combinations</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>
-<p>你可以按 <strong>任何顺序</strong> 返回答案。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 4, k = 2</span><br><span class="line">输出：</span><br><span class="line">[</span><br><span class="line">  [2,4],</span><br><span class="line">  [3,4],</span><br><span class="line">  [2,3],</span><br><span class="line">  [1,2],</span><br><span class="line">  [1,3],</span><br><span class="line">  [1,4],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 1, k = 1</span><br><span class="line">输出：[[1]]</span><br></pre></td></tr></table></figure>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-<li><code>1 &lt;= k &lt;= n</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>题意需要穷举在 1~N 之间的 k个数字的组合关系 这就需要用到 回溯算法<br />
-已经限制 n &lt;= 20 无需考虑 timeout 的情况</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;<span class="type">int</span>[]&gt; backtracking(<span class="type">int</span> n, <span class="type">int</span> k) &#123;</span><br><span class="line">    List&lt;<span class="type">int</span>[]&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">getCombine</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[k];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &lt;= n; j++)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/02/leetcode/0077-Combinations/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0131-Palindrome-Partitioning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/02/leetcode/0131-Palindrome-Partitioning/">0131. Palindrome Partitioning</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/02/leetcode/0131-Palindrome-Partitioning/" class="archive-article-date">
-  	<time datetime="2025-12-02T02:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0131-palindrome-partitioning"><a class="markdownIt-Anchor" href="#0131-palindrome-partitioning"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning/">0131. Palindrome Partitioning</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>s</code>, partition <code>s</code> such that every substring of the partition is a <strong>palindrome</strong>.<br />
-Return all possible palindrome partitioning of <code>s</code>.</p>
-<p>A <strong>palindrome</strong> string is a string that reads the same backward as forward.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;aab&quot;</span><br><span class="line">Output: [[&quot;a&quot;,&quot;a&quot;,&quot;b&quot;],[&quot;aa&quot;,&quot;b&quot;]]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;a&quot;</span><br><span class="line">Output: [[&quot;a&quot;]]</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 16</code></li>
-<li><code>s</code> contains only lowercase English letters.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>对于给定字符串 s, 其下面的每一个字母都可以认为是回文字符串</p>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(s <span class="type">string</span>)</span></span> (ans [][]<span class="type">string</span>) &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(s)</span><br><span class="line">    f := <span class="built_in">make</span>([][]<span class="type">int8</span>, n)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> f &#123;</span><br><span class="line">        f[i] = <span class="built_in">make</span>([]<span class="type">int8</span>, n)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 0 表示尚未搜索，1 表示是回文串，-1 表示不是回文串</span></span><br><span class="line">    <span class="keyword">var</span> isPalindrome <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int8</span></span><br><span class="line">    isPalindrome = <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int8</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> i &gt;= j &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> f[i][j] != <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> f[i][j]</span><br><span class="line">        &#125;</span><br><span class="line">        f[i][j] = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">if</span> s[i] == s[j] &#123;</span><br><span class="line">            f[i][j] = isPalindrome(i+<span class="number">1</span>, j<span class="number">-1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[i][j]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    splits := []<span class="type">string</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(i <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> i == n &#123;</span><br><span class="line">            ans = <span class="built_in">append</span>(ans, <span class="built_in">append</span>([]<span class="type">string</span>(<span class="literal">nil</span>), splits...))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> j := i; j &lt; n; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> isPalindrome(i, j) &gt; <span class="number">0</span> &#123;</span><br><span class="line">                splits = <span class="built_in">append</span>(splits, s[i:j+<span class="number">1</span>])</span><br><span class="line">                dfs(j + <span class="number">1</span>)</span><br><span class="line">                splits = splits[:<span class="built_in">len</span>(splits)<span class="number">-1</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/02/leetcode/0131-Palindrome-Partitioning/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0039-Combination-Sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/28/leetcode/0039-Combination-Sum/">0039. Combination Sum</a>
-    </h1>
-  
-
-        
-        <a href="/2025/11/28/leetcode/0039-Combination-Sum/" class="archive-article-date">
-  	<time datetime="2025-11-28T14:31:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0039-combination-sum"><a class="markdownIt-Anchor" href="#0039-combination-sum"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum/">0039. Combination Sum</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.</p>
-<p>The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</p>
-<p>It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.</p>
-        
-          <a class="article-more-a" href="/2025/11/28/leetcode/0039-Combination-Sum/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/28/leetcode/0039-Combination-Sum/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0349-Intersection-of-Two-Arrays" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/13/leetcode/0349-Intersection-of-Two-Arrays/">0349. Intersection of Two Arrays</a>
-    </h1>
-  
-
-        
-        <a href="/2025/11/13/leetcode/0349-Intersection-of-Two-Arrays/" class="archive-article-date">
-  	<time datetime="2025-11-12T21:38:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0349-intersection-of-two-arrays"><a class="markdownIt-Anchor" href="#0349-intersection-of-two-arrays"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-arrays/description/">0349. Intersection of Two Arrays</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their</em></p>
-<p><em>intersection</em></p>
-<p>. Each element in the result must be <strong>unique</strong> and you may return the result in <strong>any order</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 = [1,2,2,1], nums2 = [2,2]</span><br><span class="line">Output: [2]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]</span><br><span class="line">Output: [9,4]</span><br><span class="line">Explanation: [4,9] is also accepted.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums1.length, nums2.length &lt;= 1000</code></li>
-<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>首先想到的是将其中一个数组转成map， 遍历另一个数组取交集</p>
-<p>当两数组元素都是有序时 可以使用双指针的解法</p>
-<!-- tabs:start -->
-<h3 id="python"><a class="markdownIt-Anchor" href="#python"></a> <strong>Python</strong></h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> <strong>Java</strong></h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">intersect</span><span class="params">(nums1 []<span class="type">int</span>, nums2 []<span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">    i, j, k := <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    sort.Ints(nums1)</span><br><span class="line">    sort.Ints(nums2)</span><br><span class="line">    <span class="keyword">for</span> i &lt; <span class="built_in">len</span>(nums1) &amp;&amp; j &lt; <span class="built_in">len</span>(nums2) &#123;</span><br><span class="line">        <span class="keyword">if</span> nums1[i] &gt; nums2[j] &#123;</span><br><span class="line">            j++</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> nums1[i] &lt; nums2[j] &#123;</span><br><span class="line">            i++</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            nums1[k] = nums1[i]</span><br><span class="line">            i++</span><br><span class="line">            j++</span><br><span class="line">            k++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums1[:k]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/13/leetcode/0349-Intersection-of-Two-Arrays/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0003-Longest-Substring-Without-Repeating-Characters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/13/leetcode/0003-Longest-Substring-Without-Repeating-Characters/">0003. Longest Substring Without Repeating Characters</a>
-    </h1>
-  
-
-        
-        <a href="/2025/11/13/leetcode/0003-Longest-Substring-Without-Repeating-Characters/" class="archive-article-date">
-  	<time datetime="2025-11-12T21:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0003-longest-substring-without-repeating-characters"><a class="markdownIt-Anchor" href="#0003-longest-substring-without-repeating-characters"></a> 0003. Longest Substring Without Repeating Characters</h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>s</code>, find the length of the <strong>longest</strong> <strong>substring</strong> without duplicate characters.</p>
-        
-          <a class="article-more-a" href="/2025/11/13/leetcode/0003-Longest-Substring-Without-Repeating-Characters/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/13/leetcode/0003-Longest-Substring-Without-Repeating-Characters/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0125-Valid-Palindrome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/13/leetcode/0125-Valid-Palindrome/">0125. Valid Palindrome</a>
-    </h1>
-  
-
-        
-        <a href="/2025/11/13/leetcode/0125-Valid-Palindrome/" class="archive-article-date">
-  	<time datetime="2025-11-12T21:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0125-valid-palindrome"><a class="markdownIt-Anchor" href="#0125-valid-palindrome"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/valid-palindrome/">0125. Valid Palindrome</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A phrase is a <strong>palindrome</strong> if, after converting all uppercase letters into lowercase letters and  removing all non-alphanumeric characters, it reads the same forward and  backward. Alphanumeric characters include letters and numbers.</p>
-<p>Given a string <code>s</code>, return <code>true</code> <em>if it is a <strong>palindrome</strong>, or</em> <code>false</code> <em>otherwise</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;A man, a plan, a canal: Panama&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: &quot;amanaplanacanalpanama&quot; is a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;race a car&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: &quot;raceacar&quot; is not a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot; &quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: s is an empty string &quot;&quot; after removing non-alphanumeric characters.</span><br><span class="line">Since an empty string reads the same forward and backward, it is a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 2 * 105</code></li>
-<li><code>s</code> consists only of printable ASCII characters.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>简单思路</p>
-<ol>
-<li>将字符串中非字母数字的字符替换</li>
-<li>字符串字母全转upper或者lower</li>
-<li>获取倒转的字符串</li>
-<li>匹配</li>
-</ol>
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> Golang</h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h5 id="java"><a class="markdownIt-Anchor" href="#java"></a> <strong>Java</strong></h5>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/13/leetcode/0125-Valid-Palindrome/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 

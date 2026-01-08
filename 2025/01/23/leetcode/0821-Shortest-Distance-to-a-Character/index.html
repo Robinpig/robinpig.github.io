@@ -16,7 +16,7 @@
 <meta property="og:description" content="0821. Shortest Distance to a Character  Description Given a string s and a character c that occurs in s, return an array of integers answer where answer.length &#x3D;&#x3D; s.length and answer[i] is the distan">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.969Z">
+<meta property="article:modified_time" content="2026-01-06T23:29:56.184Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -174,6 +174,7 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>Given a string <code>s</code> and a character <code>c</code> that occurs in <code>s</code>, return <em>an array of integers</em> <code>answer</code> <em>where</em> <code>answer.length == s.length</code> <em>and</em> <code>answer[i]</code> <em>is the <strong>distance</strong> from index</em> <code>i</code> <em>to the <strong>closest</strong> occurrence of character</em> <code>c</code> <em>in</em> <code>s</code>.</p>
 <p>The <strong>distance</strong> between two indices <code>i</code> and <code>j</code> is <code>abs(i - j)</code>, where <code>abs</code> is the absolute value function.</p>
+<span id="more"></span> 
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;loveleetcode&quot;, c = &quot;e&quot;</span><br><span class="line">Output: [3,2,1,0,1,0,0,1,2,2,1,0]</span><br><span class="line">Explanation: The character &#x27;e&#x27; appears at indices 3, 5, 6, and 11 (0-indexed).</span><br><span class="line">The closest occurrence of &#x27;e&#x27; for index 0 is at index 3, so the distance is abs(0 - 3) = 3.</span><br><span class="line">The closest occurrence of &#x27;e&#x27; for index 1 is at index 3, so the distance is abs(1 - 3) = 2.</span><br><span class="line">For index 4, there is a tie between the &#x27;e&#x27; at index 3 and the &#x27;e&#x27; at index 5, but the distance is still the same: abs(4 - 3) == abs(4 - 5) = 1.</span><br><span class="line">The closest occurrence of &#x27;e&#x27; for index 8 is at index 6, so the distance is abs(8 - 6) = 2.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>

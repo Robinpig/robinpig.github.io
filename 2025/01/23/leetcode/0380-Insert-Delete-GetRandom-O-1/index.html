@@ -16,7 +16,7 @@
 <meta property="og:description" content="0380. Insert Delete GetRandom O(1)  Description Implement the RandomizedSet class:  RandomizedSet() Initializes the RandomizedSet object. bool insert(int val) Inserts an item val into the set if not">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.968Z">
+<meta property="article:modified_time" content="2026-01-06T23:43:02.883Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -179,6 +179,7 @@
 <li><code>bool remove(int val)</code> Removes an item <code>val</code> from the set if present. Returns <code>true</code> if the item was present, <code>false</code> otherwise.</li>
 <li><code>int getRandom()</code> Returns a random element from the current set of elements (it’s guaranteed that at least one element exists when this method is called). Each element must have the <strong>same probability</strong> of being returned.</li>
 </ul>
+<span id="more"></span> 
 <p>You must implement the functions of the class such that each function works in <strong>average</strong> <code>O(1)</code> time complexity.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;RandomizedSet&quot;, &quot;insert&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;]</span><br><span class="line">[[], [1], [2], [2], [], [1], [2], []]</span><br><span class="line">Output</span><br><span class="line">[null, true, false, true, 2, true, false, 2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">RandomizedSet randomizedSet = new RandomizedSet();</span><br><span class="line">randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.</span><br><span class="line">randomizedSet.remove(2); // Returns false as 2 does not exist in the set.</span><br><span class="line">randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].</span><br><span class="line">randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.</span><br><span class="line">randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].</span><br><span class="line">randomizedSet.insert(2); // 2 was already in the set, so return false.</span><br><span class="line">randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.</span><br></pre></td></tr></table></figure>

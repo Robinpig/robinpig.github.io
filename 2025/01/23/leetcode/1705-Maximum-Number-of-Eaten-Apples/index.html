@@ -16,7 +16,7 @@
 <meta property="og:description" content="1705. Maximum Number of Eaten Apples  Description There is a special kind of apple tree that grows apples every day for n days. On the ith day, the tree grows apples[i] apples that will rot after day">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.904Z">
+<meta property="article:modified_time" content="2026-01-06T23:22:34.224Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -174,6 +174,7 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>There is a special kind of apple tree that grows apples every day for <code>n</code> days. On the <code>ith</code> day, the tree grows <code>apples[i]</code> apples that will rot after <code>days[i]</code> days, that is on day <code>i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code>apples[i] == 0</code> and <code>days[i] == 0</code>.</p>
 <p>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code>n</code> days.</p>
+<span id="more"></span> 
 <p>Given two integer arrays <code>days</code> and <code>apples</code> of length <code>n</code>, return <em>the maximum number of apples you can eat.</em></p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: apples = [1,2,3,5,2], days = [3,2,1,4,2]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: You can eat 7 apples:</span><br><span class="line">- On the first day, you eat an apple that grew on the first day.</span><br><span class="line">- On the second day, you eat an apple that grew on the second day.</span><br><span class="line">- On the third day, you eat an apple that grew on the second day. After this day, the apples that grew on the third day rot.</span><br><span class="line">- On the fourth to the seventh days, you eat apples that grew on the fourth day.</span><br></pre></td></tr></table></figure>

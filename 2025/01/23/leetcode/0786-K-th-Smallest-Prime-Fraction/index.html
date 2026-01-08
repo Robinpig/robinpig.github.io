@@ -16,7 +16,7 @@
 <meta property="og:description" content="0786. K-th Smallest Prime Fraction  Description You are given a sorted integer array arr containing 1 and prime numbers, where all the integers of arr are unique. You are also given an integer k. For">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.890Z">
+<meta property="article:modified_time" content="2026-01-06T23:29:56.092Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -175,6 +175,7 @@
 <p>You are given a sorted integer array <code>arr</code> containing <code>1</code> and <strong>prime</strong> numbers, where all the integers of <code>arr</code> are unique. You are also given an integer <code>k</code>.</p>
 <p>For every <code>i</code> and <code>j</code> where <code>0 &lt;= i &lt; j &lt; arr.length</code>, we consider the fraction <code>arr[i] / arr[j]</code>.</p>
 <p>Return <em>the</em> <code>kth</code> <em>smallest fraction considered</em>. Return your answer as an array of integers of size <code>2</code>, where <code>answer[0] == arr[i]</code> and <code>answer[1] == arr[j]</code>.</p>
+<span id="more"></span> 
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: arr = [1,2,3,5], k = 3</span><br><span class="line">Output: [2,5]</span><br><span class="line">Explanation: The fractions to be considered in sorted order are:</span><br><span class="line">1/5, 1/3, 2/5, 1/2, 3/5, and 2/3.</span><br><span class="line">The third fraction is 2/5.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>

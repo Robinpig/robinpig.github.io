@@ -16,7 +16,7 @@
 <meta property="og:description" content="0819. Most Common Word  Description Given a string paragraph and a string array of the banned words banned, return the most frequent word that is not banned. It is guaranteed there is at least one wo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.941Z">
+<meta property="article:modified_time" content="2026-01-06T23:29:56.071Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -174,6 +174,7 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>Given a string <code>paragraph</code> and a string array of the banned words <code>banned</code>, return <em>the most frequent word that is not banned</em>. It is <strong>guaranteed</strong> there is <strong>at least one word</strong> that is not banned, and that the answer is <strong>unique</strong>.</p>
 <p>The words in <code>paragraph</code> are <strong>case-insensitive</strong> and the answer should be returned in <strong>lowercase</strong>.</p>
+<span id="more"></span> 
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: paragraph = &quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;, banned = [&quot;hit&quot;]</span><br><span class="line">Output: &quot;ball&quot;</span><br><span class="line">Explanation: </span><br><span class="line">&quot;hit&quot; occurs 3 times, but it is a banned word.</span><br><span class="line">&quot;ball&quot; occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph. </span><br><span class="line">Note that words in the paragraph are not case sensitive,</span><br><span class="line">that punctuation is ignored (even if adjacent to words, such as &quot;ball,&quot;), </span><br><span class="line">and that &quot;hit&quot; isn&#x27;t the answer even though it occurs more because it is banned.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>

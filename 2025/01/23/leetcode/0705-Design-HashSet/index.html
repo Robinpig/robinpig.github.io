@@ -16,7 +16,7 @@
 <meta property="og:description" content="705. Design HashSet  Description Design a HashSet without using any built-in hash table libraries. Implement MyHashSet class:  void add(key) Inserts the value key into the HashSet. bool contains(key)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.950Z">
+<meta property="article:modified_time" content="2026-01-06T23:29:56.094Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -179,6 +179,7 @@
 <li><code>bool contains(key)</code> Returns whether the value <code>key</code> exists in the HashSet or not.</li>
 <li><code>void remove(key)</code> Removes the value <code>key</code> in the HashSet. If <code>key</code> does not exist in the HashSet, do nothing.</li>
 </ul>
+<span id="more"></span> 
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;MyHashSet&quot;, &quot;add&quot;, &quot;add&quot;, &quot;contains&quot;, &quot;contains&quot;, &quot;add&quot;, &quot;contains&quot;, &quot;remove&quot;, &quot;contains&quot;]</span><br><span class="line">[[], [1], [2], [1], [3], [2], [2], [2], [2]]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, true, false, null, true, null, false]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MyHashSet myHashSet = new MyHashSet();</span><br><span class="line">myHashSet.add(1);      // set = [1]</span><br><span class="line">myHashSet.add(2);      // set = [1, 2]</span><br><span class="line">myHashSet.contains(1); // return True</span><br><span class="line">myHashSet.contains(3); // return False, (not found)</span><br><span class="line">myHashSet.add(2);      // set = [1, 2]</span><br><span class="line">myHashSet.contains(2); // return True</span><br><span class="line">myHashSet.remove(2);   // set = [1]</span><br><span class="line">myHashSet.contains(2); // return False, (already removed)</span><br></pre></td></tr></table></figure>
 <p><strong>Constraints:</strong></p>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="2034. Stock Price Fluctuation   Description You are given a stream of records about a particular stock. Each record contains a timestamp and the corresponding price of the stock at that timestamp. Un">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2026-01-04T14:01:01.314Z">
+<meta property="article:modified_time" content="2026-01-06T23:17:31.540Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -174,6 +174,7 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>You are given a stream of <strong>records</strong> about a particular stock. Each record contains a <strong>timestamp</strong> and the corresponding <strong>price</strong> of the stock at that timestamp.</p>
 <p>Unfortunately due to the volatile nature of the stock market, the records do not come in order. Even worse, some records may be incorrect. Another record with the same timestamp may appear later in the stream <strong>correcting</strong> the price of the previous wrong record.</p>
+<span id="more"></span> 
 <p>Design an algorithm that:</p>
 <ul>
 <li><strong>Updates</strong> the price of the stock at a particular timestamp, <strong>correcting</strong> the price from any previous records at the timestamp.</li>
@@ -189,7 +190,6 @@
 <li><code>int maximum()</code> Returns the <strong>maximum price</strong> of the stock.</li>
 <li><code>int minimum()</code> Returns the <strong>minimum price</strong> of the stock.</li>
 </ul>
-<span id="more"></span>   
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;StockPrice&quot;, &quot;update&quot;, &quot;update&quot;, &quot;current&quot;, &quot;maximum&quot;, &quot;update&quot;, &quot;maximum&quot;, &quot;update&quot;, &quot;minimum&quot;]</span><br><span class="line">[[], [1, 10], [2, 5], [], [], [1, 3], [], [4, 2], []]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 5, 10, null, 5, null, 2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">StockPrice stockPrice = new StockPrice();</span><br><span class="line">stockPrice.update(1, 10); // Timestamps are [1] with corresponding prices [10].</span><br><span class="line">stockPrice.update(2, 5);  // Timestamps are [1,2] with corresponding prices [10,5].</span><br><span class="line">stockPrice.current();     // return 5, the latest timestamp is 2 with the price being 5.</span><br><span class="line">stockPrice.maximum();     // return 10, the maximum price is 10 at timestamp 1.</span><br><span class="line">stockPrice.update(1, 3);  // The previous timestamp 1 had the wrong price, so it is updated to 3.</span><br><span class="line">                          // Timestamps are [1,2] with corresponding prices [3,5].</span><br><span class="line">stockPrice.maximum();     // return 5, the maximum price is 5 after the correction.</span><br><span class="line">stockPrice.update(4, 2);  // Timestamps are [1,2,4] with corresponding prices [3,5,2].</span><br><span class="line">stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.</span><br></pre></td></tr></table></figure>
 <p><strong>Constraints:</strong></p>

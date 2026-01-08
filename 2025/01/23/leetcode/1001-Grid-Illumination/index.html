@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/19/illu_1.jpg">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:56:33.986Z">
+<meta property="article:modified_time" content="2026-01-06T23:29:56.089Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -176,6 +176,7 @@
 <h2 id="descrition"><a class="markdownIt-Anchor" href="#descrition"></a> Descrition</h2>
 <p>There is a 2D <code>grid</code> of size <code>n x n</code> where each cell of this grid has a lamp that is initially <strong>turned off</strong>.</p>
 <p>You are given a 2D array of lamp positions <code>lamps</code>, where <code>lamps[i] = [rowi, coli]</code> indicates that the lamp at <code>grid[rowi][coli]</code> is <strong>turned on</strong>. Even if the same lamp is listed more than once, it is turned on.</p>
+<span id="more"></span> 
 <p>When a lamp is turned on, it <strong>illuminates its cell</strong> and <strong>all other cells</strong> in the same <strong>row, column, or diagonal</strong>.</p>
 <p>You are also given another 2D array <code>queries</code>, where <code>queries[j] = [rowj, colj]</code>. For the <code>jth</code> query, determine whether <code>grid[rowj][colj]</code> is illuminated or not. After answering the <code>jth</code> query, <strong>turn off</strong> the lamp at <code>grid[rowj][colj]</code> and its <strong>8 adjacent lamps</strong> if they exist. A lamp is adjacent if its cell shares either a side or corner with <code>grid[rowj][colj]</code>.</p>
 <p>Return <em>an array of integers</em> <code>ans</code><em>,</em> <em>where</em> <code>ans[j]</code> <em>should be</em> <code>1</code> <em>if the cell in the</em> <code>jth</code> <em>query was illuminated, or</em> <code>0</code> <em>if the lamp was not.</em></p>

@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/10/04/ex-1.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/10/04/ex-2.png">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2026-01-04T14:01:01.311Z">
+<meta property="article:modified_time" content="2026-01-06T23:18:24.574Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
 <meta property="article:tag" content="LeetCode">
@@ -177,11 +177,11 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>There is a long table with a line of plates and candles arranged on top of it. You are given a <strong>0-indexed</strong> string <code>s</code> consisting of characters <code>'*'</code> and <code>'|'</code> only, where a <code>'*'</code> represents a <strong>plate</strong> and a <code>'|'</code> represents a <strong>candle</strong>.</p>
 <p>You are also given a <strong>0-indexed</strong> 2D integer array <code>queries</code> where <code>queries[i] = [lefti, righti]</code> denotes the <strong>substring</strong> <code>s[lefti...righti]</code> (<strong>inclusive</strong>). For each query, you need to find the <strong>number</strong> of plates <strong>between candles</strong> that are <strong>in the substring</strong>. A plate is considered <strong>between candles</strong> if there is at least one candle to its left <strong>and</strong> at least one candle to its right <strong>in the substring</strong>.</p>
+<span id="more"></span> 
 <ul>
 <li>For example, <code>s = &quot;||**||**|*&quot;</code>, and a query <code>[3, 8]</code> denotes the substring <code>&quot;*||***\***|&quot;</code>. The number of plates between candles in this substring is <code>2</code>, as each of the two plates has at least one candle <strong>in the substring</strong> to its left <strong>and</strong> right.</li>
 </ul>
 <p>Return <em>an integer array</em> <code>answer</code> <em>where</em> <code>answer[i]</code> <em>is the answer to the</em> <code>ith</code> <em>query</em>.</p>
-<span id="more"></span>   
 <p><strong>Example 1:</strong></p>
 <p><img src="https://assets.leetcode.com/uploads/2021/10/04/ex-1.png" alt="ex-1" /></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;**|**|***|&quot;, queries = [[2,5],[5,9]]</span><br><span class="line">Output: [2,3]</span><br><span class="line">Explanation:</span><br><span class="line">- queries[0] has two plates between candles.</span><br><span class="line">- queries[1] has three plates between candles.</span><br></pre></td></tr></table></figure>

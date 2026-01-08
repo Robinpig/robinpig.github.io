@@ -146,6 +146,537 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-leetcode/0691-Stickers-to-Spell-Word" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/">0691. Stickers to Spell Word</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0691-stickers-to-spell-word"><a class="markdownIt-Anchor" href="#0691-stickers-to-spell-word"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/stickers-to-spell-word/">0691. Stickers to Spell Word</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>
+<p>You would like to spell out the given string <code>target</code> by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.</p>
+<p>Return <em>the minimum number of stickers that you need to spell out</em> <code>target</code>. If the task is impossible, return <code>-1</code>.</p>
+<p><strong>Note:</strong> In all test cases, all words were chosen randomly from the <code>1000</code> most common US English words, and <code>target</code> was chosen as a concatenation of two random words.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: stickers = [&quot;with&quot;,&quot;example&quot;,&quot;science&quot;], target = &quot;thehat&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line">We can use 2 &quot;with&quot; stickers, and 1 &quot;example&quot; sticker.</span><br><span class="line">After cutting and rearrange the letters of those stickers, we can form the target &quot;thehat&quot;.</span><br><span class="line">Also, this is the minimum number of stickers necessary to form the target string.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: stickers = [&quot;notice&quot;,&quot;possible&quot;], target = &quot;basicbasic&quot;</span><br><span class="line">Output: -1</span><br><span class="line">Explanation:</span><br><span class="line">We cannot form the target &quot;basicbasic&quot; from cutting letters from the given stickers.</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == stickers.length</code></li>
+<li><code>1 &lt;= n &lt;= 50</code></li>
+<li><code>1 &lt;= stickers[i].length &lt;= 10</code></li>
+<li><code>1 &lt;= target.length &lt;= 15</code></li>
+<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<!-- tabs:start -->
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minStickers</span><span class="params">(stickers []<span class="type">string</span>, target <span class="type">string</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    m := <span class="built_in">len</span>(target)</span><br><span class="line">    f := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">1</span>&lt;&lt;m)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> f &#123;</span><br><span class="line">        f[i] = <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dp <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>)</span></span> <span class="type">int</span></span><br><span class="line">    dp = <span class="function"><span class="keyword">func</span><span class="params">(mask <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> f[mask] != <span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> f[mask]</span><br><span class="line">        &#125;</span><br><span class="line">        f[mask] = m + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> _, sticker := <span class="keyword">range</span> stickers &#123;</span><br><span class="line">            left := mask</span><br><span class="line">            cnt := [<span class="number">26</span>]<span class="type">int</span>&#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> _, c := <span class="keyword">range</span> sticker &#123;</span><br><span class="line">                cnt[c-<span class="string">&#x27;a&#x27;</span>]++</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> i, c := <span class="keyword">range</span> target &#123;</span><br><span class="line">                <span class="keyword">if</span> mask&gt;&gt;i&amp;<span class="number">1</span> == <span class="number">1</span> &amp;&amp; cnt[c-<span class="string">&#x27;a&#x27;</span>] &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    cnt[c-<span class="string">&#x27;a&#x27;</span>]--</span><br><span class="line">                    left ^= <span class="number">1</span> &lt;&lt; i</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> left &lt; mask &#123;</span><br><span class="line">                f[mask] = min(f[mask], dp(left)+<span class="number">1</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[mask]</span><br><span class="line">    &#125;</span><br><span class="line">    ans := dp(<span class="number">1</span>&lt;&lt;m - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> ans &lt;= m &#123;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- tabs:end -->
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0699-Falling-Squares" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0699-Falling-Squares/">0699. Falling Squares</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0699-Falling-Squares/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0699-falling-squares"><a class="markdownIt-Anchor" href="#0699-falling-squares"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/falling-squares/">0699. Falling Squares</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>There are several squares being dropped onto the X-axis of a 2D plane.</p>
+<p>You are given a 2D integer array <code>positions</code> where <code>positions[i] = [lefti, sideLengthi]</code> represents the <code>ith</code> square with a side length of <code>sideLengthi</code> that is dropped with its left edge aligned with X-coordinate <code>lefti</code>.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0699-Falling-Squares/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0699-Falling-Squares/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0700-Search-in-a-Binary-Search-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/">0700. Search in a Binary Search Tree</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0700-search-in-a-binary-search-tree"><a class="markdownIt-Anchor" href="#0700-search-in-a-binary-search-tree"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-a-binary-search-tree/">0700. Search in a Binary Search Tree</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
+<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0693-Binary-Number-with-Alternating-Bits" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/">0693. Binary Number with Alternating Bits</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0693-binary-number-with-alternating-bits"><a class="markdownIt-Anchor" href="#0693-binary-number-with-alternating-bits"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-number-with-alternating-bits/">0693. Binary Number with Alternating Bits</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/">0689. Maximum Sum of 3 Non-Overlapping Subarrays</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0689-maximum-sum-of-3-non-overlapping-subarrays"><a class="markdownIt-Anchor" href="#0689-maximum-sum-of-3-non-overlapping-subarrays"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays/">0689. Maximum Sum of 3 Non-Overlapping Subarrays</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, find three non-overlapping subarrays of length <code>k</code> with maximum sum and return them.</p>
+<p>Return the result as a list of indices representing the starting position of each interval (<strong>0-indexed</strong>). If there are multiple answers, return the lexicographically smallest one.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,1,2,6,7,5,1], k = 2</span><br><span class="line">Output: [0,3,5]</span><br><span class="line">Explanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices [0, 3, 5].</span><br><span class="line">We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,1,2,1,2,1,2,1], k = 2</span><br><span class="line">Output: [0,2,4]</span><br></pre></td></tr></table></figure>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 2 * 104</code></li>
+<li><code>1 &lt;= nums[i] &lt; 216</code></li>
+<li><code>1 &lt;= k &lt;= floor(nums.length / 3)</code></li>
+</ul>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<!-- tabs:start -->
+<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxSumOfThreeSubarrays</span><span class="params">(nums []<span class="type">int</span>, k <span class="type">int</span>)</span></span> (ans []<span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> sum1, maxSum1, maxSum1Idx <span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> sum2, maxSum12, maxSum12Idx1, maxSum12Idx2 <span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> sum3, maxTotal <span class="type">int</span></span><br><span class="line">    <span class="keyword">for</span> i := k * <span class="number">2</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">        sum1 += nums[i-k*<span class="number">2</span>]</span><br><span class="line">        sum2 += nums[i-k]</span><br><span class="line">        sum3 += nums[i]</span><br><span class="line">        <span class="keyword">if</span> i &gt;= k*<span class="number">3</span><span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> sum1 &gt; maxSum1 &#123;</span><br><span class="line">                maxSum1 = sum1</span><br><span class="line">                maxSum1Idx = i - k*<span class="number">3</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> maxSum1+sum2 &gt; maxSum12 &#123;</span><br><span class="line">                maxSum12 = maxSum1 + sum2</span><br><span class="line">                maxSum12Idx1, maxSum12Idx2 = maxSum1Idx, i-k*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> maxSum12+sum3 &gt; maxTotal &#123;</span><br><span class="line">                maxTotal = maxSum12 + sum3</span><br><span class="line">                ans = []<span class="type">int</span>&#123;maxSum12Idx1, maxSum12Idx2, i - k + <span class="number">1</span>&#125;</span><br><span class="line">            &#125;</span><br><span class="line">            sum1 -= nums[i-k*<span class="number">3</span>+<span class="number">1</span>]</span><br><span class="line">            sum2 -= nums[i-k*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">            sum3 -= nums[i-k+<span class="number">1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!-- tabs:end -->
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0705-Design-HashSet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0705-Design-HashSet/">0705. Design HashSet</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0705-Design-HashSet/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="705-design-hashset"><a class="markdownIt-Anchor" href="#705-design-hashset"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-hashset/">705. Design HashSet</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Design a HashSet without using any built-in hash table libraries.</p>
+<p>Implement <code>MyHashSet</code> class:</p>
+<ul>
+<li><code>void add(key)</code> Inserts the value <code>key</code> into the HashSet.</li>
+<li><code>bool contains(key)</code> Returns whether the value <code>key</code> exists in the HashSet or not.</li>
+<li><code>void remove(key)</code> Removes the value <code>key</code> in the HashSet. If <code>key</code> does not exist in the HashSet, do nothing.</li>
+</ul>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0705-Design-HashSet/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0705-Design-HashSet/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-leetcode/0709-To-Lower-Case" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,23 +700,9 @@
         <h1 id="0709-to-lower-case"><a class="markdownIt-Anchor" href="#0709-to-lower-case"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/to-lower-case/">0709. To Lower Case</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>Given a string <code>s</code>, return <em>the string after replacing every uppercase letter with the same lowercase letter</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;Hello&quot;</span><br><span class="line">Output: &quot;hello&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;here&quot;</span><br><span class="line">Output: &quot;here&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;LOVELY&quot;</span><br><span class="line">Output: &quot;lovely&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 100</code></li>
-<li><code>s</code> consists of printable ASCII characters.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">toLowerCase</span><span class="params">(s <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    lower := &amp;strings.Builder&#123;&#125;</span><br><span class="line">    lower.Grow(<span class="built_in">len</span>(s))</span><br><span class="line">    <span class="keyword">for</span> _, ch := <span class="keyword">range</span> s &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="number">65</span> &lt;= ch &amp;&amp; ch &lt;= <span class="number">90</span> &#123;</span><br><span class="line">            ch |= <span class="number">32</span></span><br><span class="line">        &#125;</span><br><span class="line">        lower.WriteRune(ch)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> lower.String()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0709-To-Lower-Case/#more">more >></a>
+        
       
 
       
@@ -265,21 +782,9 @@
         <h1 id="0713-subarray-product-less-than-k"><a class="markdownIt-Anchor" href="#0713-subarray-product-less-than-k"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-product-less-than-k/">0713. Subarray Product Less Than K</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than</em> <code>k</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [10,5,2,6], k = 100</span><br><span class="line">Output: 8</span><br><span class="line">Explanation: The 8 subarrays that have product less than 100 are:</span><br><span class="line">[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]</span><br><span class="line">Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,3], k = 0</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 3 * 104</code></li>
-<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
-<li><code>0 &lt;= k &lt;= 106</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numSubarrayProductLessThanK</span><span class="params">(nums []<span class="type">int</span>, k <span class="type">int</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    prod, i := <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j, num := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        prod *= num</span><br><span class="line">        <span class="keyword">for</span> ; i &lt;= j &amp;&amp; prod &gt;= k; i++ &#123;</span><br><span class="line">            prod /= nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">        ans += j - i + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0713-Subarray-Product-Less-Than-K/#more">more >></a>
+        
       
 
       
@@ -363,21 +868,9 @@
 <li>The first character can be represented by one bit <code>0</code>.</li>
 <li>The second character can be represented by two bits (<code>10</code> or <code>11</code>).</li>
 </ul>
-<p>Given a binary array <code>bits</code> that ends with <code>0</code>, return <code>true</code> if the last character must be a one-bit character.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: bits = [1,0,0]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: The only way to decode it is two-bit character and one-bit character.</span><br><span class="line">So the last character is one-bit character.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: bits = [1,1,1,0]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: The only way to decode it is two-bit character and two-bit character.</span><br><span class="line">So the last character is not one-bit character.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= bits.length &lt;= 1000</code></li>
-<li><code>bits[i]</code> is either <code>0</code> or <code>1</code>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isOneBitCharacter</span><span class="params">(bits []<span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(bits)</span><br><span class="line">    i := n - <span class="number">2</span></span><br><span class="line">    <span class="keyword">for</span> i &gt;= <span class="number">0</span> &amp;&amp; bits[i] == <span class="number">1</span> &#123;</span><br><span class="line">        i--</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (n-i)%<span class="number">2</span> == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0717-1-bit-and-2-bit-Characters/#more">more >></a>
+        
       
 
       
@@ -458,21 +951,9 @@
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
 <p>Given an array of strings <code>words</code> representing an English Dictionary, return <em>the longest word in</em> <code>words</code> <em>that can be built one character at a time by other words in</em> <code>words</code>.</p>
 <p>If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: words = [&quot;w&quot;,&quot;wo&quot;,&quot;wor&quot;,&quot;worl&quot;,&quot;world&quot;]</span><br><span class="line">Output: &quot;world&quot;</span><br><span class="line">Explanation: The word &quot;world&quot; can be built one character at a time by &quot;w&quot;, &quot;wo&quot;, &quot;wor&quot;, and &quot;worl&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: words = [&quot;a&quot;,&quot;banana&quot;,&quot;app&quot;,&quot;appl&quot;,&quot;ap&quot;,&quot;apply&quot;,&quot;apple&quot;]</span><br><span class="line">Output: &quot;apple&quot;</span><br><span class="line">Explanation: Both &quot;apply&quot; and &quot;apple&quot; can be built from other words in the dictionary. However, &quot;apple&quot; is lexicographically smaller than &quot;apply&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= words.length &lt;= 1000</code></li>
-<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-<li><code>words[i]</code> consists of lowercase English letters.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Trie <span class="keyword">struct</span> &#123;</span><br><span class="line">	children [<span class="number">26</span>]*Trie</span><br><span class="line">	isEnd    <span class="type">bool</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> Insert(word <span class="type">string</span>) &#123;</span><br><span class="line">	node := t</span><br><span class="line">	<span class="keyword">for</span> _, ch := <span class="keyword">range</span> word &#123;</span><br><span class="line">		ch -= <span class="string">&#x27;a&#x27;</span></span><br><span class="line">		<span class="keyword">if</span> node.children[ch] == <span class="literal">nil</span> &#123;</span><br><span class="line">			node.children[ch] = &amp;Trie&#123;&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		node = node.children[ch]</span><br><span class="line">	&#125;</span><br><span class="line">	node.isEnd = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span></span> Search(word <span class="type">string</span>) <span class="type">bool</span> &#123;</span><br><span class="line">	node := t</span><br><span class="line">	<span class="keyword">for</span> _, ch := <span class="keyword">range</span> word &#123;</span><br><span class="line">		ch -= <span class="string">&#x27;a&#x27;</span></span><br><span class="line">		<span class="keyword">if</span> node.children[ch] == <span class="literal">nil</span> || !node.children[ch].isEnd &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">		node = node.children[ch]</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">longestWord</span><span class="params">(words []<span class="type">string</span>)</span></span> (longest <span class="type">string</span>) &#123;</span><br><span class="line">	t := &amp;Trie&#123;&#125;</span><br><span class="line">	<span class="keyword">for</span> _, word := <span class="keyword">range</span> words &#123;</span><br><span class="line">		t.Insert(word)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> _, word := <span class="keyword">range</span> words &#123;</span><br><span class="line">		<span class="keyword">if</span> t.Search(word) &amp;&amp; (<span class="built_in">len</span>(word) &gt; <span class="built_in">len</span>(longest) || <span class="built_in">len</span>(word) == <span class="built_in">len</span>(longest) &amp;&amp; word &lt; longest) &#123;</span><br><span class="line">			longest = word</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> longest</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0720-Longest-Word-in-Dictionary/#more">more >></a>
+        
       
 
       
@@ -529,615 +1010,9 @@
 
 
   
-    <article id="post-leetcode/0728-Self-Dividing-Numbers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0728-Self-Dividing-Numbers/">0728. Self Dividing Numbers</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0728-Self-Dividing-Numbers/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0728-self-dividing-numbers"><a class="markdownIt-Anchor" href="#0728-self-dividing-numbers"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/self-dividing-numbers/">0728. Self Dividing Numbers</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A <strong>self-dividing number</strong> is a number that is divisible by every digit it contains.</p>
-<ul>
-<li>For example, <code>128</code> is <strong>a self-dividing number</strong> because <code>128 % 1 == 0</code>, <code>128 % 2 == 0</code>, and <code>128 % 8 == 0</code>.</li>
-</ul>
-<p>A <strong>self-dividing number</strong> is not allowed to contain the digit zero.</p>
-<p>Given two integers <code>left</code> and <code>right</code>, return <em>a list of all the <strong>self-dividing numbers</strong> in the range</em> <code>[left, right]</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: left = 1, right = 22</span><br><span class="line">Output: [1,2,3,4,5,6,7,8,9,11,12,15,22]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: left = 47, right = 85</span><br><span class="line">Output: [48,55,66,77]</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= left &lt;= right &lt;= 104</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isSelfDividing</span><span class="params">(num <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> x := num; x &gt; <span class="number">0</span>; x /= <span class="number">10</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> d := x % <span class="number">10</span>; d == <span class="number">0</span> || num%d != <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">selfDividingNumbers</span><span class="params">(left, right <span class="type">int</span>)</span></span> (ans []<span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> i := left; i &lt;= right; i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> isSelfDividing(i) &#123;</span><br><span class="line">            ans = <span class="built_in">append</span>(ans, i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0728-Self-Dividing-Numbers/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0740-Delete-and-Earn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0740-Delete-and-Earn/">0740. Delete and Earn</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0740-Delete-and-Earn/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0740-delete-and-earn"><a class="markdownIt-Anchor" href="#0740-delete-and-earn"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/delete-and-earn/">0740. Delete and Earn</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>nums</code>. You want to maximize the number of points you get by performing the following operation any number of times:</p>
-<ul>
-<li>Pick any <code>nums[i]</code> and delete it to earn <code>nums[i]</code> points. Afterwards, you must delete <strong>every</strong> element equal to <code>nums[i] - 1</code> and <strong>every</strong> element equal to <code>nums[i] + 1</code>.</li>
-</ul>
-<p>Return <em>the <strong>maximum number of points</strong> you can earn by applying the above operation some number of times</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [3,4,2]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: You can perform the following operations:</span><br><span class="line">- Delete 4 to earn 4 points. Consequently, 3 is also deleted. nums = [2].</span><br><span class="line">- Delete 2 to earn 2 points. nums = [].</span><br><span class="line">You earn a total of 6 points.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [2,2,3,3,3,4]</span><br><span class="line">Output: 9</span><br><span class="line">Explanation: You can perform the following operations:</span><br><span class="line">- Delete a 3 to earn 3 points. All 2&#x27;s and 4&#x27;s are also deleted. nums = [3,3].</span><br><span class="line">- Delete a 3 again to earn 3 points. nums = [3].</span><br><span class="line">- Delete a 3 once more to earn 3 points. nums = [].</span><br><span class="line">You earn a total of 9 points.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 2 * 104</code></li>
-<li><code>1 &lt;= nums[i] &lt;= 104</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">deleteAndEarn</span><span class="params">(nums []<span class="type">int</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    sort.Ints(nums)</span><br><span class="line">    sum := []<span class="type">int</span>&#123;nums[<span class="number">0</span>]&#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> val := nums[i]; val == nums[i<span class="number">-1</span>] &#123;</span><br><span class="line">            sum[<span class="built_in">len</span>(sum)<span class="number">-1</span>] += val</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> val == nums[i<span class="number">-1</span>]+<span class="number">1</span> &#123;</span><br><span class="line">            sum = <span class="built_in">append</span>(sum, val)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ans += rob(sum)</span><br><span class="line">            sum = []<span class="type">int</span>&#123;val&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans += rob(sum)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">rob</span><span class="params">(nums []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    first, second := nums[<span class="number">0</span>], max(nums[<span class="number">0</span>], nums[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">        first, second = second, max(first+nums[i], second)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> second</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0740-Delete-and-Earn/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0726-Number-of-Atoms" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0726-Number-of-Atoms/">0726. Number of Atoms</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0726-Number-of-Atoms/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0726-number-of-atoms"><a class="markdownIt-Anchor" href="#0726-number-of-atoms"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-atoms/">0726. Number of Atoms</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>formula</code> representing a chemical formula, return <em>the count of each atom</em>.</p>
-<p>The atomic element always starts with an uppercase character, then zero or more lowercase letters, representing the name.</p>
-<p>One or more digits representing that element’s count may follow if the count is greater than <code>1</code>. If the count is <code>1</code>, no digits will follow.</p>
-<ul>
-<li>For example, <code>&quot;H2O&quot;</code> and <code>&quot;H2O2&quot;</code> are possible, but <code>&quot;H1O2&quot;</code> is impossible.</li>
-</ul>
-<p>Two formulas are concatenated together to produce another formula.</p>
-<ul>
-<li>For example, <code>&quot;H2O2He3Mg4&quot;</code> is also a formula.</li>
-</ul>
-<p>A formula placed in parentheses, and a count (optionally added) is also a formula.</p>
-<ul>
-<li>For example, <code>&quot;(H2O2)&quot;</code> and <code>&quot;(H2O2)3&quot;</code> are formulas.</li>
-</ul>
-<p>Return the count of all elements as a string in the following form: the first name (in sorted order), followed by its count (if that count is more than <code>1</code>), followed by the second name (in sorted order), followed by its count (if that count is more than <code>1</code>), and so on.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: formula = &quot;H2O&quot;</span><br><span class="line">Output: &quot;H2O&quot;</span><br><span class="line">Explanation: The count of elements are &#123;&#x27;H&#x27;: 2, &#x27;O&#x27;: 1&#125;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: formula = &quot;Mg(OH)2&quot;</span><br><span class="line">Output: &quot;H2MgO2&quot;</span><br><span class="line">Explanation: The count of elements are &#123;&#x27;H&#x27;: 2, &#x27;Mg&#x27;: 1, &#x27;O&#x27;: 2&#125;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: formula = &quot;K4(ON(SO3)2)2&quot;</span><br><span class="line">Output: &quot;K4N2O14S4&quot;</span><br><span class="line">Explanation: The count of elements are &#123;&#x27;K&#x27;: 4, &#x27;N&#x27;: 2, &#x27;O&#x27;: 14, &#x27;S&#x27;: 4&#125;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: formula = &quot;Be32&quot;</span><br><span class="line">Output: &quot;Be32&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= formula.length &lt;= 1000</code></li>
-<li><code>formula</code> consists of English letters, digits, <code>'('</code>, and <code>')'</code>.</li>
-<li><code>formula</code> is always valid.</li>
-<li>All the values in the output will fit in a 32-bit integer.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countOfAtoms</span><span class="params">(formula <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    i, n := <span class="number">0</span>, <span class="built_in">len</span>(formula)</span><br><span class="line"></span><br><span class="line">    parseAtom := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> <span class="type">string</span> &#123;</span><br><span class="line">        start := i</span><br><span class="line">        i++ <span class="comment">// 扫描，跳过首字母</span></span><br><span class="line">        <span class="keyword">for</span> i &lt; n &amp;&amp; unicode.IsLower(<span class="type">rune</span>(formula[i])) &#123; </span><br><span class="line">            i++ <span class="comment">// 扫描首字母后的小写字母</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> formula[start:i]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    parseNum := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> (num <span class="type">int</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> i == n || !unicode.IsDigit(<span class="type">rune</span>(formula[i])) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span> <span class="comment">// 不是数字，视作 1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> ; i &lt; n &amp;&amp; unicode.IsDigit(<span class="type">rune</span>(formula[i])); i++ &#123; </span><br><span class="line">            num = num*<span class="number">10</span> + <span class="type">int</span>(formula[i]-<span class="string">&#x27;0&#x27;</span>) <span class="comment">// 扫描数字</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stk := []<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>&#123;&#123;&#125;&#125;</span><br><span class="line">    <span class="keyword">for</span> i &lt; n &#123;</span><br><span class="line">        <span class="keyword">if</span> ch := formula[i]; ch == <span class="string">&#x27;(&#x27;</span> &#123;</span><br><span class="line">            i++</span><br><span class="line">            stk = <span class="built_in">append</span>(stk, <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>&#123;&#125;) <span class="comment">// 将一个空的哈希表压入栈中，准备统计括号内的原子数量</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ch == <span class="string">&#x27;)&#x27;</span> &#123;</span><br><span class="line">            i++</span><br><span class="line">            num := parseNum() <span class="comment">// 括号右侧数字</span></span><br><span class="line">            atomNum := stk[<span class="built_in">len</span>(stk)<span class="number">-1</span>]</span><br><span class="line">            stk = stk[:<span class="built_in">len</span>(stk)<span class="number">-1</span>] <span class="comment">// 弹出括号内的原子数量</span></span><br><span class="line">            <span class="keyword">for</span> atom, v := <span class="keyword">range</span> atomNum &#123;</span><br><span class="line">                stk[<span class="built_in">len</span>(stk)<span class="number">-1</span>][atom] += v * num <span class="comment">// 将括号内的原子数量乘上 num，加到上一层的原子数量中</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            atom := parseAtom()</span><br><span class="line">            num := parseNum()</span><br><span class="line">            stk[<span class="built_in">len</span>(stk)<span class="number">-1</span>][atom] += num <span class="comment">// 统计原子数量</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    atomNum := stk[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">type</span> pair <span class="keyword">struct</span> &#123;</span><br><span class="line">        atom <span class="type">string</span></span><br><span class="line">        num  <span class="type">int</span></span><br><span class="line">    &#125;</span><br><span class="line">    pairs := <span class="built_in">make</span>([]pair, <span class="number">0</span>, <span class="built_in">len</span>(atomNum))</span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> atomNum &#123;</span><br><span class="line">        pairs = <span class="built_in">append</span>(pairs, pair&#123;k, v&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    sort.Slice(pairs, <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123; <span class="keyword">return</span> pairs[i].atom &lt; pairs[j].atom &#125;)</span><br><span class="line"></span><br><span class="line">    ans := []<span class="type">byte</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> _, p := <span class="keyword">range</span> pairs &#123;</span><br><span class="line">        ans = <span class="built_in">append</span>(ans, p.atom...)</span><br><span class="line">        <span class="keyword">if</span> p.num &gt; <span class="number">1</span> &#123;</span><br><span class="line">            ans = <span class="built_in">append</span>(ans, strconv.Itoa(p.num)...)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">string</span>(ans)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0726-Number-of-Atoms/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0747-Largest-Number-At-Least-Twice-of-Others" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0747-Largest-Number-At-Least-Twice-of-Others/">0747. Largest Number At Least Twice of Others</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0747-Largest-Number-At-Least-Twice-of-Others/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0747-largest-number-at-least-twice-of-others"><a class="markdownIt-Anchor" href="#0747-largest-number-at-least-twice-of-others"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-number-at-least-twice-of-others/">0747. Largest Number At Least Twice of Others</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>nums</code> where the largest integer is <strong>unique</strong>.</p>
-<p>Determine whether the largest element in the array is <strong>at least twice</strong> as much as every other number in the array. If it is, return <em>the <strong>index</strong> of the largest element, or return</em> <code>-1</code> <em>otherwise</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [3,6,1,0]</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: 6 is the largest integer.</span><br><span class="line">For every other number in the array x, 6 is at least twice as big as x.</span><br><span class="line">The index of value 6 is 1, so we return 1.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,3,4]</span><br><span class="line">Output: -1</span><br><span class="line">Explanation: 4 is less than twice the value of 3, so we return -1.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: 1 is trivially at least twice the value as any other number because there are no other numbers.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 50</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
-<li>The largest element in <code>nums</code> is unique.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">dominantIndex</span><span class="params">(nums []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    m1, m2, idx := <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, num := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="keyword">if</span> num &gt; m1 &#123;</span><br><span class="line">            m1, m2, idx = num, m1, i</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> num &gt; m2 &#123;</span><br><span class="line">            m2 = num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> m1 &gt;= m2*<span class="number">2</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> idx</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0747-Largest-Number-At-Least-Twice-of-Others/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0746-Min-Cost-Climbing-Stairs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0746-Min-Cost-Climbing-Stairs/">0746. Min Cost Climbing Stairs</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0746-Min-Cost-Climbing-Stairs/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0746-min-cost-climbing-stairs"><a class="markdownIt-Anchor" href="#0746-min-cost-climbing-stairs"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">0746. Min Cost Climbing Stairs</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>ith</code> step on a staircase. Once you pay the cost, you can either climb one or two steps.</p>
-<p>You can either start from the step with index <code>0</code>, or the step with index <code>1</code>.</p>
-<p>Return <em>the minimum cost to reach the top of the floor</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: cost = [10,15,20]</span><br><span class="line">Output: 15</span><br><span class="line">Explanation: You will start at index 1.</span><br><span class="line">- Pay 15 and climb two steps to reach the top.</span><br><span class="line">The total cost is 15.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: cost = [1,100,1,1,1,100,1,1,100,1]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: You will start at index 0.</span><br><span class="line">- Pay 1 and climb two steps to reach index 2.</span><br><span class="line">- Pay 1 and climb two steps to reach index 4.</span><br><span class="line">- Pay 1 and climb two steps to reach index 6.</span><br><span class="line">- Pay 1 and climb one step to reach index 7.</span><br><span class="line">- Pay 1 and climb two steps to reach index 9.</span><br><span class="line">- Pay 1 and climb one step to reach the top.</span><br><span class="line">The total cost is 6.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>2 &lt;= cost.length &lt;= 1000</code></li>
-<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minCostClimbingStairs</span><span class="params">(cost []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(cost)</span><br><span class="line">    pre, cur := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        pre, cur = cur, min(cur+cost[i<span class="number">-1</span>], pre+cost[i<span class="number">-2</span>])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> a &lt; b &#123;</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> <strong>Java</strong></h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minCostClimbingStairs</span><span class="params">(<span class="type">int</span>[] cost)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> cost.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="number">0</span>, curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">next</span> <span class="operator">=</span> Math.min(curr + cost[i - <span class="number">1</span>], prev + cost[i - <span class="number">2</span>]);</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0746-Min-Cost-Climbing-Stairs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0765-Couples-Holding-Hands" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0765-Couples-Holding-Hands/">0765. Couples Holding Hands</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/0765-Couples-Holding-Hands/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0765-couples-holding-hands"><a class="markdownIt-Anchor" href="#0765-couples-holding-hands"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/couples-holding-hands/">0765. Couples Holding Hands</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>There are <code>n</code> couples sitting in <code>2n</code> seats arranged in a row and want to hold hands.</p>
-<p>The people and seats are represented by an integer array <code>row</code> where <code>row[i]</code> is the ID of the person sitting in the <code>ith</code> seat. The couples are numbered in order, the first couple being <code>(0, 1)</code>, the second couple being <code>(2, 3)</code>, and so on with the last couple being <code>(2n - 2, 2n - 1)</code>.</p>
-<p>Return <em>the minimum number of swaps so that every couple is sitting side by side</em>. A swap consists of choosing any two people, then they stand up and switch seats.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: row = [0,2,1,3]</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: We only need to swap the second (row[1]) and third (row[2]) person.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: row = [3,2,0,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: All couples are already seated side by side.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>2n == row.length</code></li>
-<li><code>2 &lt;= n &lt;= 30</code></li>
-<li><code>n</code> is even.</li>
-<li><code>0 &lt;= row[i] &lt; 2n</code></li>
-<li>All the elements of <code>row</code> are <strong>unique</strong>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> <strong>Java</strong></h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minSwapsCouples</span><span class="params">(<span class="type">int</span>[] row)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> row.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">tot</span> <span class="operator">=</span> n / <span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        List&lt;Integer&gt;[] graph = <span class="keyword">new</span> <span class="title class_">List</span>[tot];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; tot; i++) &#123;</span><br><span class="line">            graph[i] = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> row[i] / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> row[i + <span class="number">1</span>] / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (l != r) &#123;</span><br><span class="line">                graph[l].add(r);</span><br><span class="line">                graph[r].add(l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">boolean</span>[] visited = <span class="keyword">new</span> <span class="title class_">boolean</span>[tot];</span><br><span class="line">        <span class="type">int</span> <span class="variable">ret</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; tot; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i]) &#123;</span><br><span class="line">                Queue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;Integer&gt;();</span><br><span class="line">                visited[i] = <span class="literal">true</span>;</span><br><span class="line">                queue.offer(i);</span><br><span class="line">                <span class="type">int</span> <span class="variable">cnt</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">                    cnt += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> y : graph[x]) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!visited[y]) &#123;</span><br><span class="line">                            visited[y] = <span class="literal">true</span>;</span><br><span class="line">                            queue.offer(y);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                ret += cnt - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minSwapsCouples</span><span class="params">(row []<span class="type">int</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(row)</span><br><span class="line">    graph := <span class="built_in">make</span>([][]<span class="type">int</span>, n/<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i += <span class="number">2</span> &#123;</span><br><span class="line">        l, r := row[i]/<span class="number">2</span>, row[i+<span class="number">1</span>]/<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> l != r &#123;</span><br><span class="line">            graph[l] = <span class="built_in">append</span>(graph[l], r)</span><br><span class="line">            graph[r] = <span class="built_in">append</span>(graph[r], l)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vis := <span class="built_in">make</span>([]<span class="type">bool</span>, n/<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> i, vs := <span class="keyword">range</span> vis &#123;</span><br><span class="line">        <span class="keyword">if</span> !vs &#123;</span><br><span class="line">            vis[i] = <span class="literal">true</span></span><br><span class="line">            cnt := <span class="number">0</span></span><br><span class="line">            q := []<span class="type">int</span>&#123;i&#125;</span><br><span class="line">            <span class="keyword">for</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span> &#123;</span><br><span class="line">                cnt++</span><br><span class="line">                v := q[<span class="number">0</span>]</span><br><span class="line">                q = q[<span class="number">1</span>:]</span><br><span class="line">                <span class="keyword">for</span> _, w := <span class="keyword">range</span> graph[v] &#123;</span><br><span class="line">                    <span class="keyword">if</span> !vis[w] &#123;</span><br><span class="line">                        vis[w] = <span class="literal">true</span></span><br><span class="line">                        q = <span class="built_in">append</span>(q, w)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += cnt - <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0765-Couples-Holding-Hands/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/26/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/40/">40</a><a class="extend next" rel="next" href="/page/28/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/26/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/28/">Next &raquo;</a>
     </nav>
   
 
