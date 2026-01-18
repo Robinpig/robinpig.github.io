@@ -59,6 +59,8 @@
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
+				<li><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -111,6 +113,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -125,11 +129,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+					<li style="width: 25%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
 		        
 				</ul>
 			</nav>
@@ -146,37 +152,46 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/0037-Sudoku-Solve" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-bailian/3237-鸡兔同笼" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0037-Sudoku-Solve/">0037. Sudoku Solve</a>
+      <a class="article-title" href="/2025/12/19/bailian/3237-%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC/">3237:鸡兔同笼</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0037-Sudoku-Solve/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/19/bailian/3237-%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC/" class="archive-article-date">
+  	<time datetime="2025-12-18T23:08:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0037-sudoku-solver"><a class="markdownIt-Anchor" href="#0037-sudoku-solver"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sudoku-solver/">0037. Sudoku Solver</a></h1>
+        <h1 id="3237鸡兔同笼"><a class="markdownIt-Anchor" href="#3237鸡兔同笼"></a> 3237:鸡兔同笼</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
-<p>A sudoku solution must satisfy all of the following rules:</p>
-<p>Each of the digits 1-9 must occur exactly once in each row.<br />
-Each of the digits 1-9 must occur exactly once in each column.<br />
-Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.<br />
-The ‘.’ character indicates empty cells.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0037-Sudoku-Solve/#more">more >></a>
-        
+<p>一个笼子里面关了鸡和兔子（鸡有2只脚，兔子有4只脚，没有例外）。<br />
+已经知道了笼子里面脚的总数a，问笼子里面至少有多少只动物，至多有多少只动物</p>
+<p>输入<br />
+第1行是测试数据的组数n，后面跟着n行输入。每组测试数据占1行，每行一个正整数a (a &lt; 32768)</p>
+<p>输出<br />
+输出包含n行，每行对应一个输入,包含两个正整数，第一个是最少的动物数，第二个是最多的动物数，两个正整数用一个空格分开<br />
+如果没有满足要求的答案，则输出两个0。</p>
+<p>样例输入<br />
+2<br />
+3<br />
+20</p>
+<p>样例输出<br />
+0 0<br />
+5 10</p>
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+<p>通过脚来判断动物数量 因为鸡和兔子的脚都是偶数 所以为奇数则报错</p>
+<p>数量最小则先取余4 , 最大数始终 除2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">feets</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line">            <span class="keyword">if</span> ((feets &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;0 0&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(feets / <span class="number">4</span> + (feets % <span class="number">4</span> == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>) + <span class="string">&quot; &quot;</span> + feets / <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -193,7 +208,7 @@ The ‘.’ character indicates empty cells.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">百炼</a>
         		</li>
       		
 		</ul>
@@ -203,7 +218,7 @@ The ‘.’ character indicates empty cells.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0037-Sudoku-Solve/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/19/bailian/3237-%E9%B8%A1%E5%85%94%E5%90%8C%E7%AC%BC/">展开全文 >></a>
         </p>
       
 
@@ -233,32 +248,35 @@ The ‘.’ character indicates empty cells.</p>
 
 
   
-    <article id="post-leetcode/0042-Trapping-Rain-Water" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/一次编辑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0042-Trapping-Rain-Water/">0042. Trapping Rain Water</a>
+      <a class="article-title" href="/2025/12/18/ctci/%E4%B8%80%E6%AC%A1%E7%BC%96%E8%BE%91/">一次编辑</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0042-Trapping-Rain-Water/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/18/ctci/%E4%B8%80%E6%AC%A1%E7%BC%96%E8%BE%91/" class="archive-article-date">
+  	<time datetime="2025-12-18T05:00:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0042-trapping-rain-water"><a class="markdownIt-Anchor" href="#0042-trapping-rain-water"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/trapping-rain-water/">0042. Trapping Rain Water</a></h1>
+        <h1 id="一次编辑"><a class="markdownIt-Anchor" href="#一次编辑"></a> 一次编辑</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0042-Trapping-Rain-Water/#more">more >></a>
-        
+<p>字符串有三种编辑操作： 插入一个字符、 删除一个字符或者替换一个字符。 给定两个字符串，</p>
+<p>编写一个函数判定它们是否只需要一次（或者零次）编辑。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pale, ple -&gt; true</span><br><span class="line"></span><br><span class="line">pales, pale -&gt; true</span><br><span class="line"></span><br><span class="line">pale, bale -&gt; true</span><br><span class="line"></span><br><span class="line">pale, bake -&gt; false</span><br></pre></td></tr></table></figure>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="type">boolean</span> <span class="title function_">one</span><span class="params">(String str1, String str2)</span>&#123;</span><br><span class="line">    <span class="comment">// 判断 length 差距</span></span><br><span class="line">    <span class="comment">// 大于1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -275,7 +293,11 @@ The ‘.’ character indicates empty cells.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		
 		</ul>
@@ -285,7 +307,7 @@ The ‘.’ character indicates empty cells.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0042-Trapping-Rain-Water/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/18/ctci/%E4%B8%80%E6%AC%A1%E7%BC%96%E8%BE%91/">展开全文 >></a>
         </p>
       
 
@@ -315,34 +337,32 @@ The ‘.’ character indicates empty cells.</p>
 
 
   
-    <article id="post-leetcode/0040-Combination-Sum-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/零矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0040-Combination-Sum-II/">0040. Combination Sum II</a>
+      <a class="article-title" href="/2025/12/18/ctci/%E9%9B%B6%E7%9F%A9%E9%98%B5/">零矩阵</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0040-Combination-Sum-II/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/18/ctci/%E9%9B%B6%E7%9F%A9%E9%98%B5/" class="archive-article-date">
+  	<time datetime="2025-12-18T04:56:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0040-combination-sum-ii"><a class="markdownIt-Anchor" href="#0040-combination-sum-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-ii/">0040. Combination Sum II</a></h1>
+        <h1 id="零矩阵"><a class="markdownIt-Anchor" href="#零矩阵"></a> 零矩阵</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.</p>
-<p>Each number in candidates may only be used once in the combination.</p>
-<p>Note: The solution set must not contain duplicate combinations.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0040-Combination-Sum-II/#more">more >></a>
-        
+<p>编写一种算法，若 M ×N矩阵中某个元素为 0，则将其所在的行与列清零</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>为避免本地清零会影响下个字符的清零 需要额外空间存储需要被清零的行列 可以使用 两个集合</p>
+
       
 
       
@@ -359,7 +379,11 @@ The ‘.’ character indicates empty cells.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
@@ -369,7 +393,7 @@ The ‘.’ character indicates empty cells.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0040-Combination-Sum-II/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/18/ctci/%E9%9B%B6%E7%9F%A9%E9%98%B5/">展开全文 >></a>
         </p>
       
 
@@ -399,38 +423,34 @@ The ‘.’ character indicates empty cells.</p>
 
 
   
-    <article id="post-leetcode/0036-Valid-Sudoku" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/字符串轮转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0036-Valid-Sudoku/">0036. Valid Sudoku</a>
+      <a class="article-title" href="/2025/12/18/ctci/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/">字符串轮转</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0036-Valid-Sudoku/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/18/ctci/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/" class="archive-article-date">
+  	<time datetime="2025-12-18T04:54:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0036-valid-sudoku"><a class="markdownIt-Anchor" href="#0036-valid-sudoku"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-sudoku/">0036. Valid Sudoku</a></h1>
+        <h1 id="字符串轮转"><a class="markdownIt-Anchor" href="#字符串轮转"></a> 字符串轮转</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</p>
-<p>Each row must contain the digits 1-9 without repetition.<br />
-Each column must contain the digits 1-9 without repetition.<br />
-Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.<br />
-Note:</p>
-<p>A Sudoku board (partially filled) could be valid but is not necessarily solvable.<br />
-Only the filled cells need to be validated according to the mentioned rules.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0036-Valid-Sudoku/#more">more >></a>
-        
+<p>假定有一种 isSubstring 方法，可检查一个单词是否为其他字符串的子串。<br />
+给定两个字符串 s1 和 s2，请编写代码检查 s2 是否为 s1 旋转而成，要求只能调用一次 isSubstring<br />
+（比如，waterbottle是 erbottlewat 旋转后的字符串）</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>无论 s2 如何旋转, 都是将 s1 的 尾部拼上 头部, 所以可以 使用 s1+s1, 判断 s2是否是 s1s1的子串</p>
+
       
 
       
@@ -447,7 +467,11 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		
 		</ul>
@@ -457,7 +481,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0036-Valid-Sudoku/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/18/ctci/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AE%E8%BD%AC/">展开全文 >></a>
         </p>
       
 
@@ -487,33 +511,34 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0043-Multiply-Strings" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/旋转矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0043-Multiply-Strings/">0043. Multiply Strings</a>
+      <a class="article-title" href="/2025/12/18/ctci/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5/">旋转矩阵</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0043-Multiply-Strings/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/18/ctci/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5/" class="archive-article-date">
+  	<time datetime="2025-12-18T04:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0043-multiply-strings"><a class="markdownIt-Anchor" href="#0043-multiply-strings"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/multiply-strings/">0043. Multiply Strings</a></h1>
+        <h1 id="旋转矩阵"><a class="markdownIt-Anchor" href="#旋转矩阵"></a> 旋转矩阵</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>
-<p><strong>Note:</strong> You must not use any built-in BigInteger library or convert the inputs to integer directly.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0043-Multiply-Strings/#more">more >></a>
-        
+<p>给定一幅由 N ×N矩阵表示的图像，其中每个像素的大小为 4 字节，编写一种方法，将图像旋转 90 度<br />
+不占用额外内存空间能否做到？</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>要将矩阵旋转 90 度， 最简单的做法就是一层一层进行旋转。 对每一层执行环状旋转 （circular rotation） ：将上边移到右边，右边移到下边，下边移到左边，左边移到上边</p>
+<p>这个算法的时间复杂度为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，这已是最优解，因为任何算法都需要访问 N2 的所有元素</p>
+
       
 
       
@@ -530,7 +555,11 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
@@ -540,7 +569,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0043-Multiply-Strings/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/18/ctci/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5/">展开全文 >></a>
         </p>
       
 
@@ -570,32 +599,30 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0046-Permutations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/判定是否互为字符重排" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0046-Permutations/">0046. Permutations</a>
+      <a class="article-title" href="/2025/12/18/ctci/%E5%88%A4%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%92%E4%B8%BA%E5%AD%97%E7%AC%A6%E9%87%8D%E6%8E%92/">判定是否互为字符重排</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0046-Permutations/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/18/ctci/%E5%88%A4%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%92%E4%B8%BA%E5%AD%97%E7%AC%A6%E9%87%8D%E6%8E%92/" class="archive-article-date">
+  	<time datetime="2025-12-18T04:41:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0046-permutations"><a class="markdownIt-Anchor" href="#0046-permutations"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations/">0046. Permutations</a></h1>
+        <h1 id="判定是否互为字符重排"><a class="markdownIt-Anchor" href="#判定是否互为字符重排"></a> 判定是否互为字符重排</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0046-Permutations/#more">more >></a>
-        
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+
       
 
       
@@ -612,7 +639,11 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		
 		</ul>
@@ -622,7 +653,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0046-Permutations/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/18/ctci/%E5%88%A4%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%92%E4%B8%BA%E5%AD%97%E7%AC%A6%E9%87%8D%E6%8E%92/">展开全文 >></a>
         </p>
       
 
@@ -652,31 +683,31 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0047-Permutations-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0739-Daily-Temperatures" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0047-Permutations-II/">0047. Permutations II</a>
+      <a class="article-title" href="/2025/12/17/leetcode/0739-Daily-Temperatures/">0739. Daily Temperatures</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0047-Permutations-II/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/17/leetcode/0739-Daily-Temperatures/" class="archive-article-date">
+  	<time datetime="2025-12-17T12:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0047-permutations-ii"><a class="markdownIt-Anchor" href="#0047-permutations-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutations-ii/">0047. Permutations II</a></h1>
+        <h1 id="0739-daily-temperatures"><a class="markdownIt-Anchor" href="#0739-daily-temperatures"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/daily-temperatures/">0739. Daily Temperatures</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.</p>
+<p>给定一个整数数组 <code>temperatures</code> ，表示每天的温度，返回一个数组 <code>answer</code> ，其中 <code>answer[i]</code> 是指对于第 <code>i</code> 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 <code>0</code> 来代替。</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0047-Permutations-II/#more">more >></a>
+          <a class="article-more-a" href="/2025/12/17/leetcode/0739-Daily-Temperatures/#more">more >></a>
         
       
 
@@ -704,7 +735,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0047-Permutations-II/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/17/leetcode/0739-Daily-Temperatures/">展开全文 >></a>
         </p>
       
 
@@ -734,33 +765,30 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0048-Rotate-Image" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/3531-Count-Covered-Buildings" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0048-Rotate-Image/">0048. Rotate Image</a>
+      <a class="article-title" href="/2025/12/17/leetcode/3531-Count-Covered-Buildings/">3531. Count Covered Buildings</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0048-Rotate-Image/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/17/leetcode/3531-Count-Covered-Buildings/" class="archive-article-date">
+  	<time datetime="2025-12-17T12:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0048-rotate-image"><a class="markdownIt-Anchor" href="#0048-rotate-image"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-image/">0048. Rotate Image</a></h1>
+        <h1 id="3531-count-covered-buildings"><a class="markdownIt-Anchor" href="#3531-count-covered-buildings"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-covered-buildings/description/?envType=daily-question&amp;envId=2025-12-11">3531. Count Covered Buildings</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).</p>
-<p>You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0048-Rotate-Image/#more">more >></a>
-        
+<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
+
       
 
       
@@ -787,7 +815,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0048-Rotate-Image/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/17/leetcode/3531-Count-Covered-Buildings/">展开全文 >></a>
         </p>
       
 
@@ -817,32 +845,31 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0045-Jump-Game-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/3433-Count-Mentions-Per-User" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0045-Jump-Game-II/">0045. Jump Game II</a>
+      <a class="article-title" href="/2025/12/17/leetcode/3433-Count-Mentions-Per-User/">3433. Count Mentions Per User</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0045-Jump-Game-II/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/17/leetcode/3433-Count-Mentions-Per-User/" class="archive-article-date">
+  	<time datetime="2025-12-17T12:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0045-jump-game-ii"><a class="markdownIt-Anchor" href="#0045-jump-game-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-ii/">0045. Jump Game II</a></h1>
+        <h1 id="3433-count-mentions-per-user"><a class="markdownIt-Anchor" href="#3433-count-mentions-per-user"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-mentions-per-user">3433. Count Mentions Per User</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of non-negative integers <code>nums</code>, you are initially positioned at the first index of the array.</p>
-<p>Each element in the array represents your maximum jump length at that position.</p>
+<p>You are given an integer <code>numberOfUsers</code> representing the total number of users and an array <code>events</code> of size <code>n x 3</code>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0045-Jump-Game-II/#more">more >></a>
+          <a class="article-more-a" href="/2025/12/17/leetcode/3433-Count-Mentions-Per-User/#more">more >></a>
         
       
 
@@ -870,7 +897,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0045-Jump-Game-II/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/17/leetcode/3433-Count-Mentions-Per-User/">展开全文 >></a>
         </p>
       
 
@@ -900,32 +927,40 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
 
   
-    <article id="post-leetcode/0053-Maximum-Subarray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ctci/回文链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0053-Maximum-Subarray/">0053. Maximum Subarray</a>
+      <a class="article-title" href="/2025/12/17/ctci/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">回文链表</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0053-Maximum-Subarray/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2025/12/17/ctci/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2025-12-17T07:08:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0053-maximum-subarray"><a class="markdownIt-Anchor" href="#0053-maximum-subarray"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray/">0053. Maximum Subarray</a></h1>
+        <h1 id="回文链表"><a class="markdownIt-Anchor" href="#回文链表"></a> 回文链表</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return <em>its sum</em>.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/0053-Maximum-Subarray/#more">more >></a>
-        
+<p>编写一个函数，检查链表是否为回文</p>
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>判断一个链表是否回文 对于双向链表来说是非常简单的 只需要从首位往中间遍历即可</p>
+<p>对于单向链表</p>
+<p>方法一  反转整个链表 再对两个链表进行遍历 遍历可以只遍历前半部分</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">  <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(ListNode list)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二 快慢指针进行遍历 同时将前半部分借助栈存储 之后就是后半部分与栈中数据的比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">  <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(ListNode list)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法三 使用递归 此方法需要先遍历一次获取到 length 递归比较子链表(<strong>传入head.next 和 length - 2</strong>), 直到中间节点为终止条件<br />
+递归比较是从中间往两边进行比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">  <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(ListNode list)</span>&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  res <span class="title function_">recursion</span><span class="params">(ListNode head, length)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(head == <span class="literal">null</span> || length &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">      </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(length == <span class="number">1</span>)&#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   res = recursion(head.next, length - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	 <span class="keyword">if</span> (!res.result || res.node == <span class="literal">null</span>) &#123;</span><br><span class="line">	 		<span class="keyword">return</span> res;</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">	 res.result = (head.data == res.node.data);</span><br><span class="line"></span><br><span class="line">	 res.node = res.node.next;</span><br><span class="line">	</span><br><span class="line">	 <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -942,7 +977,23 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员面试金典</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回文</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
         		</li>
       		
 		</ul>
@@ -952,7 +1003,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0053-Maximum-Subarray/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/12/17/ctci/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">展开全文 >></a>
         </p>
       
 
@@ -984,7 +1035,7 @@ Only the filled cells need to be validated according to the mentioned rules.</p>
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -1266,6 +1317,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计数</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递推</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">记忆化搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1316,7 +1395,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://robinpig.github.io/Note/#/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>笔记</a>
             </li>
           
             <li class="search-li">

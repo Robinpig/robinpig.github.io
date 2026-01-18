@@ -59,6 +59,8 @@
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
+				<li><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -111,6 +113,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -125,11 +129,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+					<li style="width: 25%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
 		        
 				</ul>
 			</nav>
@@ -146,38 +152,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P1002-过河卒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/">2904. Shortest and Lexicographically Smallest Beautiful String</a>
+      <a class="article-title" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/">P1002 过河卒</a>
     </h1>
   
 
         
-        <a href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/" class="archive-article-date">
-  	<time datetime="2026-01-01T12:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-01</time>
+        <a href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/" class="archive-article-date">
+  	<time datetime="2026-01-16T06:06:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="2904-shortest-and-lexicographically-smallest-beautiful-string"><a class="markdownIt-Anchor" href="#2904-shortest-and-lexicographically-smallest-beautiful-string"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/">2904. Shortest and Lexicographically Smallest Beautiful String</a></h1>
+        <h1 id="p1002-noip-2002-普及组-过河卒"><a class="markdownIt-Anchor" href="#p1002-noip-2002-普及组-过河卒"></a> P1002 [NOIP 2002 普及组] 过河卒</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给你一个二进制字符串 <code>s</code> 和一个正整数 <code>k</code> 。</p>
-<p>如果 <code>s</code> 的某个子字符串中 <code>1</code> 的个数恰好等于 <code>k</code> ，则称这个子字符串是一个 <strong>美丽子字符串</strong> 。</p>
-<p>令 <code>len</code> 等于 <strong>最短</strong> 美丽子字符串的长度。</p>
-<p>返回长度等于 <code>len</code> 且字典序 <strong>最小</strong> 的美丽子字符串。如果 <code>s</code> 中不含美丽子字符串，则返回一个 <strong>空</strong> 字符串。</p>
-<p>对于相同长度的两个字符串 <code>a</code> 和 <code>b</code> ，如果在 <code>a</code> 和 <code>b</code> 出现不同的第一个位置上，<code>a</code> 中该位置上的字符严格大于 <code>b</code> 中的对应字符，则认为字符串 <code>a</code> 字典序 <strong>大于</strong> 字符串 <code>b</code> 。</p>
-<ul>
-<li>例如，<code>&quot;abcd&quot;</code> 的字典序大于 <code>&quot;abcc&quot;</code> ，因为两个字符串出现不同的第一个位置对应第四个字符，而 <code>d</code> 大于 <code>c</code> 。</li>
-</ul>
+<p>棋盘上 <em>A</em> 点有一个过河卒，需要走到目标 <em>B</em> 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 <em>C</em> 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
+<p>棋盘用坐标表示，<em>A</em> 点 (0,0)、<em>B</em> 点 (<em>n</em>,<em>m</em>)，同样马的位置坐标是需要给出的。</p>
         
-          <a class="article-more-a" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/#more">more >></a>
         
       
 
@@ -195,15 +195,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">滑动窗口</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递推</a>
         		</li>
       		
 		</ul>
@@ -213,7 +213,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/">展开全文 >></a>
         </p>
       
 
@@ -243,34 +243,32 @@
 
 
   
-    <article id="post-leetcode/0011-Container-With-Most-Water" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P3147-262144-P" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/31/leetcode/0011-Container-With-Most-Water/">0011. Container With Most Water</a>
+      <a class="article-title" href="/2026/01/16/luogu/P3147-262144-P/">P3147 262144 P</a>
     </h1>
   
 
         
-        <a href="/2025/12/31/leetcode/0011-Container-With-Most-Water/" class="archive-article-date">
-  	<time datetime="2025-12-31T12:31:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-31</time>
+        <a href="/2026/01/16/luogu/P3147-262144-P/" class="archive-article-date">
+  	<time datetime="2026-01-16T06:03:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0011-container-with-most-water"><a class="markdownIt-Anchor" href="#0011-container-with-most-water"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/">0011. Container With Most Water</a></h1>
+        <h1 id="p3147-usaco16open-262144-p"><a class="markdownIt-Anchor" href="#p3147-usaco16open-262144-p"></a> P3147 [USACO16OPEN] 262144 P</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
-<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
-<p>返回容器可以储存的最大水量。</p>
-<p>**说明：**你不能倾斜容器。</p>
+<p>贝西喜欢在手机上下载游戏来玩，尽管她确实觉得对于自己巨大的蹄子来说，小小的触摸屏用起来相当笨拙。</p>
+<p>她对当前正在玩的这个游戏特别感兴趣。游戏开始时给定一个包含 <em>N</em> 个正整数的序列（2≤<em>N</em>≤262,144），每个数的范围在 1…40 之间。在一次操作中，贝西可以选择两个相邻且相等的数，将它们替换为一个比原数大 1 的数（例如，她可以将两个相邻的 7 替换为一个 8）。游戏的目标是最大化最终序列中的最大数值。请帮助贝西获得尽可能高的分数！</p>
         
-          <a class="article-more-a" href="/2025/12/31/leetcode/0011-Container-With-Most-Water/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P3147-262144-P/#more">more >></a>
         
       
 
@@ -288,15 +286,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -310,7 +304,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/31/leetcode/0011-Container-With-Most-Water/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P3147-262144-P/">展开全文 >></a>
         </p>
       
 
@@ -340,31 +334,36 @@
 
 
   
-    <article id="post-leetcode/1504-Count-Submatrices-With-All-Ones" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P11363-树的遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/31/leetcode/1504-Count-Submatrices-With-All-Ones/">1504. Count Submatrices With All Ones</a>
+      <a class="article-title" href="/2026/01/15/luogu/P11363-%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">P11363 树的遍历</a>
     </h1>
   
 
         
-        <a href="/2025/12/31/leetcode/1504-Count-Submatrices-With-All-Ones/" class="archive-article-date">
-  	<time datetime="2025-12-30T23:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-31</time>
+        <a href="/2026/01/15/luogu/P11363-%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1504-count-submatrices-with-all-ones"><a class="markdownIt-Anchor" href="#1504-count-submatrices-with-all-ones"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-submatrices-with-all-ones/">1504. Count Submatrices With All Ones</a></h1>
+        <h1 id="p11363-noip2024-树的遍历"><a class="markdownIt-Anchor" href="#p11363-noip2024-树的遍历"></a> P11363 [NOIP2024] 树的遍历</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给你一个 <code>m x n</code> 的二进制矩阵 <code>mat</code> ，请你返回有多少个 <strong>子矩形</strong> 的元素全部都是 1 。</p>
+<p>小 Q 是一个算法竞赛初学者，正在学习图论知识中的树的遍历。一棵由 <em>n</em> 个结点，<em>n</em>−1 条边构成的树，初始时所有结点都未被标记，它的遍历过程如下：</p>
+<ol>
+<li>选择一个结点 <em>s</em> 作为遍历起始结点，并把该结点打上标记。</li>
+<li>假设当前访问的结点为 <em>u</em>，寻找任意一个与 <em>u</em> 相邻且未标记的结点 <em>v</em>，将 <em>v</em> 作为新的当前访问结点并打上标记。之后再次进入第 2 步。</li>
+<li>假设在第 2 步中，与 <em>u</em> 相邻的结点都已被标记，如果 <em>u</em>=<em>s</em> 则遍历过程结束，否则将 <em>u</em> 设为遍历 <em>u</em> 之前的上一个结点并再进入第 2 步。</li>
+</ol>
         
-          <a class="article-more-a" href="/2025/12/31/leetcode/1504-Count-Submatrices-With-All-Ones/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/15/luogu/P11363-%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/#more">more >></a>
         
       
 
@@ -382,7 +381,97 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">容斥原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/01/15/luogu/P11363-%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0022-Generate-Parentheses" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/01/15/leetcode/0022-Generate-Parentheses/">0022. Generate Parentheses</a>
+    </h1>
+  
+
+        
+        <a href="/2026/01/15/leetcode/0022-Generate-Parentheses/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="22-generate-parentheses"><a class="markdownIt-Anchor" href="#22-generate-parentheses"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/generate-parentheses/">22. Generate Parentheses</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
+        
+          <a class="article-more-a" href="/2026/01/15/leetcode/0022-Generate-Parentheses/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -394,15 +483,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
         		</li>
       		
 		</ul>
@@ -412,7 +493,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/31/leetcode/1504-Count-Submatrices-With-All-Ones/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/15/leetcode/0022-Generate-Parentheses/">展开全文 >></a>
         </p>
       
 
@@ -442,34 +523,130 @@
 
 
   
-    <article id="post-leetcode/1970-Last-Day-Where-You-Can-Still-Cross" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0010-Regular-Expression-Matching" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/31/leetcode/1970-Last-Day-Where-You-Can-Still-Cross/">1970. Last Day Where You Can Still Cross</a>
+      <a class="article-title" href="/2026/01/15/leetcode/0010-Regular-Expression-Matching/">0010. Regular Expression Matching</a>
     </h1>
   
 
         
-        <a href="/2025/12/31/leetcode/1970-Last-Day-Where-You-Can-Still-Cross/" class="archive-article-date">
-  	<time datetime="2025-12-30T23:37:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-31</time>
+        <a href="/2026/01/15/leetcode/0010-Regular-Expression-Matching/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1970-last-day-where-you-can-still-cross"><a class="markdownIt-Anchor" href="#1970-last-day-where-you-can-still-cross"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/last-day-where-you-can-still-cross/">1970. Last Day Where You Can Still Cross</a></h1>
+        <h1 id="10-regular-expression-matching"><a class="markdownIt-Anchor" href="#10-regular-expression-matching"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/regular-expression-matching/">10. Regular Expression Matching</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给你一个下标从 <strong>1</strong> 开始的二进制矩阵，其中 <code>0</code> 表示陆地，<code>1</code> 表示水域。同时给你 <code>row</code> 和 <code>col</code> 分别表示矩阵中行和列的数目。</p>
-<p>一开始在第 <code>0</code> 天，<strong>整个</strong> 矩阵都是 <strong>陆地</strong> 。但每一天都会有一块新陆地被 <strong>水</strong> 淹没变成水域。给你一个下标从 <strong>1</strong> 开始的二维数组 <code>cells</code> ，其中 <code>cells[i] = [ri, ci]</code> 表示在第 <code>i</code> 天，第 <code>ri</code> 行 <code>ci</code> 列（下标都是从 <strong>1</strong> 开始）的陆地会变成 <strong>水域</strong> （也就是 <code>0</code> 变成 <code>1</code> ）。</p>
-<p>你想知道从矩阵最 <strong>上面</strong> 一行走到最 <strong>下面</strong> 一行，且只经过陆地格子的 <strong>最后一天</strong> 是哪一天。你可以从最上面一行的 <strong>任意</strong> 格子出发，到达最下面一行的 <strong>任意</strong> 格子。你只能沿着 <strong>四个</strong> 基本方向移动（也就是上下左右）。</p>
-<p>请返回只经过陆地格子能从最 <strong>上面</strong> 一行走到最 <strong>下面</strong> 一行的 <strong>最后一天</strong> 。</p>
+<p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>'.'</code> 和 <code>'*'</code> 的正则表达式匹配。</p>
+<ul>
+<li><code>'.'</code> 匹配任意单个字符</li>
+<li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
+</ul>
+<p>所谓匹配，是要涵盖 <strong>整个</strong> 字符串 <code>s</code> 的，而不是部分字符串。</p>
         
-          <a class="article-more-a" href="/2025/12/31/leetcode/1970-Last-Day-Where-You-Can-Still-Cross/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/15/leetcode/0010-Regular-Expression-Matching/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/01/15/leetcode/0010-Regular-Expression-Matching/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0149-Max-Points-on-a-Line" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/01/15/leetcode/0149-Max-Points-on-a-Line/">0149. Max Points on a Line</a>
+    </h1>
+  
+
+        
+        <a href="/2026/01/15/leetcode/0149-Max-Points-on-a-Line/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="149-max-points-on-a-line"><a class="markdownIt-Anchor" href="#149-max-points-on-a-line"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/max-points-on-a-line/">149. Max Points on a Line</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>给你一个数组 <code>points</code> ，其中 <code>points[i] = [xi, yi]</code> 表示 <strong>X-Y</strong> 平面上的一个点。求最多有多少个点在同一条直线上。</p>
+        
+          <a class="article-more-a" href="/2026/01/15/leetcode/0149-Max-Points-on-a-Line/#more">more >></a>
         
       
 
@@ -495,24 +672,111 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二分查找</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">几何</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/01/15/leetcode/0149-Max-Points-on-a-Line/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0128-Longest-Consecutive-Sequence" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/01/15/leetcode/0128-Longest-Consecutive-Sequence/">0128. Longest Consecutive Sequence</a>
+    </h1>
+  
+
+        
+        <a href="/2026/01/15/leetcode/0128-Longest-Consecutive-Sequence/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:16:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="128-longest-consecutive-sequence"><a class="markdownIt-Anchor" href="#128-longest-consecutive-sequence"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-consecutive-sequence/">128. Longest Consecutive Sequence</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>给定一个未排序的整数数组 <code>nums</code> ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。</p>
+<p>请你设计并实现时间复杂度为 <code>O(n)</code> 的算法解决此问题。</p>
+        
+          <a class="article-more-a" href="/2026/01/15/leetcode/0128-Longest-Consecutive-Sequence/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度优先搜索</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">广度优先搜索</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -521,7 +785,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/31/leetcode/1970-Last-Day-Where-You-Can-Still-Cross/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/15/leetcode/0128-Longest-Consecutive-Sequence/">展开全文 >></a>
         </p>
       
 
@@ -551,104 +815,33 @@
 
 
   
-    <article id="post-leetcode/0498-Diagonal-Traverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/2943-Maximize-Area-of-Square-Hole-in-Grid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/30/leetcode/0498-Diagonal-Traverse/">0498. Diagonal Traverse</a>
+      <a class="article-title" href="/2026/01/15/leetcode/2943-Maximize-Area-of-Square-Hole-in-Grid/">2943. Maximize Area of Square Hole in Grid</a>
     </h1>
   
 
         
-        <a href="/2025/12/30/leetcode/0498-Diagonal-Traverse/" class="archive-article-date">
-  	<time datetime="2025-12-30T14:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-30</time>
+        <a href="/2026/01/15/leetcode/2943-Maximize-Area-of-Square-Hole-in-Grid/" class="archive-article-date">
+  	<time datetime="2026-01-15T13:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0498-diagonal-traverse"><a class="markdownIt-Anchor" href="#0498-diagonal-traverse"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/diagonal-traverse/">0498. Diagonal Traverse</a></h1>
+        <h1 id="2943-maximize-area-of-square-hole-in-grid"><a class="markdownIt-Anchor" href="#2943-maximize-area-of-square-hole-in-grid"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximize-area-of-square-hole-in-grid/">2943. Maximize Area of Square Hole in Grid</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给你一个大小为 <code>m x n</code> 的矩阵 <code>mat</code> ，请以对角线遍历的顺序，用一个数组返回这个矩阵中的所有元素。</p>
+<p>给你两个整数 <code>n</code> 和 <code>m</code>，以及两个整数数组 <code>hBars</code> 和 <code>vBars</code>。网格由 <code>n + 2</code> 条水平线和 <code>m + 2</code> 条竖直线组成，形成 1x1 的单元格。网格中的线条从 <code>1</code> 开始编号。</p>
+<p>你可以从 <code>hBars</code> 中 <strong>删除</strong> 一些水平线条，并从 <code>vBars</code> 中删除一些竖直线条。注意，其他线条是固定的，无法删除。</p>
+<p>返回一个整数表示移除一些线条（可以不移除任何线条）后，网格中 <strong>正方形空洞的最大面积</strong> 。</p>
         
-          <a class="article-more-a" href="/2025/12/30/leetcode/0498-Diagonal-Traverse/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/30/leetcode/0498-Diagonal-Traverse/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/2011-Final-Value-of-Variable-After-Performing-Operations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/30/leetcode/2011-Final-Value-of-Variable-After-Performing-Operations/">2011. Final Value of Variable After Performing Operations</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/30/leetcode/2011-Final-Value-of-Variable-After-Performing-Operations/" class="archive-article-date">
-  	<time datetime="2025-12-30T12:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="2011-final-value-of-variable-after-performing-operations"><a class="markdownIt-Anchor" href="#2011-final-value-of-variable-after-performing-operations"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/final-value-of-variable-after-performing-operations/">2011. Final Value of Variable After Performing Operations</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>存在一种仅支持 4 种操作和 1 个变量 <code>X</code> 的编程语言：</p>
-<ul>
-<li><code>++X</code> 和 <code>X++</code> 使变量 <code>X</code> 的值 <strong>加</strong> <code>1</code></li>
-<li><code>--X</code> 和 <code>X--</code> 使变量 <code>X</code> 的值 <strong>减</strong> <code>1</code></li>
-</ul>
-<p>最初，<code>X</code> 的值是 <code>0</code></p>
-<p>给你一个字符串数组 <code>operations</code> ，这是由操作组成的一个列表，返回执行所有操作后， <code>X</code> 的 <strong>最终值</strong> 。</p>
-        
-          <a class="article-more-a" href="/2025/12/30/leetcode/2011-Final-Value-of-Variable-After-Performing-Operations/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/15/leetcode/2943-Maximize-Area-of-Square-Hole-in-Grid/#more">more >></a>
         
       
 
@@ -663,10 +856,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -678,7 +867,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">模拟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
         		</li>
       		
 		</ul>
@@ -688,7 +877,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/30/leetcode/2011-Final-Value-of-Variable-After-Performing-Operations/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/15/leetcode/2943-Maximize-Area-of-Square-Hole-in-Grid/">展开全文 >></a>
         </p>
       
 
@@ -718,210 +907,32 @@
 
 
   
-    <article id="post-leetcode/1078-Occurrences-After-Bigram" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0140-Word-Break-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/30/leetcode/1078-Occurrences-After-Bigram/">1078. Occurrences After Bigram</a>
+      <a class="article-title" href="/2026/01/14/leetcode/0140-Word-Break-II/">0140. Word Break II</a>
     </h1>
   
 
         
-        <a href="/2025/12/30/leetcode/1078-Occurrences-After-Bigram/" class="archive-article-date">
-  	<time datetime="2025-12-29T23:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-30</time>
+        <a href="/2026/01/14/leetcode/0140-Word-Break-II/" class="archive-article-date">
+  	<time datetime="2026-01-14T13:44:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1078-occurrences-after-bigram"><a class="markdownIt-Anchor" href="#1078-occurrences-after-bigram"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/occurrences-after-bigram/">1078. Occurrences After Bigram</a></h1>
+        <h1 id="140-word-break-ii"><a class="markdownIt-Anchor" href="#140-word-break-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/word-break-ii/">140. Word Break II</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给出第一个词 <code>first</code> 和第二个词 <code>second</code>，考虑在某些文本 <code>text</code> 中可能以 <code>&quot;first second third&quot;</code> 形式出现的情况，其中 <code>second</code> 紧随 <code>first</code> 出现，<code>third</code> 紧随 <code>second</code> 出现。</p>
-<p>对于每种这样的情况，将第三个词 “<code>third</code>” 添加到答案中，并返回答案。</p>
+<p>给定一个字符串 <code>s</code> 和一个字符串字典 <code>wordDict</code> ，在字符串 <code>s</code> 中增加空格来构建一个句子，使得句子中所有的单词都在词典中。<strong>以任意顺序</strong> 返回所有这些可能的句子。</p>
+<p>**注意：**词典中的同一个单词可能在分段中被重复使用多次。</p>
         
-          <a class="article-more-a" href="/2025/12/30/leetcode/1078-Occurrences-After-Bigram/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/30/leetcode/1078-Occurrences-After-Bigram/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/0756-Pyramid-Transition-Matrix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/29/leetcode/0756-Pyramid-Transition-Matrix/">0756. Pyramid Transition Matrix</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/29/leetcode/0756-Pyramid-Transition-Matrix/" class="archive-article-date">
-  	<time datetime="2025-12-29T12:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0756-pyramid-transition-matrix"><a class="markdownIt-Anchor" href="#0756-pyramid-transition-matrix"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/pyramid-transition-matrix/">0756. Pyramid Transition Matrix</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>你正在把积木堆成金字塔。每个块都有一个颜色，用一个字母表示。每一行的块比它下面的行 <strong>少一个块</strong> ，并且居中。</p>
-<p>为了使金字塔美观，只有特定的 <strong>三角形图案</strong> 是允许的。一个三角形的图案由 <strong>两个块</strong> 和叠在上面的 <strong>单个块</strong> 组成。模式是以三个字母字符串的列表形式 <code>allowed</code> 给出的，其中模式的前两个字符分别表示左右底部块，第三个字符表示顶部块。</p>
-<ul>
-<li>例如，<code>&quot;ABC&quot;</code> 表示一个三角形图案，其中一个 <code>“C”</code> 块堆叠在一个 <code>'A'</code> 块(左)和一个 <code>'B'</code> 块(右)之上。请注意，这与 <code>&quot;BAC&quot;</code> 不同，<code>&quot;B&quot;</code> 在左下角，<code>&quot;A&quot;</code> 在右下角。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2025/12/29/leetcode/0756-Pyramid-Transition-Matrix/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/29/leetcode/0756-Pyramid-Transition-Matrix/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/3349-Adjacent-Increasing-Subarrays-Detection-I" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/28/leetcode/3349-Adjacent-Increasing-Subarrays-Detection-I/">3349. Adjacent Increasing Subarrays Detection I</a>
-    </h1>
-  
-
-        
-        <a href="/2025/12/28/leetcode/3349-Adjacent-Increasing-Subarrays-Detection-I/" class="archive-article-date">
-  	<time datetime="2025-12-28T12:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="3349-adjacent-increasing-subarrays-detection-i"><a class="markdownIt-Anchor" href="#3349-adjacent-increasing-subarrays-detection-i"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/adjacent-increasing-subarrays-detection-i/">3349. Adjacent Increasing Subarrays Detection I</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code> 和一个整数 <code>k</code>，请你确定是否存在 <strong>两个</strong> <strong>相邻</strong> 且长度为 <code>k</code> 的 <strong>严格递增</strong> 子数组。具体来说，需要检查是否存在从下标 <code>a</code> 和 <code>b</code> (<code>a &lt; b</code>) 开始的 <strong>两个</strong> 子数组，并满足下述全部条件：</p>
-<ul>
-<li>这两个子数组 <code>nums[a..a + k - 1]</code> 和 <code>nums[b..b + k - 1]</code> 都是 <strong>严格递增</strong> 的。</li>
-<li>这两个子数组必须是 <strong>相邻的</strong>，即 <code>b = a + k</code>。</li>
-</ul>
-<p>如果可以找到这样的 <strong>两个</strong> 子数组，请返回 <code>true</code>；否则返回 <code>false</code>。</p>
-<p><strong>子数组</strong> 是数组中的一个连续 <strong>非空</strong> 的元素序列。</p>
-        
-          <a class="article-more-a" href="/2025/12/28/leetcode/3349-Adjacent-Increasing-Subarrays-Detection-I/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/14/leetcode/0140-Word-Break-II/#more">more >></a>
         
       
 
@@ -953,7 +964,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/28/leetcode/3349-Adjacent-Increasing-Subarrays-Detection-I/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/14/leetcode/0140-Word-Break-II/">展开全文 >></a>
         </p>
       
 
@@ -983,32 +994,37 @@
 
 
   
-    <article id="post-leetcode/0084-Largest-Rectangle-in-Histogram" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0135-Candy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/12/28/leetcode/0084-Largest-Rectangle-in-Histogram/">0084. Largest Rectangle in Histogram</a>
+      <a class="article-title" href="/2026/01/14/leetcode/0135-Candy/">0135. Candy</a>
     </h1>
   
 
         
-        <a href="/2025/12/28/leetcode/0084-Largest-Rectangle-in-Histogram/" class="archive-article-date">
-  	<time datetime="2025-12-28T05:08:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-12-28</time>
+        <a href="/2026/01/14/leetcode/0135-Candy/" class="archive-article-date">
+  	<time datetime="2026-01-14T13:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0084-largest-rectangle-in-histogram"><a class="markdownIt-Anchor" href="#0084-largest-rectangle-in-histogram"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-rectangle-in-histogram/">0084. Largest Rectangle in Histogram</a></h1>
+        <h1 id="135-candy"><a class="markdownIt-Anchor" href="#135-candy"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/candy/">135. Candy</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>给定 <em>n</em> 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
-<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
+<p><code>n</code> 个孩子站成一排。给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。</p>
+<p>你需要按照以下要求，给这些孩子分发糖果：</p>
+<ul>
+<li>每个孩子至少分配到 <code>1</code> 个糖果。</li>
+<li>相邻两个孩子中，评分更高的那个会获得更多的糖果。</li>
+</ul>
+<p>请你给每个孩子分发糖果，计算并返回需要准备的 <strong>最少糖果数目</strong> 。</p>
         
-          <a class="article-more-a" href="/2025/12/28/leetcode/0084-Largest-Rectangle-in-Histogram/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/14/leetcode/0135-Candy/#more">more >></a>
         
       
 
@@ -1032,14 +1048,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -1048,7 +1056,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/12/28/leetcode/0084-Largest-Rectangle-in-Histogram/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/14/leetcode/0135-Candy/">展开全文 >></a>
         </p>
       
 
@@ -1080,7 +1088,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1362,6 +1370,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计数</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递推</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">记忆化搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1412,7 +1448,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://robinpig.github.io/Note/#/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>笔记</a>
             </li>
           
             <li class="search-li">

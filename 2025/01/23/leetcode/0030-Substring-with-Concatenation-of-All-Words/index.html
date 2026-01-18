@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://robinpig.github.io">
   <title>0030. Substring with Concatenation of All Words | Robinpig&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0030. Substring with Concatenation of All Words  Description You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s) in s that is a conc">
+  <meta name="description" content="0030. Substring with Concatenation of All Words  Description 给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。 s 中的 串联子串 是指一个包含 words 中所有字符串以任意顺序排列连接起来的子串。  例如，如果 words &#x3D; [&quot;ab&quot;,&quot;cd&quot;,&amp;q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0030. Substring with Concatenation of All Words">
 <meta property="og:url" content="http://robinpig.github.io/2025/01/23/leetcode/0030-Substring-with-Concatenation-of-All-Words/index.html">
 <meta property="og:site_name" content="Robinpig&#39; Blog">
-<meta property="og:description" content="0030. Substring with Concatenation of All Words  Description You are given a string s and an array of strings words of the same length. Return all starting indices of substring(s) in s that is a conc">
+<meta property="og:description" content="0030. Substring with Concatenation of All Words  Description 给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。 s 中的 串联子串 是指一个包含 words 中所有字符串以任意顺序排列连接起来的子串。  例如，如果 words &#x3D; [&quot;ab&quot;,&quot;cd&quot;,&amp;q">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2026-01-04T12:42:28.447Z">
+<meta property="article:modified_time" content="2026-01-17T12:58:14.915Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
+<meta property="article:tag" content="字符串">
 <meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="哈希表">
+<meta property="article:tag" content="滑动窗口">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Robinpig&#39; Blog" type="application/atom+xml">
@@ -64,6 +67,8 @@
 				<li><a href="/tags/LeetCode/">LeetCode</a></li>
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+	        
+				<li><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,6 +122,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -131,11 +138,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+					<li style="width: 25%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
 		        
 				</ul>
 			</nav>
@@ -172,23 +181,25 @@
       
         <h1 id="0030-substring-with-concatenation-of-all-words"><a class="markdownIt-Anchor" href="#0030-substring-with-concatenation-of-all-words"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/">0030. Substring with Concatenation of All Words</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given a string <code>s</code> and an array of strings <code>words</code> of <strong>the same length</strong>.<br />
-Return all starting indices of substring(s) in <code>s</code> that is a concatenation of each word in <code>words</code> <strong>exactly once</strong>, <strong>in any order</strong>, and <strong>without any intervening characters</strong>.</p>
-<p>You can return the answer in <strong>any order</strong>.</p>
-<span id="more"></span>  
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;barfoothefoobarman&quot;, words = [&quot;foo&quot;,&quot;bar&quot;]</span><br><span class="line">Output: [0,9]</span><br><span class="line">Explanation: Substrings starting at index 0 and 9 are &quot;barfoo&quot; and &quot;foobar&quot; respectively.</span><br><span class="line">The output order does not matter, returning [9,0] is fine too.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;wordgoodgoodgoodbestword&quot;, words = [&quot;word&quot;,&quot;good&quot;,&quot;best&quot;,&quot;word&quot;]</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;barfoofoobarthefoobarman&quot;, words = [&quot;bar&quot;,&quot;foo&quot;,&quot;the&quot;]</span><br><span class="line">Output: [6,9,12]</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
+<p>给定一个字符串 <code>s</code> 和一个字符串数组 <code>words</code><strong>。</strong> <code>words</code> 中所有字符串 <strong>长度相同</strong>。</p>
+<p><code>s</code> 中的 <strong>串联子串</strong> 是指一个包含 <code>words</code> 中所有字符串以任意顺序排列连接起来的子串。</p>
+<ul>
+<li>例如，如果 <code>words = [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]</code>， 那么 <code>&quot;abcdef&quot;</code>， <code>&quot;abefcd&quot;</code>，<code>&quot;cdabef&quot;</code>， <code>&quot;cdefab&quot;</code>，<code>&quot;efabcd&quot;</code>， 和 <code>&quot;efcdab&quot;</code> 都是串联子串。 <code>&quot;acdbef&quot;</code> 不是串联子串，因为他不是任何 <code>words</code> 排列的连接。</li>
+</ul>
+<p>返回所有串联子串在 <code>s</code> 中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
+ <span id="more"></span>  
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoothefoobarman&quot;, words = [&quot;foo&quot;,&quot;bar&quot;]</span><br><span class="line">输出：[0,9]</span><br><span class="line">解释：因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。</span><br><span class="line">子串 &quot;barfoo&quot; 开始位置是 0。它是 words 中以 [&quot;bar&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;foobar&quot; 开始位置是 9。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br><span class="line">输出顺序无关紧要。返回 [9,0] 也是可以的。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;wordgoodgoodgoodbestword&quot;, words = [&quot;word&quot;,&quot;good&quot;,&quot;best&quot;,&quot;word&quot;]</span><br><span class="line">输出：[]</span><br><span class="line">解释：因为 words.length == 4 并且 words[i].length == 4，所以串联子串的长度必须为 16。</span><br><span class="line">s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接。</span><br><span class="line">所以我们返回一个空数组。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoofoobarthefoobarman&quot;, words = [&quot;bar&quot;,&quot;foo&quot;,&quot;the&quot;]</span><br><span class="line">输出：[6,9,12]</span><br><span class="line">解释：因为 words.length == 3 并且 words[i].length == 3，所以串联子串的长度必须为 9。</span><br><span class="line">子串 &quot;foobarthe&quot; 开始位置是 6。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;,&quot;the&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;barthefoo&quot; 开始位置是 9。它是 words 中以 [&quot;bar&quot;,&quot;the&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;thefoobar&quot; 开始位置是 12。它是 words 中以 [&quot;the&quot;,&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
 <ul>
 <li><code>1 &lt;= s.length &lt;= 104</code></li>
-<li><code>s</code> consists of lower-case English letters.</li>
 <li><code>1 &lt;= words.length &lt;= 5000</code></li>
 <li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-<li><code>words[i]</code> consists of lower-case English letters.</li>
+<li><code>words[i]</code> 和 <code>s</code> 由小写英文字母组成</li>
 </ul>
 <h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
 <h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> Java</h3>
@@ -231,7 +242,19 @@ Return all starting indices of substring(s) in <code>s</code> that is a concaten
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">滑动窗口</a>
         		</li>
       		
 		</ul>
@@ -625,6 +648,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计数</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递推</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">记忆化搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -675,7 +726,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://robinpig.github.io/Note/#/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>笔记</a>
             </li>
           
             <li class="search-li">

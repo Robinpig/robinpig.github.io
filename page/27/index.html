@@ -59,6 +59,8 @@
 	        
 				<li><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
 	        
+				<li><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -111,6 +113,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -125,11 +129,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/LeetCode/">LeetCode</a></li>
+					<li style="width: 25%"><a href="/tags/LeetCode/">LeetCode</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+					<li style="width: 25%"><a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4">极客时间</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/%E6%B4%9B%E8%B0%B7">洛谷</a></li>
 		        
 				</ul>
 			</nav>
@@ -146,19 +152,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/0691-Stickers-to-Spell-Word" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0479-Largest-Palindrome-Product" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/">0691. Stickers to Spell Word</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0479-Largest-Palindrome-Product/">0479. Largest Palindrome Product</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0479-Largest-Palindrome-Product/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -166,29 +172,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0691-stickers-to-spell-word"><a class="markdownIt-Anchor" href="#0691-stickers-to-spell-word"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/stickers-to-spell-word/">0691. Stickers to Spell Word</a></h1>
+        <h1 id="0479-largest-palindrome-product"><a class="markdownIt-Anchor" href="#0479-largest-palindrome-product"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-palindrome-product/">0479. Largest Palindrome Product</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>
-<p>You would like to spell out the given string <code>target</code> by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.</p>
-<p>Return <em>the minimum number of stickers that you need to spell out</em> <code>target</code>. If the task is impossible, return <code>-1</code>.</p>
-<p><strong>Note:</strong> In all test cases, all words were chosen randomly from the <code>1000</code> most common US English words, and <code>target</code> was chosen as a concatenation of two random words.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: stickers = [&quot;with&quot;,&quot;example&quot;,&quot;science&quot;], target = &quot;thehat&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line">We can use 2 &quot;with&quot; stickers, and 1 &quot;example&quot; sticker.</span><br><span class="line">After cutting and rearrange the letters of those stickers, we can form the target &quot;thehat&quot;.</span><br><span class="line">Also, this is the minimum number of stickers necessary to form the target string.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: stickers = [&quot;notice&quot;,&quot;possible&quot;], target = &quot;basicbasic&quot;</span><br><span class="line">Output: -1</span><br><span class="line">Explanation:</span><br><span class="line">We cannot form the target &quot;basicbasic&quot; from cutting letters from the given stickers.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == stickers.length</code></li>
-<li><code>1 &lt;= n &lt;= 50</code></li>
-<li><code>1 &lt;= stickers[i].length &lt;= 10</code></li>
-<li><code>1 &lt;= target.length &lt;= 15</code></li>
-<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minStickers</span><span class="params">(stickers []<span class="type">string</span>, target <span class="type">string</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    m := <span class="built_in">len</span>(target)</span><br><span class="line">    f := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">1</span>&lt;&lt;m)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> f &#123;</span><br><span class="line">        f[i] = <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> dp <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>)</span></span> <span class="type">int</span></span><br><span class="line">    dp = <span class="function"><span class="keyword">func</span><span class="params">(mask <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> f[mask] != <span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> f[mask]</span><br><span class="line">        &#125;</span><br><span class="line">        f[mask] = m + <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> _, sticker := <span class="keyword">range</span> stickers &#123;</span><br><span class="line">            left := mask</span><br><span class="line">            cnt := [<span class="number">26</span>]<span class="type">int</span>&#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> _, c := <span class="keyword">range</span> sticker &#123;</span><br><span class="line">                cnt[c-<span class="string">&#x27;a&#x27;</span>]++</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> i, c := <span class="keyword">range</span> target &#123;</span><br><span class="line">                <span class="keyword">if</span> mask&gt;&gt;i&amp;<span class="number">1</span> == <span class="number">1</span> &amp;&amp; cnt[c-<span class="string">&#x27;a&#x27;</span>] &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    cnt[c-<span class="string">&#x27;a&#x27;</span>]--</span><br><span class="line">                    left ^= <span class="number">1</span> &lt;&lt; i</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> left &lt; mask &#123;</span><br><span class="line">                f[mask] = min(f[mask], dp(left)+<span class="number">1</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[mask]</span><br><span class="line">    &#125;</span><br><span class="line">    ans := dp(<span class="number">1</span>&lt;&lt;m - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> ans &lt;= m &#123;</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>Given an integer n, return <em>the <strong>largest palindromic integer</strong> that can be represented as the product of two <code>n</code>-digits integers</em>. Since the answer can be very large, return it <strong>modulo</strong> <code>1337</code>.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0479-Largest-Palindrome-Product/#more">more >></a>
+        
       
 
       
@@ -215,7 +204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0691-Stickers-to-Spell-Word/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0479-Largest-Palindrome-Product/">展开全文 >></a>
         </p>
       
 
@@ -245,19 +234,19 @@
 
 
   
-    <article id="post-leetcode/0699-Falling-Squares" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0492-Construct-the-Rectangle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0699-Falling-Squares/">0699. Falling Squares</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0492-Construct-the-Rectangle/">0492. Construct the Rectangle</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0699-Falling-Squares/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0492-Construct-the-Rectangle/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -265,12 +254,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0699-falling-squares"><a class="markdownIt-Anchor" href="#0699-falling-squares"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/falling-squares/">0699. Falling Squares</a></h1>
+        <h1 id="0492-construct-the-rectangle"><a class="markdownIt-Anchor" href="#0492-construct-the-rectangle"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-the-rectangle/">0492. Construct the Rectangle</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>There are several squares being dropped onto the X-axis of a 2D plane.</p>
-<p>You are given a 2D integer array <code>positions</code> where <code>positions[i] = [lefti, sideLengthi]</code> represents the <code>ith</code> square with a side length of <code>sideLengthi</code> that is dropped with its left edge aligned with X-coordinate <code>lefti</code>.</p>
+<p>A web developer needs to know how to design a web page’s size.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0699-Falling-Squares/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0492-Construct-the-Rectangle/#more">more >></a>
         
       
 
@@ -298,7 +286,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0699-Falling-Squares/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0492-Construct-the-Rectangle/">展开全文 >></a>
         </p>
       
 
@@ -328,19 +316,19 @@
 
 
   
-    <article id="post-leetcode/0700-Search-in-a-Binary-Search-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0496-Next-Greater-Element-I" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/">0700. Search in a Binary Search Tree</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0496-Next-Greater-Element-I/">0496. Next Greater Element I</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0496-Next-Greater-Element-I/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -348,12 +336,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0700-search-in-a-binary-search-tree"><a class="markdownIt-Anchor" href="#0700-search-in-a-binary-search-tree"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-a-binary-search-tree/">0700. Search in a Binary Search Tree</a></h1>
+        <h1 id="0496-next-greater-element-i"><a class="markdownIt-Anchor" href="#0496-next-greater-element-i"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-i/">0496. Next Greater Element I</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
-<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
+<p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>
+<p>You are given two <strong>distinct 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, where <code>nums1</code> is a subset of <code>nums2</code>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0496-Next-Greater-Element-I/#more">more >></a>
         
       
 
@@ -381,7 +369,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0700-Search-in-a-Binary-Search-Tree/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0496-Next-Greater-Element-I/">展开全文 >></a>
         </p>
       
 
@@ -411,19 +399,19 @@
 
 
   
-    <article id="post-leetcode/0693-Binary-Number-with-Alternating-Bits" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0504-Base-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/">0693. Binary Number with Alternating Bits</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0504-Base-7/">0504. Base 7</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0504-Base-7/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -431,11 +419,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0693-binary-number-with-alternating-bits"><a class="markdownIt-Anchor" href="#0693-binary-number-with-alternating-bits"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-number-with-alternating-bits/">0693. Binary Number with Alternating Bits</a></h1>
+        <h1 id="0504-base-7"><a class="markdownIt-Anchor" href="#0504-base-7"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/base-7/">0504. Base 7</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.</p>
+<p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0504-Base-7/#more">more >></a>
         
       
 
@@ -463,7 +451,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0693-Binary-Number-with-Alternating-Bits/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0504-Base-7/">展开全文 >></a>
         </p>
       
 
@@ -493,19 +481,19 @@
 
 
   
-    <article id="post-leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0500-Keyboard-Row" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/">0689. Maximum Sum of 3 Non-Overlapping Subarrays</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0500-Keyboard-Row/">0500. Keyboard Row</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0500-Keyboard-Row/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -513,26 +501,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0689-maximum-sum-of-3-non-overlapping-subarrays"><a class="markdownIt-Anchor" href="#0689-maximum-sum-of-3-non-overlapping-subarrays"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays/">0689. Maximum Sum of 3 Non-Overlapping Subarrays</a></h1>
+        <h1 id="0500-keyboard-row"><a class="markdownIt-Anchor" href="#0500-keyboard-row"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/keyboard-row/">0500. Keyboard Row</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an integer array <code>nums</code> and an integer <code>k</code>, find three non-overlapping subarrays of length <code>k</code> with maximum sum and return them.</p>
-<p>Return the result as a list of indices representing the starting position of each interval (<strong>0-indexed</strong>). If there are multiple answers, return the lexicographically smallest one.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,1,2,6,7,5,1], k = 2</span><br><span class="line">Output: [0,3,5]</span><br><span class="line">Explanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices [0, 3, 5].</span><br><span class="line">We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,1,2,1,2,1,2,1], k = 2</span><br><span class="line">Output: [0,2,4]</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 2 * 104</code></li>
-<li><code>1 &lt;= nums[i] &lt; 216</code></li>
-<li><code>1 &lt;= k &lt;= floor(nums.length / 3)</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxSumOfThreeSubarrays</span><span class="params">(nums []<span class="type">int</span>, k <span class="type">int</span>)</span></span> (ans []<span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> sum1, maxSum1, maxSum1Idx <span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> sum2, maxSum12, maxSum12Idx1, maxSum12Idx2 <span class="type">int</span></span><br><span class="line">    <span class="keyword">var</span> sum3, maxTotal <span class="type">int</span></span><br><span class="line">    <span class="keyword">for</span> i := k * <span class="number">2</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">        sum1 += nums[i-k*<span class="number">2</span>]</span><br><span class="line">        sum2 += nums[i-k]</span><br><span class="line">        sum3 += nums[i]</span><br><span class="line">        <span class="keyword">if</span> i &gt;= k*<span class="number">3</span><span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> sum1 &gt; maxSum1 &#123;</span><br><span class="line">                maxSum1 = sum1</span><br><span class="line">                maxSum1Idx = i - k*<span class="number">3</span> + <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> maxSum1+sum2 &gt; maxSum12 &#123;</span><br><span class="line">                maxSum12 = maxSum1 + sum2</span><br><span class="line">                maxSum12Idx1, maxSum12Idx2 = maxSum1Idx, i-k*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> maxSum12+sum3 &gt; maxTotal &#123;</span><br><span class="line">                maxTotal = maxSum12 + sum3</span><br><span class="line">                ans = []<span class="type">int</span>&#123;maxSum12Idx1, maxSum12Idx2, i - k + <span class="number">1</span>&#125;</span><br><span class="line">            &#125;</span><br><span class="line">            sum1 -= nums[i-k*<span class="number">3</span>+<span class="number">1</span>]</span><br><span class="line">            sum2 -= nums[i-k*<span class="number">2</span>+<span class="number">1</span>]</span><br><span class="line">            sum3 -= nums[i-k+<span class="number">1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+<p>Given an array of strings <code>words</code>, return <em>the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below</em>.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0500-Keyboard-Row/#more">more >></a>
+        
       
 
       
@@ -559,7 +533,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0689-Maximum-Sum-of-3-Non-Overlapping-Subarrays/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0500-Keyboard-Row/">展开全文 >></a>
         </p>
       
 
@@ -589,19 +563,19 @@
 
 
   
-    <article id="post-leetcode/0705-Design-HashSet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0507-Perfect-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0705-Design-HashSet/">0705. Design HashSet</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0507-Perfect-Number/">0507. Perfect Number</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0705-Design-HashSet/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0507-Perfect-Number/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -609,17 +583,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="705-design-hashset"><a class="markdownIt-Anchor" href="#705-design-hashset"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-hashset/">705. Design HashSet</a></h1>
+        <h1 id="0507-perfect-number"><a class="markdownIt-Anchor" href="#0507-perfect-number"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-number/">0507. Perfect Number</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Design a HashSet without using any built-in hash table libraries.</p>
-<p>Implement <code>MyHashSet</code> class:</p>
-<ul>
-<li><code>void add(key)</code> Inserts the value <code>key</code> into the HashSet.</li>
-<li><code>bool contains(key)</code> Returns whether the value <code>key</code> exists in the HashSet or not.</li>
-<li><code>void remove(key)</code> Removes the value <code>key</code> in the HashSet. If <code>key</code> does not exist in the HashSet, do nothing.</li>
-</ul>
+<p>A <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Perfect_number"><strong>perfect number</strong></a> is a <strong>positive integer</strong> that is equal to the sum of its <strong>positive divisors</strong>, excluding the number itself. A <strong>divisor</strong> of an integer <code>x</code> is an integer that can divide <code>x</code> evenly.</p>
+<p>Given an integer <code>n</code>, return <code>true</code> <em>if</em> <code>n</code> <em>is a perfect number, otherwise return</em> <code>false</code>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0705-Design-HashSet/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0507-Perfect-Number/#more">more >></a>
         
       
 
@@ -647,7 +616,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0705-Design-HashSet/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0507-Perfect-Number/">展开全文 >></a>
         </p>
       
 
@@ -677,19 +646,19 @@
 
 
   
-    <article id="post-leetcode/0709-To-Lower-Case" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0488-Zuma-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0709-To-Lower-Case/">0709. To Lower Case</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0488-Zuma-Game/">0488. Zuma Game</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0709-To-Lower-Case/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0488-Zuma-Game/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -697,11 +666,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0709-to-lower-case"><a class="markdownIt-Anchor" href="#0709-to-lower-case"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/to-lower-case/">0709. To Lower Case</a></h1>
+        <h1 id="0488-zuma-game"><a class="markdownIt-Anchor" href="#0488-zuma-game"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zuma-game/">0488. Zuma Game</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>s</code>, return <em>the string after replacing every uppercase letter with the same lowercase letter</em>.</p>
+<p>You are playing a variation of the game Zuma.</p>
+<p>In this variation of Zuma, there is a <strong>single row</strong> of colored balls on a board, where each ball can be colored red <code>'R'</code>, yellow <code>'Y'</code>, blue <code>'B'</code>, green <code>'G'</code>, or white <code>'W'</code>. You also have several colored balls in your hand.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0709-To-Lower-Case/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0488-Zuma-Game/#more">more >></a>
         
       
 
@@ -729,7 +699,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0709-To-Lower-Case/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0488-Zuma-Game/">展开全文 >></a>
         </p>
       
 
@@ -759,19 +729,19 @@
 
 
   
-    <article id="post-leetcode/0713-Subarray-Product-Less-Than-K" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0506-Relative-Ranks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0713-Subarray-Product-Less-Than-K/">0713. Subarray Product Less Than K</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0506-Relative-Ranks/">0506. Relative Ranks</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0713-Subarray-Product-Less-Than-K/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0506-Relative-Ranks/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -779,11 +749,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0713-subarray-product-less-than-k"><a class="markdownIt-Anchor" href="#0713-subarray-product-less-than-k"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subarray-product-less-than-k/">0713. Subarray Product Less Than K</a></h1>
+        <h1 id="0506-relative-ranks"><a class="markdownIt-Anchor" href="#0506-relative-ranks"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/relative-ranks/">0506. Relative Ranks</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than</em> <code>k</code>.</p>
+<p>You are given an integer array <code>score</code> of size <code>n</code>, where <code>score[i]</code> is the score of the <code>ith</code> athlete in a competition. All the scores are guaranteed to be <strong>unique</strong>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0713-Subarray-Product-Less-Than-K/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0506-Relative-Ranks/#more">more >></a>
         
       
 
@@ -811,7 +781,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0713-Subarray-Product-Less-Than-K/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0506-Relative-Ranks/">展开全文 >></a>
         </p>
       
 
@@ -841,19 +811,19 @@
 
 
   
-    <article id="post-leetcode/0717-1-bit-and-2-bit-Characters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0509-Fibonacci-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0717-1-bit-and-2-bit-Characters/">0717. 1-bit and 2-bit Characters</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0509-Fibonacci-Number/">0509. Fibonacci Number</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0717-1-bit-and-2-bit-Characters/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0509-Fibonacci-Number/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -861,15 +831,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0717-1-bit-and-2-bit-characters"><a class="markdownIt-Anchor" href="#0717-1-bit-and-2-bit-characters"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/1-bit-and-2-bit-characters/">0717. 1-bit and 2-bit Characters</a></h1>
+        <h1 id="0509-fibonacci-number"><a class="markdownIt-Anchor" href="#0509-fibonacci-number"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fibonacci-number/">0509. Fibonacci Number</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>We have two special characters:</p>
-<ul>
-<li>The first character can be represented by one bit <code>0</code>.</li>
-<li>The second character can be represented by two bits (<code>10</code> or <code>11</code>).</li>
-</ul>
+<p>The <strong>Fibonacci numbers</strong>, commonly denoted <code>F(n)</code> form a sequence, called the <strong>Fibonacci sequence</strong>, such that each number is the sum of the two preceding ones, starting from <code>0</code> and <code>1</code>. That is,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(0) = 0, F(1) = 1</span><br><span class="line">F(n) = F(n - 1) + F(n - 2), for n &gt; 1.</span><br></pre></td></tr></table></figure>
+<p>Given <code>n</code>, calculate <code>F(n)</code>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0717-1-bit-and-2-bit-Characters/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0509-Fibonacci-Number/#more">more >></a>
         
       
 
@@ -897,7 +865,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0717-1-bit-and-2-bit-Characters/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0509-Fibonacci-Number/">展开全文 >></a>
         </p>
       
 
@@ -927,19 +895,19 @@
 
 
   
-    <article id="post-leetcode/0720-Longest-Word-in-Dictionary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0521-Longest-Uncommon-Subsequence-I" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0720-Longest-Word-in-Dictionary/">0720. Longest Word in Dictionary</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0521-Longest-Uncommon-Subsequence-I/">0521. Longest Uncommon Subsequence I</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0720-Longest-Word-in-Dictionary/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0521-Longest-Uncommon-Subsequence-I/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -947,12 +915,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0720-longest-word-in-dictionary"><a class="markdownIt-Anchor" href="#0720-longest-word-in-dictionary"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-word-in-dictionary/">0720. Longest Word in Dictionary</a></h1>
+        <h1 id="0521-longest-uncommon-subsequence-i"><a class="markdownIt-Anchor" href="#0521-longest-uncommon-subsequence-i"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-uncommon-subsequence-i/">0521. Longest Uncommon Subsequence I</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of strings <code>words</code> representing an English Dictionary, return <em>the longest word in</em> <code>words</code> <em>that can be built one character at a time by other words in</em> <code>words</code>.</p>
-<p>If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.</p>
+<p>Given two strings <code>a</code> and <code>b</code>, return <em>the length of the <strong>longest uncommon subsequence</strong> between</em> <code>a</code> <em>and</em> <code>b</code>. If the longest uncommon subsequence does not exist, return <code>-1</code>.</p>
+<p>An <strong>uncommon subsequence</strong> between two strings is a string that is a <strong>subsequence of one but not the other</strong>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0720-Longest-Word-in-Dictionary/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0521-Longest-Uncommon-Subsequence-I/#more">more >></a>
         
       
 
@@ -980,7 +948,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0720-Longest-Word-in-Dictionary/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0521-Longest-Uncommon-Subsequence-I/">展开全文 >></a>
         </p>
       
 
@@ -1012,7 +980,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/26/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="extend next" rel="next" href="/page/28/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/26/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/28/">Next &raquo;</a>
     </nav>
   
 
@@ -1294,6 +1262,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计数</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">递推</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">记忆化搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1344,7 +1340,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://robinpig.github.io/Note/#/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>笔记</a>
             </li>
           
             <li class="search-li">
