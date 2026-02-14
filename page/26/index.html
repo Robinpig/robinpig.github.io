@@ -32,6 +32,8 @@
 
   
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -152,48 +154,37 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/0464-Can-I-Win" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0464-Can-I-Win/">0464. Can I Win</a>
+      <a class="article-title" href="/2026/01/18/leetcode/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions/">3122. Minimum Number of Operations to Satisfy Conditions</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0464-Can-I-Win/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/18/leetcode/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions/" class="archive-article-date">
+  	<time datetime="2026-01-18T02:24:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0464-can-i-win"><a class="markdownIt-Anchor" href="#0464-can-i-win"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/can-i-win/">0464. Can I Win</a></h1>
+        <h1 id="3122-minimum-number-of-operations-to-satisfy-conditions"><a class="markdownIt-Anchor" href="#3122-minimum-number-of-operations-to-satisfy-conditions"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-number-of-operations-to-satisfy-conditions/">3122. Minimum Number of Operations to Satisfy Conditions</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>In the “100 game” two players take turns adding, to a running total, any integer from <code>1</code> to <code>10</code>. The player who first causes the running total to <strong>reach or exceed</strong> 100 wins.</p>
-<p>What if we change the game so that players <strong>cannot</strong> re-use integers?</p>
-<p>For example, two players might take turns drawing from a common pool of numbers from 1 to 15 without replacement until they reach a total &gt;= 100.</p>
-<p>Given two integers <code>maxChoosableInteger</code> and <code>desiredTotal</code>, return <code>true</code> if the first player to move can force a win, otherwise, return <code>false</code>. Assume both players play <strong>optimally</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: maxChoosableInteger = 10, desiredTotal = 11</span><br><span class="line">Output: false</span><br><span class="line">Explanation:</span><br><span class="line">No matter which integer the first player choose, the first player will lose.</span><br><span class="line">The first player can choose an integer from 1 up to 10.</span><br><span class="line">If the first player choose 1, the second player can only choose integers from 2 up to 10.</span><br><span class="line">The second player will win by choosing 10 and get a total = 11, which is &gt;= desiredTotal.</span><br><span class="line">Same with other integers chosen by the first player, the second player will always win.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: maxChoosableInteger = 10, desiredTotal = 0</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: maxChoosableInteger = 10, desiredTotal = 1</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
+<p>给你一个大小为 <code>m x n</code> 的二维矩形 <code>grid</code> 。每次 <strong>操作</strong> 中，你可以将 <strong>任一</strong> 格子的值修改为 <strong>任意</strong> 非负整数。完成所有操作后，你需要确保每个格子 <code>grid[i][j]</code> 的值满足：</p>
 <ul>
-<li><code>1 &lt;= maxChoosableInteger &lt;= 20</code></li>
-<li><code>0 &lt;= desiredTotal &lt;= 300</code></li>
+<li>如果下面相邻格子存在的话，它们的值相等，也就是 <code>grid[i][j] == grid[i + 1][j]</code>（如果存在）。</li>
+<li>如果右边相邻格子存在的话，它们的值不相等，也就是 <code>grid[i][j] != grid[i][j + 1]</code>（如果存在）。</li>
 </ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">canIWin</span><span class="params">(maxChoosableInteger, desiredTotal <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span>+maxChoosableInteger)*maxChoosableInteger/<span class="number">2</span> &lt; desiredTotal &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="type">int8</span>, <span class="number">1</span>&lt;&lt;maxChoosableInteger)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> dp &#123;</span><br><span class="line">        dp[i] = <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span> <span class="type">int8</span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(usedNum, curTot <span class="type">int</span>)</span></span> (res <span class="type">int8</span>) &#123;</span><br><span class="line">        dv := &amp;dp[usedNum]</span><br><span class="line">        <span class="keyword">if</span> *dv != <span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> *dv</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123; *dv = res &#125;()</span><br><span class="line">        <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; maxChoosableInteger; i++ &#123;</span><br><span class="line">            <span class="keyword">if</span> usedNum&gt;&gt;i&amp;<span class="number">1</span> == <span class="number">0</span> &amp;&amp; (curTot+i+<span class="number">1</span> &gt;= desiredTotal || dfs(usedNum|<span class="number">1</span>&lt;&lt;i, curTot+i+<span class="number">1</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dfs(<span class="number">0</span>, <span class="number">0</span>) == <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>请你返回需要的 <strong>最少</strong> 操作数目。</p>
+        
+          <a class="article-more-a" href="/2026/01/18/leetcode/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions/#more">more >></a>
+        
       
 
       
@@ -210,7 +201,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
         		</li>
       		
 		</ul>
@@ -220,7 +223,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0464-Can-I-Win/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/18/leetcode/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions/">展开全文 >></a>
         </p>
       
 
@@ -250,33 +253,32 @@
 
 
   
-    <article id="post-leetcode/0462-Minimum-Moves-to-Equal-Array-Elements-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1895-Largest-Magic-Square" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0462-Minimum-Moves-to-Equal-Array-Elements-II/">0462. Minimum Moves to Equal Array Elements II</a>
+      <a class="article-title" href="/2026/01/18/leetcode/1895-Largest-Magic-Square/">1895. Largest Magic Square</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0462-Minimum-Moves-to-Equal-Array-Elements-II/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/18/leetcode/1895-Largest-Magic-Square/" class="archive-article-date">
+  	<time datetime="2026-01-18T01:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0462-minimum-moves-to-equal-array-elements-ii"><a class="markdownIt-Anchor" href="#0462-minimum-moves-to-equal-array-elements-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-moves-to-equal-array-elements-ii/">0462. Minimum Moves to Equal Array Elements II</a></h1>
+        <h1 id="1895-largest-magic-square"><a class="markdownIt-Anchor" href="#1895-largest-magic-square"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-magic-square/">1895. Largest Magic Square</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an integer array <code>nums</code> of size <code>n</code>, return <em>the minimum number of moves required to make all array elements equal</em>.</p>
-<p>In one move, you can increment or decrement an element of the array by <code>1</code>.</p>
-<p>Test cases are designed so that the answer will fit in a <strong>32-bit</strong> integer.</p>
+<p>一个 <code>k x k</code> 的 <strong>幻方</strong> 指的是一个 <code>k x k</code> 填满整数的方格阵，且每一行、每一列以及两条对角线的和 <strong>全部****相等</strong> 。幻方中的整数 <strong>不需要互不相同</strong> 。显然，每个 <code>1 x 1</code> 的方格都是一个幻方。</p>
+<p>给你一个 <code>m x n</code> 的整数矩阵 <code>grid</code> ，请你返回矩阵中 <strong>最大幻方</strong> 的 <strong>尺寸</strong> （即边长 <code>k</code>）。</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0462-Minimum-Moves-to-Equal-Array-Elements-II/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/18/leetcode/1895-Largest-Magic-Square/#more">more >></a>
         
       
 
@@ -294,7 +296,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">前缀和</a>
         		</li>
       		
 		</ul>
@@ -304,7 +318,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0462-Minimum-Moves-to-Equal-Array-Elements-II/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/18/leetcode/1895-Largest-Magic-Square/">展开全文 >></a>
         </p>
       
 
@@ -334,32 +348,31 @@
 
 
   
-    <article id="post-leetcode/0472-Concatenated-Words" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1139-Largest-1-Bordered-Square" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0472-Concatenated-Words/">0472. Concatenated Words</a>
+      <a class="article-title" href="/2026/01/17/leetcode/1139-Largest-1-Bordered-Square/">1139. Largest 1-Bordered Square</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0472-Concatenated-Words/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/17/leetcode/1139-Largest-1-Bordered-Square/" class="archive-article-date">
+  	<time datetime="2026-01-17T10:12:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0472-concatenated-words"><a class="markdownIt-Anchor" href="#0472-concatenated-words"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/concatenated-words/">0472. Concatenated Words</a></h1>
+        <h1 id="1139-largest-1-bordered-square"><a class="markdownIt-Anchor" href="#1139-largest-1-bordered-square"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/largest-1-bordered-square/">1139. Largest 1-Bordered Square</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of strings <code>words</code> (<strong>without duplicates</strong>), return <em>all the <strong>concatenated words</strong> in the given list of</em> <code>words</code>.</p>
-<p>A <strong>concatenated word</strong> is defined as a string that is comprised entirely of at least two shorter words in the given array.</p>
+<p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的二维网格 <code>grid</code>，请你找出边界全部由 <code>1</code> 组成的最大 <strong>正方形</strong> 子网格，并返回该子网格中的元素数量。如果不存在，则返回 <code>0</code>。</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0472-Concatenated-Words/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/17/leetcode/1139-Largest-1-Bordered-Square/#more">more >></a>
         
       
 
@@ -377,7 +390,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
         		</li>
       		
 		</ul>
@@ -387,7 +412,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0472-Concatenated-Words/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/17/leetcode/1139-Largest-1-Bordered-Square/">展开全文 >></a>
         </p>
       
 
@@ -417,35 +442,32 @@
 
 
   
-    <article id="post-leetcode/0467-Unique-Substrings-in-Wraparound-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0150-Evaluate-Reverse-Polish-Notation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0467-Unique-Substrings-in-Wraparound-String/">0467. Unique Substrings in Wraparound String</a>
+      <a class="article-title" href="/2026/01/17/leetcode/0150-Evaluate-Reverse-Polish-Notation/">0150. Evaluate Reverse Polish Notation</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0467-Unique-Substrings-in-Wraparound-String/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/17/leetcode/0150-Evaluate-Reverse-Polish-Notation/" class="archive-article-date">
+  	<time datetime="2026-01-17T09:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0467-unique-substrings-in-wraparound-string"><a class="markdownIt-Anchor" href="#0467-unique-substrings-in-wraparound-string"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-substrings-in-wraparound-string/">0467. Unique Substrings in Wraparound String</a></h1>
+        <h1 id="150-evaluate-reverse-polish-notation"><a class="markdownIt-Anchor" href="#150-evaluate-reverse-polish-notation"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/evaluate-reverse-polish-notation/">150. Evaluate Reverse Polish Notation</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>We define the string <code>s</code> to be the infinite wraparound string of <code>&quot;abcdefghijklmnopqrstuvwxyz&quot;</code>, so <code>s</code> will look like this:</p>
-<ul>
-<li><code>&quot;...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....&quot;</code>.</li>
-</ul>
-<p>Given a string <code>p</code>, return <em>the number of <strong>unique non-empty substrings</strong> of</em> <code>p</code> <em>are present in</em> <code>s</code>.</p>
+<p>给你一个字符串数组 <code>tokens</code> ，表示一个根据 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%80%86%E6%B3%A2%E5%85%B0%E5%BC%8F/128437">逆波兰表示法</a> 表示的算术表达式。</p>
+<p>请你计算该表达式。返回一个表示表达式值的整数</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0467-Unique-Substrings-in-Wraparound-String/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/17/leetcode/0150-Evaluate-Reverse-Polish-Notation/#more">more >></a>
         
       
 
@@ -463,7 +485,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
         		</li>
       		
 		</ul>
@@ -473,7 +507,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0467-Unique-Substrings-in-Wraparound-String/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/17/leetcode/0150-Evaluate-Reverse-Polish-Notation/">展开全文 >></a>
         </p>
       
 
@@ -503,45 +537,35 @@
 
 
   
-    <article id="post-leetcode/0473-Matchsticks-to-Square" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/3047-Find-the-Largest-Area-of-Square-Inside-Two-Rectangles" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0473-Matchsticks-to-Square/">0473. Matchsticks to Square</a>
+      <a class="article-title" href="/2026/01/17/leetcode/3047-Find-the-Largest-Area-of-Square-Inside-Two-Rectangles/">3047. Find the Largest Area of Square Inside Two Rectangles</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0473-Matchsticks-to-Square/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/17/leetcode/3047-Find-the-Largest-Area-of-Square-Inside-Two-Rectangles/" class="archive-article-date">
+  	<time datetime="2026-01-17T04:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0473-matchsticks-to-square"><a class="markdownIt-Anchor" href="#0473-matchsticks-to-square"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/matchsticks-to-square/">0473. Matchsticks to Square</a></h1>
+        <h1 id="3047-find-the-largest-area-of-square-inside-two-rectangles"><a class="markdownIt-Anchor" href="#3047-find-the-largest-area-of-square-inside-two-rectangles"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-largest-area-of-square-inside-two-rectangles/">3047. Find the Largest Area of Square Inside Two Rectangles</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>matchsticks</code> where <code>matchsticks[i]</code> is the length of the <code>ith</code> matchstick. You want to use <strong>all the matchsticks</strong> to make one square. You <strong>should not break</strong> any stick, but you can link them up, and each matchstick must be used <strong>exactly one time</strong>.</p>
-<p>Return <code>true</code> if you can make this square and <code>false</code> otherwise.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/04/09/matchsticks1-grid.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: matchsticks = [1,1,2,2,2]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: You can form a square with length 2, one side of the square came two sticks with length 1.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: matchsticks = [3,3,3,3,4]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: You cannot find a way to form a square with all the matchsticks.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= matchsticks.length &lt;= 15</code></li>
-<li><code>1 &lt;= matchsticks[i] &lt;= 108</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makesquare</span><span class="params">(matchsticks []<span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    totalLen := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, l := <span class="keyword">range</span> matchsticks &#123;</span><br><span class="line">        totalLen += l</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> totalLen%<span class="number">4</span> != <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tLen := totalLen / <span class="number">4</span></span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">1</span>&lt;&lt;<span class="built_in">len</span>(matchsticks))</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(dp); i++ &#123;</span><br><span class="line">        dp[i] = <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> s := <span class="number">1</span>; s &lt; <span class="built_in">len</span>(dp); s++ &#123;</span><br><span class="line">        <span class="keyword">for</span> k, v := <span class="keyword">range</span> matchsticks &#123;</span><br><span class="line">            <span class="keyword">if</span> s&gt;&gt;k&amp;<span class="number">1</span> == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            s1 := s &amp;^ (<span class="number">1</span> &lt;&lt; k)</span><br><span class="line">            <span class="keyword">if</span> dp[s1] &gt;= <span class="number">0</span> &amp;&amp; dp[s1]+v &lt;= tLen &#123;</span><br><span class="line">                dp[s] = (dp[s1] + v) % tLen</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[<span class="built_in">len</span>(dp)<span class="number">-1</span>] == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>在二维平面上存在 <code>n</code> 个矩形。给你两个下标从 <strong>0</strong> 开始的二维整数数组 <code>bottomLeft</code> 和 <code>topRight</code>，两个数组的大小都是 <code>n x 2</code> ，其中 <code>bottomLeft[i]</code> 和 <code>topRight[i]</code> 分别代表第 <code>i</code> 个矩形的 <strong>左下角</strong> 和 <strong>右上角</strong> 坐标。</p>
+<p>我们定义 <strong>向右</strong> 的方向为 x 轴正半轴（<strong>x 坐标增加</strong>），<strong>向左</strong> 的方向为 x 轴负半轴（<strong>x 坐标减少</strong>）。同样地，定义 <strong>向上</strong> 的方向为 y 轴正半轴（<strong>y 坐标增加</strong>）<strong>，向下</strong> 的方向为 y 轴负半轴（<strong>y 坐标减少</strong>）。</p>
+<p>你可以选择一个区域，该区域由两个矩形的 <strong>交集</strong> 形成。你需要找出能够放入该区域 <strong>内</strong> 的 <strong>最大</strong> 正方形面积，并选择最优解。</p>
+<p>返回能够放入交集区域的正方形的 <strong>最大</strong> 可能面积，如果矩形之间不存在任何交集区域，则返回 <code>0</code>。</p>
+        
+          <a class="article-more-a" href="/2026/01/17/leetcode/3047-Find-the-Largest-Area-of-Square-Inside-Two-Rectangles/#more">more >></a>
+        
       
 
       
@@ -558,7 +582,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">几何</a>
         		</li>
       		
 		</ul>
@@ -568,7 +604,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0473-Matchsticks-to-Square/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/17/leetcode/3047-Find-the-Largest-Area-of-Square-Inside-Two-Rectangles/">展开全文 >></a>
         </p>
       
 
@@ -598,52 +634,35 @@
 
 
   
-    <article id="post-leetcode/0468-Validate-IP-Address" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/2975-Maximum-Square-Area-by-Removing-Fences-From-a-Field" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0468-Validate-IP-Address/">0468. Validate IP Address</a>
+      <a class="article-title" href="/2026/01/16/leetcode/2975-Maximum-Square-Area-by-Removing-Fences-From-a-Field/">2975. Maximum Square Area by Removing Fences From a Field</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0468-Validate-IP-Address/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/16/leetcode/2975-Maximum-Square-Area-by-Removing-Fences-From-a-Field/" class="archive-article-date">
+  	<time datetime="2026-01-16T12:46:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0468-validate-ip-address"><a class="markdownIt-Anchor" href="#0468-validate-ip-address"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-ip-address/">0468. Validate IP Address</a></h1>
+        <h1 id="2975-maximum-square-area-by-removing-fences-from-a-field"><a class="markdownIt-Anchor" href="#2975-maximum-square-area-by-removing-fences-from-a-field"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-square-area-by-removing-fences-from-a-field/">2975. Maximum Square Area by Removing Fences From a Field</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>queryIP</code>, return <code>&quot;IPv4&quot;</code> if IP is a valid IPv4 address, <code>&quot;IPv6&quot;</code> if IP is a valid IPv6 address or <code>&quot;Neither&quot;</code> if IP is not a correct IP of any type.</p>
-<p><strong>A valid IPv4</strong> address is an IP in the form <code>&quot;x1.x2.x3.x4&quot;</code> where <code>0 &lt;= xi &lt;= 255</code> and <code>xi</code> <strong>cannot contain</strong> leading zeros. For example, <code>&quot;192.168.1.1&quot;</code> and <code>&quot;192.168.1.0&quot;</code> are valid IPv4 addresses while <code>&quot;192.168.01.1&quot;</code>, <code>&quot;192.168.1.00&quot;</code>, and <code>&quot;192.168@1.1&quot;</code> are invalid IPv4 addresses.</p>
-<p><strong>A valid IPv6</strong> address is an IP in the form <code>&quot;x1:x2:x3:x4:x5:x6:x7:x8&quot;</code> where:</p>
-<ul>
-<li><code>1 &lt;= xi.length &lt;= 4</code></li>
-<li><code>xi</code> is a <strong>hexadecimal string</strong> which may contain digits, lowercase English letter (<code>'a'</code> to <code>'f'</code>) and upper-case English letters (<code>'A'</code> to <code>'F'</code>).</li>
-<li>Leading zeros are allowed in <code>xi</code>.</li>
-</ul>
-<p>For example, &quot;<code>2001:0db8:85a3:0000:0000:8a2e:0370:7334&quot;</code> and &quot;<code>2001:db8:85a3:0:0:8A2E:0370:7334&quot;</code> are valid IPv6 addresses, while &quot;<code>2001:0db8:85a3::8A2E:037j:7334&quot;</code> and &quot;<code>02001:0db8:85a3:0000:0000:8a2e:0370:7334&quot;</code> are invalid IPv6 addresses.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: queryIP = &quot;172.16.254.1&quot;</span><br><span class="line">Output: &quot;IPv4&quot;</span><br><span class="line">Explanation: This is a valid IPv4 address, return &quot;IPv4&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: queryIP = &quot;2001:0db8:85a3:0:0:8A2E:0370:7334&quot;</span><br><span class="line">Output: &quot;IPv6&quot;</span><br><span class="line">Explanation: This is a valid IPv6 address, return &quot;IPv6&quot;.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: queryIP = &quot;256.256.256.256&quot;</span><br><span class="line">Output: &quot;Neither&quot;</span><br><span class="line">Explanation: This is neither a IPv4 address nor a IPv6 address.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>queryIP</code> consists only of English letters, digits and the characters <code>'.'</code> and <code>':'</code>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">validIPAddress</span><span class="params">(queryIP <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> sp := strings.Split(queryIP, <span class="string">&quot;.&quot;</span>); <span class="built_in">len</span>(sp) == <span class="number">4</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> _, s := <span class="keyword">range</span> sp &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt; <span class="number">1</span> &amp;&amp; s[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;Neither&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> v, err := strconv.Atoi(s); err != <span class="literal">nil</span> || v &gt; <span class="number">255</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;Neither&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;IPv4&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> sp := strings.Split(queryIP, <span class="string">&quot;:&quot;</span>); <span class="built_in">len</span>(sp) == <span class="number">8</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> _, s := <span class="keyword">range</span> sp &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt; <span class="number">4</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;Neither&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> _, err := strconv.ParseUint(s, <span class="number">16</span>, <span class="number">64</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;Neither&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;IPv6&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Neither&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>有一个大型的 <code>(m - 1) x (n - 1)</code> 矩形田地，其两个对角分别是 <code>(1, 1)</code> 和 <code>(m, n)</code> ，田地内部有一些水平栅栏和垂直栅栏，分别由数组 <code>hFences</code> 和 <code>vFences</code> 给出。</p>
+<p>水平栅栏为坐标 <code>(hFences[i], 1)</code> 到 <code>(hFences[i], n)</code>，垂直栅栏为坐标 <code>(1, vFences[i])</code> 到 <code>(m, vFences[i])</code> 。</p>
+<p>返回通过 <strong>移除</strong> 一些栅栏（<strong>可能不移除</strong>）所能形成的最大面积的 <strong>正方形</strong> 田地的面积，或者如果无法形成正方形田地则返回 <code>-1</code>。</p>
+<p>由于答案可能很大，所以请返回结果对 <code>109 + 7</code> <strong>取余</strong> 后的值。</p>
+        
+          <a class="article-more-a" href="/2026/01/16/leetcode/2975-Maximum-Square-Area-by-Removing-Fences-From-a-Field/#more">more >></a>
+        
       
 
       
@@ -660,7 +679,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
         		</li>
       		
 		</ul>
@@ -670,7 +701,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0468-Validate-IP-Address/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/leetcode/2975-Maximum-Square-Area-by-Removing-Fences-From-a-Field/">展开全文 >></a>
         </p>
       
 
@@ -700,36 +731,32 @@
 
 
   
-    <article id="post-leetcode/0478-Generate-Random-Point-in-a-Circle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0704-Binary-Search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0478-Generate-Random-Point-in-a-Circle/">0478. Generate Random Point in a Circle</a>
+      <a class="article-title" href="/2026/01/16/leetcode/0704-Binary-Search/">0704 Binary Search</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0478-Generate-Random-Point-in-a-Circle/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/16/leetcode/0704-Binary-Search/" class="archive-article-date">
+  	<time datetime="2026-01-16T08:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0478-generate-random-point-in-a-circle"><a class="markdownIt-Anchor" href="#0478-generate-random-point-in-a-circle"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/generate-random-point-in-a-circle/">0478. Generate Random Point in a Circle</a></h1>
+        <h1 id="704-binary-search"><a class="markdownIt-Anchor" href="#704-binary-search"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-search/">704. Binary Search</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given the radius and the position of the center of a circle, implement the function <code>randPoint</code> which generates a uniform random point inside the circle.</p>
-<p>Implement the <code>Solution</code> class:</p>
-<ul>
-<li><code>Solution(double radius, double x_center, double y_center)</code> initializes the object with the radius of the circle <code>radius</code> and the position of the center <code>(x_center, y_center)</code>.</li>
-<li><code>randPoint()</code> returns a random point inside the circle. A point on the circumference of the circle is considered to be in the circle. The answer is returned as an array <code>[x, y]</code>.</li>
-</ul>
+<p>给定一个 <code>n</code> 个元素有序的（升序）整型数组 <code>nums</code> 和一个目标值 <code>target</code>  ，写一个函数搜索 <code>nums</code> 中的 <code>target</code>，如果 <code>target</code> 存在返回下标，否则返回 <code>-1</code>。</p>
+<p>你必须编写一个具有 <code>O(log n)</code> 时间复杂度的算法。</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0478-Generate-Random-Point-in-a-Circle/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/leetcode/0704-Binary-Search/#more">more >></a>
         
       
 
@@ -747,7 +774,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二分查找</a>
         		</li>
       		
 		</ul>
@@ -757,7 +792,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0478-Generate-Random-Point-in-a-Circle/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/leetcode/0704-Binary-Search/">展开全文 >></a>
         </p>
       
 
@@ -787,34 +822,31 @@
 
 
   
-    <article id="post-leetcode/0475-Heaters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P1004-方格取数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0475-Heaters/">0475. Heaters</a>
+      <a class="article-title" href="/2026/01/16/luogu/P1004-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/">P1004 方格取数</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0475-Heaters/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/16/luogu/P1004-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2026-01-16T06:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0475-heaters"><a class="markdownIt-Anchor" href="#0475-heaters"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/heaters/">0475. Heaters</a></h1>
+        <h1 id="p1004-noip-2000-提高组-方格取数"><a class="markdownIt-Anchor" href="#p1004-noip-2000-提高组-方格取数"></a> P1004 [NOIP 2000 提高组] 方格取数</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
-<p>Every house can be warmed, as long as the house is within the heater’s warm radius range.</p>
-<p>Given the positions of <code>houses</code> and <code>heaters</code> on a horizontal line, return <em>the minimum radius standard of heaters so that those heaters could cover all houses.</em></p>
-<p><strong>Notice</strong> that all the <code>heaters</code> follow your radius standard, and the warm radius will the same.</p>
+<p>设有 <em>N</em>×<em>N</em> 的方格图 (<em>N</em>≤9)，我们将其中的某些方格中填入正整数，而其他的方格中则放入数字 0。如下图所示（见样例）:</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0475-Heaters/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1004-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/#more">more >></a>
         
       
 
@@ -832,7 +864,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递归</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">记忆化搜索</a>
         		</li>
       		
 		</ul>
@@ -842,7 +886,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0475-Heaters/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1004-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/">展开全文 >></a>
         </p>
       
 
@@ -872,33 +916,32 @@
 
 
   
-    <article id="post-leetcode/0449-Serialize-and-Deserialize-BST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P1002-过河卒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0449-Serialize-and-Deserialize-BST/">0449. Serialize and Deserialize BST</a>
+      <a class="article-title" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/">P1002 过河卒</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0449-Serialize-and-Deserialize-BST/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/" class="archive-article-date">
+  	<time datetime="2026-01-16T06:06:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0449-serialize-and-deserialize-bst"><a class="markdownIt-Anchor" href="#0449-serialize-and-deserialize-bst"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/serialize-and-deserialize-bst/">0449. Serialize and Deserialize BST</a></h1>
+        <h1 id="p1002-noip-2002-普及组-过河卒"><a class="markdownIt-Anchor" href="#p1002-noip-2002-普及组-过河卒"></a> P1002 [NOIP 2002 普及组] 过河卒</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
-<p>Design an algorithm to serialize and deserialize a <strong>binary search tree</strong>. There is no restriction on how your serialization/deserialization algorithm should work. You need to ensure that a binary search tree can be serialized to a string, and this string can be deserialized to the original tree structure.</p>
-<p><strong>The encoded string should be as compact as possible.</strong></p>
+<p>棋盘上 <em>A</em> 点有一个过河卒，需要走到目标 <em>B</em> 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 <em>C</em> 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
+<p>棋盘用坐标表示，<em>A</em> 点 (0,0)、<em>B</em> 点 (<em>n</em>,<em>m</em>)，同样马的位置坐标是需要给出的。</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0449-Serialize-and-Deserialize-BST/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/#more">more >></a>
         
       
 
@@ -916,7 +959,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">递推</a>
         		</li>
       		
 		</ul>
@@ -926,7 +977,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0449-Serialize-and-Deserialize-BST/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P1002-%E8%BF%87%E6%B2%B3%E5%8D%92/">展开全文 >></a>
         </p>
       
 
@@ -956,33 +1007,32 @@
 
 
   
-    <article id="post-leetcode/0495-Teemo-Attacking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P3147-262144-P" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0495-Teemo-Attacking/">0495. Teemo Attacking</a>
+      <a class="article-title" href="/2026/01/16/luogu/P3147-262144-P/">P3147 262144 P</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0495-Teemo-Attacking/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/16/luogu/P3147-262144-P/" class="archive-article-date">
+  	<time datetime="2026-01-16T06:03:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0495-teemo-attacking"><a class="markdownIt-Anchor" href="#0495-teemo-attacking"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/teemo-attacking/">0495. Teemo Attacking</a></h1>
+        <h1 id="p3147-usaco16open-262144-p"><a class="markdownIt-Anchor" href="#p3147-usaco16open-262144-p"></a> P3147 [USACO16OPEN] 262144 P</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Our hero Teemo is attacking an enemy Ashe with poison attacks! When Teemo attacks Ashe, Ashe gets poisoned for a exactly <code>duration</code> seconds. More formally, an attack at second <code>t</code> will mean Ashe is poisoned during the <strong>inclusive</strong> time interval <code>[t, t + duration - 1]</code>. If Teemo attacks again <strong>before</strong> the poison effect ends, the timer for it is <strong>reset</strong>, and the poison effect will end <code>duration</code> seconds after the new attack.</p>
-<p>You are given a <strong>non-decreasing</strong> integer array <code>timeSeries</code>, where <code>timeSeries[i]</code> denotes that Teemo attacks Ashe at second <code>timeSeries[i]</code>, and an integer <code>duration</code>.</p>
-<p>Return <em>the <strong>total</strong> number of seconds that Ashe is poisoned</em>.</p>
+<p>贝西喜欢在手机上下载游戏来玩，尽管她确实觉得对于自己巨大的蹄子来说，小小的触摸屏用起来相当笨拙。</p>
+<p>她对当前正在玩的这个游戏特别感兴趣。游戏开始时给定一个包含 <em>N</em> 个正整数的序列（2≤<em>N</em>≤262,144），每个数的范围在 1…40 之间。在一次操作中，贝西可以选择两个相邻且相等的数，将它们替换为一个比原数大 1 的数（例如，她可以将两个相邻的 7 替换为一个 8）。游戏的目标是最大化最终序列中的最大数值。请帮助贝西获得尽可能高的分数！</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/0495-Teemo-Attacking/#more">more >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P3147-262144-P/#more">more >></a>
         
       
 
@@ -1000,7 +1050,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
         		</li>
       		
 		</ul>
@@ -1010,7 +1068,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0495-Teemo-Attacking/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/16/luogu/P3147-262144-P/">展开全文 >></a>
         </p>
       
 
@@ -1042,7 +1100,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/25/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/27/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/25/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><a class="extend next" rel="next" href="/page/27/">Next &raquo;</a>
     </nav>
   
 
@@ -1326,6 +1384,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递推</a>
               </li>
              
@@ -1338,19 +1412,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
               </li>
             
             <div class="clearfix"></div>

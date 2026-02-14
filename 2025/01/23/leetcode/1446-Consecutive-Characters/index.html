@@ -16,9 +16,10 @@
 <meta property="og:description" content="1446. Consecutive Characters  Description The power of the string is the maximum length of a non-empty substring that contains only one unique character. Given a string s, return the power of s.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-22T22:39:28.000Z">
-<meta property="article:modified_time" content="2026-01-06T23:21:56.104Z">
+<meta property="article:modified_time" content="2026-02-14T00:51:04.110Z">
 <meta property="article:author" content="Robinpig">
 <meta property="article:tag" content="数据结构与算法">
+<meta property="article:tag" content="字符串">
 <meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
   
@@ -38,6 +39,8 @@
 
   
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -178,8 +181,8 @@
       
         <h1 id="1446-consecutive-characters"><a class="markdownIt-Anchor" href="#1446-consecutive-characters"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/consecutive-characters/">1446. Consecutive Characters</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.</p>
-<p>Given a string <code>s</code>, return <em>the <strong>power</strong> of</em> <code>s</code>.</p>
+<p>The <strong>power</strong> of the string is the maximum length of a non-empty substring that contains only one unique character.<br />
+Given a string <code>s</code>, return <em>the <strong>power</strong> of</em> <code>s</code>.</p>
 <span id="more"></span> 
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;leetcode&quot;</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The substring &quot;ee&quot; is of length 2 with the character &#x27;e&#x27; only.</span><br></pre></td></tr></table></figure>
@@ -197,10 +200,9 @@
 <li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 <h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxPower</span><span class="params">(s <span class="type">string</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    ans, cnt := <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> s[i] == s[i<span class="number">-1</span>] &#123;</span><br><span class="line">            cnt++</span><br><span class="line">            <span class="keyword">if</span> cnt &gt; ans &#123;</span><br><span class="line">                ans = cnt</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cnt = <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>一个字符至少出现一次, 如果前缀元素和当前元素相同则计数+1, 否则重置为1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxPower</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>, cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; s.length(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == s.charAt(i - <span class="number">1</span>)) &#123;</span><br><span class="line">                ++cnt;</span><br><span class="line">                ans = Math.max(ans, cnt);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                cnt = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -235,6 +237,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -634,6 +640,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递推</a>
               </li>
              
@@ -646,19 +668,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
               </li>
             
             <div class="clearfix"></div>

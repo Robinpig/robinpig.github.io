@@ -32,6 +32,8 @@
 
   
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -152,19 +154,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/1695-Maximum-Erasure-Value" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0068-Text-Justification" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1695-Maximum-Erasure-Value/">1695. Maximum Erasure Value</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0068-Text-Justification/">0068. Text Justification</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1695-Maximum-Erasure-Value/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0068-Text-Justification/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -172,13 +174,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1695-maximum-erasure-value"><a class="markdownIt-Anchor" href="#1695-maximum-erasure-value"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-erasure-value/">1695. Maximum Erasure Value</a></h1>
+        <h1 id="0068-text-justification"><a class="markdownIt-Anchor" href="#0068-text-justification"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/text-justification/">0068. Text Justification</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an array of positive integers nums and want to erase a subarray containing unique elements. The score you get by erasing the subarray is equal to the sum of its elements.</p>
-<p>Return the maximum score you can get by erasing exactly one subarray.</p>
-<p>An array b is called to be a subarray of a if it forms a contiguous subsequence of a, that is, if it is equal to a[l],a[l+1],…,a[r] for some (l,r).</p>
+<p>Given an array of strings <code>words</code> and a width <code>maxWidth</code>, format the text such that each line has exactly <code>maxWidth</code> characters and is fully (left and right) justified.</p>
+<p>You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces <code>' '</code> when necessary so that each line has exactly <code>maxWidth</code> characters.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1695-Maximum-Erasure-Value/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0068-Text-Justification/#more">more >></a>
         
       
 
@@ -206,7 +207,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1695-Maximum-Erasure-Value/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0068-Text-Justification/">展开全文 >></a>
         </p>
       
 
@@ -236,19 +237,19 @@
 
 
   
-    <article id="post-leetcode/1705-Maximum-Number-of-Eaten-Apples" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0079-Word-Search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1705-Maximum-Number-of-Eaten-Apples/">1705. Maximum Number of Eaten Apples</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0079-Word-Search/">0079. Word Search</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1705-Maximum-Number-of-Eaten-Apples/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0079-Word-Search/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -256,12 +257,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1705-maximum-number-of-eaten-apples"><a class="markdownIt-Anchor" href="#1705-maximum-number-of-eaten-apples"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/">1705. Maximum Number of Eaten Apples</a></h1>
+        <h1 id="0079-word-search"><a class="markdownIt-Anchor" href="#0079-word-search"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search/">0079. Word Search</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>There is a special kind of apple tree that grows apples every day for <code>n</code> days. On the <code>ith</code> day, the tree grows <code>apples[i]</code> apples that will rot after <code>days[i]</code> days, that is on day <code>i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code>apples[i] == 0</code> and <code>days[i] == 0</code>.</p>
-<p>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code>n</code> days.</p>
+<p>Given an <code>m x n</code> grid of characters <code>board</code> and a string <code>word</code>, return <code>true</code> <em>if</em> <code>word</code> <em>exists in the grid</em>.</p>
+<p>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1705-Maximum-Number-of-Eaten-Apples/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0079-Word-Search/#more">more >></a>
         
       
 
@@ -289,7 +290,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1705-Maximum-Number-of-Eaten-Apples/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0079-Word-Search/">展开全文 >></a>
         </p>
       
 
@@ -319,19 +320,19 @@
 
 
   
-    <article id="post-leetcode/1703-Minimum-Adjacent-Swaps-for-K-Consecutive-Ones" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0087-Scramble-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1703-Minimum-Adjacent-Swaps-for-K-Consecutive-Ones/">1703. Minimum Adjacent Swaps for K Consecutive Ones</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0087-Scramble-String/">0087. Scramble String</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1703-Minimum-Adjacent-Swaps-for-K-Consecutive-Ones/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0087-Scramble-String/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -339,99 +340,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1703-minimum-adjacent-swaps-for-k-consecutive-ones"><a class="markdownIt-Anchor" href="#1703-minimum-adjacent-swaps-for-k-consecutive-ones"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones/">1703. Minimum Adjacent Swaps for K Consecutive Ones</a></h1>
+        <h1 id="0087-scramble-string"><a class="markdownIt-Anchor" href="#0087-scramble-string"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/scramble-string/">0087. Scramble String</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array, <code>nums</code>, and an integer <code>k</code>. <code>nums</code> comprises of only <code>0</code>’s and <code>1</code>’s. In one move, you can choose two <strong>adjacent</strong> indices and swap their values.</p>
-<p>Return <em>the <strong>minimum</strong> number of moves required so that</em> <code>nums</code> <em>has</em> <code>k</code> <em><strong>consecutive</strong></em> <code>1</code><em>’s</em>.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/1703-Minimum-Adjacent-Swaps-for-K-Consecutive-Ones/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1703-Minimum-Adjacent-Swaps-for-K-Consecutive-Ones/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/1706-Where-Will-the-Ball-Fall" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1706-Where-Will-the-Ball-Fall/">1706. Where Will the Ball Fall</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/1706-Where-Will-the-Ball-Fall/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1706-where-will-the-ball-fall"><a class="markdownIt-Anchor" href="#1706-where-will-the-ball-fall"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/where-will-the-ball-fall/">1706. Where Will the Ball Fall</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You have a 2-D <code>grid</code> of size <code>m x n</code> representing a box, and you have <code>n</code> balls. The box is open on the top and bottom sides.</p>
-<p>Each cell in the box has a diagonal board spanning two corners of the cell that can redirect a ball to the right or to the left.</p>
+<p>We can scramble a string s to get a string t using the following algorithm:</p>
+<ol>
+<li>If the length of the string is 1, stop.</li>
+<li>If the length of the string is &gt; 1, do the following:
 <ul>
-<li>A board that redirects the ball to the right spans the top-left corner to the bottom-right corner and is represented in the grid as <code>1</code>.</li>
-<li>A board that redirects the ball to the left spans the top-right corner to the bottom-left corner and is represented in the grid as <code>-1</code>.</li>
+<li>Split the string into two non-empty substrings at a random index, i.e., if the string is <code>s</code>, divide it to <code>x</code> and <code>y</code> where <code>s = x + y</code>.</li>
+<li><strong>Randomly</strong> decide to swap the two substrings or to keep them in the same order. i.e., after this step, <code>s</code> may become <code>s = x + y</code> or <code>s = y + x</code>.</li>
+<li>Apply step 1 recursively on each of the two substrings <code>x</code> and <code>y</code>.</li>
 </ul>
+</li>
+</ol>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1706-Where-Will-the-Ball-Fall/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0087-Scramble-String/#more">more >></a>
         
       
 
@@ -449,7 +372,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		
 		</ul>
@@ -459,7 +390,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1706-Where-Will-the-Ball-Fall/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0087-Scramble-String/">展开全文 >></a>
         </p>
       
 
@@ -489,19 +420,19 @@
 
 
   
-    <article id="post-leetcode/1716-Calculate-Money-in-Leetcode-Bank" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0088-Merge-Sorted-Array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1716-Calculate-Money-in-Leetcode-Bank/">1716. Calculate Money in Leetcode Bank</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0088-Merge-Sorted-Array/">0088. Merge Sorted Array</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1716-Calculate-Money-in-Leetcode-Bank/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0088-Merge-Sorted-Array/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -509,13 +440,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1716-calculate-money-in-leetcode-bank"><a class="markdownIt-Anchor" href="#1716-calculate-money-in-leetcode-bank"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/calculate-money-in-leetcode-bank/">1716. Calculate Money in Leetcode Bank</a></h1>
+        <h1 id="0088-merge-sorted-array"><a class="markdownIt-Anchor" href="#0088-merge-sorted-array"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-sorted-array/">0088. Merge Sorted Array</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Hercy wants to save money for his first car. He puts money in the Leetcode bank <strong>every day</strong>.</p>
-<p>He starts by putting in <code>$1</code> on Monday, the first day. Every day from Tuesday to Sunday, he will put in <code>$1</code> more than the day before. On every subsequent Monday, he will put in <code>$1</code> more than the <strong>previous Monday</strong>.</p>
-<p>Given <code>n</code>, return <em>the total amount of money he will have in the Leetcode bank at the end of the</em> <code>nth</code> <em>day.</em></p>
+<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
+<p><strong>Merge</strong> <code>nums1</code> and <code>nums2</code> into a single array sorted in <strong>non-decreasing order</strong>.</p>
+<p>The final sorted array should not be returned by the function, but instead be <em>stored inside the array</em> <code>nums1</code>. To accommodate this, <code>nums1</code> has a length of <code>m + n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to <code>0</code> and should be ignored. <code>nums2</code> has a length of <code>n</code>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1716-Calculate-Money-in-Leetcode-Bank/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0088-Merge-Sorted-Array/#more">more >></a>
         
       
 
@@ -533,6 +464,10 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
@@ -543,7 +478,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1716-Calculate-Money-in-Leetcode-Bank/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0088-Merge-Sorted-Array/">展开全文 >></a>
         </p>
       
 
@@ -573,19 +508,19 @@
 
 
   
-    <article id="post-leetcode/1763-Longest-Nice-Substring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0089-Gray-Code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1763-Longest-Nice-Substring/">1763. Longest Nice Substring</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0089-Gray-Code/">0089. Gray Code</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1763-Longest-Nice-Substring/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0089-Gray-Code/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -593,183 +528,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1763-longest-nice-substring"><a class="markdownIt-Anchor" href="#1763-longest-nice-substring"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-nice-substring/">1763. Longest Nice Substring</a></h1>
+        <h1 id="0089-gray-code"><a class="markdownIt-Anchor" href="#0089-gray-code"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gray-code/">0089. Gray Code</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A string <code>s</code> is <strong>nice</strong> if, for every letter of the alphabet that <code>s</code> contains, it appears <strong>both</strong> in uppercase and lowercase. For example, <code>&quot;abABB&quot;</code> is nice because <code>'A'</code> and <code>'a'</code> appear, and <code>'B'</code> and <code>'b'</code> appear. However, <code>&quot;abA&quot;</code> is not because <code>'b'</code> appears, but <code>'B'</code> does not.</p>
-<p>Given a string <code>s</code>, return <em>the longest <strong>substring</strong> of <code>s</code> that is <strong>nice</strong>. If there are multiple, return the substring of the <strong>earliest</strong> occurrence. If there are none, return an empty string</em>.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/1763-Longest-Nice-Substring/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1763-Longest-Nice-Substring/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/1725-Number-Of-Rectangles-That-Can-Form-The-Largest-Square" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1725-Number-Of-Rectangles-That-Can-Form-The-Largest-Square/">1725. Number Of Rectangles That Can Form The Largest Square</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/1725-Number-Of-Rectangles-That-Can-Form-The-Largest-Square/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1725-number-of-rectangles-that-can-form-the-largest-square"><a class="markdownIt-Anchor" href="#1725-number-of-rectangles-that-can-form-the-largest-square"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-rectangles-that-can-form-the-largest-square/">1725. Number Of Rectangles That Can Form The Largest Square</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an array <code>rectangles</code> where <code>rectangles[i] = [li, wi]</code> represents the <code>ith</code> rectangle of length <code>li</code> and width <code>wi</code>.</p>
-<p>You can cut the <code>ith</code> rectangle to form a square with a side length of <code>k</code> if both <code>k &lt;= li</code> and <code>k &lt;= wi</code>. For example, if you have a rectangle <code>[4,6]</code>, you can cut it to get a square with a side length of at most <code>4</code>.</p>
-<p>Let <code>maxLen</code> be the side length of the <strong>largest</strong> square you can obtain from any of the given rectangles.</p>
-<p>Return <em>the <strong>number</strong> of rectangles that can make a square with a side length of</em> <code>maxLen</code>.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/1725-Number-Of-Rectangles-That-Can-Form-The-Largest-Square/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1725-Number-Of-Rectangles-That-Can-Form-The-Largest-Square/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/1719-Number-Of-Ways-To-Reconstruct-A-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1719-Number-Of-Ways-To-Reconstruct-A-Tree/">1719. Number Of Ways To Reconstruct A Tree</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/1719-Number-Of-Ways-To-Reconstruct-A-Tree/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1719-number-of-ways-to-reconstruct-a-tree"><a class="markdownIt-Anchor" href="#1719-number-of-ways-to-reconstruct-a-tree"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-ways-to-reconstruct-a-tree/">1719. Number Of Ways To Reconstruct A Tree</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an array <code>pairs</code>, where <code>pairs[i] = [xi, yi]</code>, and:</p>
+<p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2n</code> integers where:</p>
 <ul>
-<li>There are no duplicates.</li>
-<li><code>xi &lt; yi</code></li>
+<li>Every integer is in the <strong>inclusive</strong> range <code>[0, 2n - 1]</code>,</li>
+<li>The first integer is <code>0</code>,</li>
+<li>An integer appears <strong>no more than once</strong> in the sequence,</li>
+<li>The binary representation of every pair of <strong>adjacent</strong> integers differs by <strong>exactly one bit</strong>, and</li>
+<li>The binary representation of the <strong>first</strong> and <strong>last</strong> integers differs by <strong>exactly one bit</strong>.</li>
 </ul>
+<p>Given an integer <code>n</code>, return <em>any valid <strong>n-bit gray code sequence</strong></em>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1719-Number-Of-Ways-To-Reconstruct-A-Tree/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0089-Gray-Code/#more">more >></a>
         
       
 
@@ -797,7 +568,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1719-Number-Of-Ways-To-Reconstruct-A-Tree/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0089-Gray-Code/">展开全文 >></a>
         </p>
       
 
@@ -827,19 +598,19 @@
 
 
   
-    <article id="post-leetcode/1728-Cat-and-Mouse-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0085-Maximal-Rectangle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1728-Cat-and-Mouse-II/">1728. Cat and Mouse II</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0085-Maximal-Rectangle/">0085. Maximal Rectangle</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1728-Cat-and-Mouse-II/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0085-Maximal-Rectangle/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -847,11 +618,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1728-cat-and-mouse-ii"><a class="markdownIt-Anchor" href="#1728-cat-and-mouse-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/cat-and-mouse-ii/">1728. Cat and Mouse II</a></h1>
+        <h1 id="0085-maximal-rectangle"><a class="markdownIt-Anchor" href="#0085-maximal-rectangle"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximal-rectangle/">0085. Maximal Rectangle</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A game is played by a cat and a mouse named Cat and Mouse.</p>
+<p>Given a <code>rows x cols</code> binary <code>matrix</code> filled with <code>0</code>’s and <code>1</code>’s, find the largest rectangle containing only <code>1</code>’s and return <em>its area</em>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1728-Cat-and-Mouse-II/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0085-Maximal-Rectangle/#more">more >></a>
         
       
 
@@ -869,7 +640,27 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
         		</li>
       		
 		</ul>
@@ -879,7 +670,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1728-Cat-and-Mouse-II/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0085-Maximal-Rectangle/">展开全文 >></a>
         </p>
       
 
@@ -909,19 +700,19 @@
 
 
   
-    <article id="post-leetcode/1748-Sum-of-Unique-Elements" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0093-Restore-IP-Addresses" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1748-Sum-of-Unique-Elements/">1748. Sum of Unique Elements</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0093-Restore-IP-Addresses/">0093. Restore IP Addresses</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1748-Sum-of-Unique-Elements/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0093-Restore-IP-Addresses/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -929,12 +720,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1748-sum-of-unique-elements"><a class="markdownIt-Anchor" href="#1748-sum-of-unique-elements"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-unique-elements/">1748. Sum of Unique Elements</a></h1>
+        <h1 id="0093-restore-ip-addresses"><a class="markdownIt-Anchor" href="#0093-restore-ip-addresses"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/restore-ip-addresses/">0093. Restore IP Addresses</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer array <code>nums</code>. The unique elements of an array are the elements that appear <strong>exactly once</strong> in the array.</p>
-<p>Return <em>the <strong>sum</strong> of all the unique elements of</em> <code>nums</code>.</p>
+<p>A <strong>valid IP address</strong> consists of exactly four integers separated by single dots. Each integer is between <code>0</code> and <code>255</code> (<strong>inclusive</strong>) and cannot have leading zeros.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1748-Sum-of-Unique-Elements/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0093-Restore-IP-Addresses/#more">more >></a>
         
       
 
@@ -962,7 +752,297 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1748-Sum-of-Unique-Elements/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0093-Restore-IP-Addresses/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0094-Binary-Tree-Inorder-Traversal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0094-Binary-Tree-Inorder-Traversal/">0094. Binary Tree Inorder Traversal</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0094-Binary-Tree-Inorder-Traversal/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0094-binary-tree-inorder-traversal"><a class="markdownIt-Anchor" href="#0094-binary-tree-inorder-traversal"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">0094. Binary Tree Inorder Traversal</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given the root of a binary tree, return the <strong>inorder traversal</strong> of its nodes’ values.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0094-Binary-Tree-Inorder-Traversal/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度优先搜索</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0094-Binary-Tree-Inorder-Traversal/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0095-Unique-Binary-Search-Trees-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0095-Unique-Binary-Search-Trees-II/">0095. Unique Binary Search Trees II</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0095-Unique-Binary-Search-Trees-II/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0095-unique-binary-search-trees-ii"><a class="markdownIt-Anchor" href="#0095-unique-binary-search-trees-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii/">0095. Unique Binary Search Trees II</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given an integer n, return all the structurally unique BST’s (binary search trees), which has exactly n nodes of unique values from 1 to n. Return the answer in any order.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0095-Unique-Binary-Search-Trees-II/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">二叉搜索树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0095-Unique-Binary-Search-Trees-II/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0097-Interleaving-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0097-Interleaving-String/">0097. Interleaving String</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0097-Interleaving-String/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0097-interleaving-string"><a class="markdownIt-Anchor" href="#0097-interleaving-string"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/interleaving-string/">0097. Interleaving String</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given strings <code>s1</code>, <code>s2</code>, and <code>s3</code>, find whether <code>s3</code> is formed by an <strong>interleaving</strong> of <code>s1</code> and <code>s2</code>.</p>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0097-Interleaving-String/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0097-Interleaving-String/">展开全文 >></a>
         </p>
       
 
@@ -994,7 +1074,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/40/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/42/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/40/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><a class="extend next" rel="next" href="/page/42/">Next &raquo;</a>
     </nav>
   
 
@@ -1278,6 +1358,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递推</a>
               </li>
              
@@ -1290,19 +1386,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
               </li>
             
             <div class="clearfix"></div>

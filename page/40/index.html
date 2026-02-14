@@ -32,6 +32,8 @@
 
   
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -152,19 +154,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/1449-Form-Largest-Integer-With-Digits-That-Add-up-to-Target" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0054-Spiral-Matrix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1449-Form-Largest-Integer-With-Digits-That-Add-up-to-Target/">1449. Form Largest Integer With Digits That Add up to Target</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0054-Spiral-Matrix/">0054. Spiral Matrix</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1449-Form-Largest-Integer-With-Digits-That-Add-up-to-Target/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0054-Spiral-Matrix/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -172,11 +174,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1449-form-largest-integer-with-digits-that-add-up-to-target"><a class="markdownIt-Anchor" href="#1449-form-largest-integer-with-digits-that-add-up-to-target"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/form-largest-integer-with-digits-that-add-up-to-target/">1449. Form Largest Integer With Digits That Add up to Target</a></h1>
+        <h1 id="0054-spiral-matrix"><a class="markdownIt-Anchor" href="#0054-spiral-matrix"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/spiral-matrix/">0054. Spiral Matrix</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an array of integers cost and an integer target. Return the maximum integer you can paint under the following rules:</p>
+<p>Given an <code>m x n</code> <code>matrix</code>, return <em>all elements of the</em> <code>matrix</code> <em>in spiral order</em>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1449-Form-Largest-Integer-With-Digits-That-Add-up-to-Target/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0054-Spiral-Matrix/#more">more >></a>
         
       
 
@@ -204,7 +206,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1449-Form-Largest-Integer-With-Digits-That-Add-up-to-Target/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0054-Spiral-Matrix/">展开全文 >></a>
         </p>
       
 
@@ -234,19 +236,19 @@
 
 
   
-    <article id="post-leetcode/1610-Maximum-Number-of-Visible-Points" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0070-Climbing-Stairs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1610-Maximum-Number-of-Visible-Points/">1610. Maximum Number of Visible Points</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0070-Climbing-Stairs/">0070. Climbing Stairs</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1610-Maximum-Number-of-Visible-Points/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0070-Climbing-Stairs/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -254,12 +256,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1610-maximum-number-of-visible-points"><a class="markdownIt-Anchor" href="#1610-maximum-number-of-visible-points"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-visible-points/">1610. Maximum Number of Visible Points</a></h1>
+        <h1 id="0070-climbing-stairs"><a class="markdownIt-Anchor" href="#0070-climbing-stairs"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/">0070. Climbing Stairs</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an array <code>points</code>, an integer <code>angle</code>, and your <code>location</code>, where <code>location = [posx, posy]</code> and <code>points[i] = [xi, yi]</code> both denote <strong>integral coordinates</strong> on the X-Y plane.</p>
-<p>Initially, you are facing directly east from your position. You <strong>cannot move</strong> from your position, but you can <strong>rotate</strong>. In other words, <code>posx</code> and <code>posy</code> cannot be changed. Your field of view in <strong>degrees</strong> is represented by <code>angle</code>, determining how wide you can see from any given view direction. Let <code>d</code> be the amount in degrees that you rotate counterclockwise. Then, your field of view is the <strong>inclusive</strong> range of angles <code>[d - angle/2, d + angle/2]</code>.</p>
+<p>You are climbing a staircase. It takes <code>n</code> steps to reach the top.</p>
+<p>Each time you can either climb <code>1</code> or <code>2</code> steps. In how many distinct ways can you climb to the top?</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1610-Maximum-Number-of-Visible-Points/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0070-Climbing-Stairs/#more">more >></a>
         
       
 
@@ -279,6 +281,18 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">记忆化搜索</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -287,7 +301,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1610-Maximum-Number-of-Visible-Points/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0070-Climbing-Stairs/">展开全文 >></a>
         </p>
       
 
@@ -317,19 +331,19 @@
 
 
   
-    <article id="post-leetcode/1609-Even-Odd-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0065-Valid-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1609-Even-Odd-Tree/">1609. Even Odd Tree</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0065-Valid-Number/">0065. Valid Number</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1609-Even-Odd-Tree/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0065-Valid-Number/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -337,17 +351,103 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1609-even-odd-tree"><a class="markdownIt-Anchor" href="#1609-even-odd-tree"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/even-odd-tree/">1609. Even Odd Tree</a></h1>
+        <h1 id="0065-valid-number"><a class="markdownIt-Anchor" href="#0065-valid-number"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-number/">0065. Valid Number</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A binary tree is named <strong>Even-Odd</strong> if it meets the following conditions:</p>
+<p>A <strong>valid number</strong> can be split up into these components (in order):</p>
+<ol>
+<li>A <strong>decimal number</strong> or an <strong>integer</strong>.</li>
+<li>(Optional) An <code>'e'</code> or <code>'E'</code>, followed by an <strong>integer</strong>.</li>
+</ol>
+        
+          <a class="article-more-a" href="/2025/01/23/leetcode/0065-Valid-Number/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/23/leetcode/0065-Valid-Number/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leetcode/0072-Edit-Distance" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/01/23/leetcode/0072-Edit-Distance/">0072. Edit Distance</a>
+    </h1>
+  
+
+        
+        <a href="/2025/01/23/leetcode/0072-Edit-Distance/" class="archive-article-date">
+  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0072-edit-distance"><a class="markdownIt-Anchor" href="#0072-edit-distance"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/edit-distance/">0072. Edit Distance</a></h1>
+<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
+<p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.</p>
+<p>You have the following three operations permitted on a word:</p>
 <ul>
-<li>The root of the binary tree is at level index <code>0</code>, its children are at level index <code>1</code>, their children are at level index <code>2</code>, etc.</li>
-<li>For every <strong>even-indexed</strong> level, all nodes at the level have <strong>odd</strong> integer values in <strong>strictly increasing</strong> order (from left to right).</li>
-<li>For every <strong>odd-indexed</strong> level, all nodes at the level have <strong>even</strong> integer values in <strong>strictly decreasing</strong> order (from left to right).</li>
+<li>Insert a character</li>
+<li>Delete a character</li>
+<li>Replace a character</li>
 </ul>
-<p>Given the <code>root</code> of a binary tree, <em>return</em> <code>true</code> <em>if the binary tree is <strong>Even-Odd</strong>, otherwise return</em> <code>false</code><em>.</em></p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1609-Even-Odd-Tree/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0072-Edit-Distance/#more">more >></a>
         
       
 
@@ -365,7 +465,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		
 		</ul>
@@ -375,7 +483,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1609-Even-Odd-Tree/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0072-Edit-Distance/">展开全文 >></a>
         </p>
       
 
@@ -405,19 +513,19 @@
 
 
   
-    <article id="post-leetcode/1688-Count-of-Matches-in-Tournament" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0059-Spiral-Matrix-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1688-Count-of-Matches-in-Tournament/">1688. Count of Matches in Tournament</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0059-Spiral-Matrix-II/">0059. Spiral Matrix II</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1688-Count-of-Matches-in-Tournament/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0059-Spiral-Matrix-II/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -425,16 +533,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1688-count-of-matches-in-tournament"><a class="markdownIt-Anchor" href="#1688-count-of-matches-in-tournament"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-of-matches-in-tournament/">1688. Count of Matches in Tournament</a></h1>
+        <h1 id="0059-spiral-matrix-ii"><a class="markdownIt-Anchor" href="#0059-spiral-matrix-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/spiral-matrix-ii/">0059. Spiral Matrix II</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an integer <code>n</code>, the number of teams in a tournament that has strange rules:</p>
-<ul>
-<li>If the current number of teams is <strong>even</strong>, each team gets paired with another team. A total of <code>n / 2</code> matches are played, and <code>n / 2</code> teams advance to the next round.</li>
-<li>If the current number of teams is <strong>odd</strong>, one team randomly advances in the tournament, and the rest gets paired. A total of <code>(n - 1) / 2</code> matches are played, and <code>(n - 1) / 2 + 1</code> teams advance to the next round.</li>
-</ul>
-<p>Return <em>the number of matches played in the tournament until a winner is decided.</em></p>
+<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to <code>n2</code> in spiral order.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1688-Count-of-Matches-in-Tournament/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0059-Spiral-Matrix-II/#more">more >></a>
         
       
 
@@ -462,7 +565,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1688-Count-of-Matches-in-Tournament/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0059-Spiral-Matrix-II/">展开全文 >></a>
         </p>
       
 
@@ -492,19 +595,19 @@
 
 
   
-    <article id="post-leetcode/1629-Slowest-Key" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0075-Sort-Colors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1629-Slowest-Key/">1629. Slowest Key</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0075-Sort-Colors/">0075. Sort Colors</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1629-Slowest-Key/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0075-Sort-Colors/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -512,13 +615,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1629-slowest-key"><a class="markdownIt-Anchor" href="#1629-slowest-key"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/slowest-key/">1629. Slowest Key</a></h1>
+        <h1 id="0075-sort-colors"><a class="markdownIt-Anchor" href="#0075-sort-colors"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-colors/">0075. Sort Colors</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>A newly designed keypad was tested, where a tester pressed a sequence of <code>n</code> keys, one at a time.</p>
-<p>You are given a string <code>keysPressed</code> of length <code>n</code>, where <code>keysPressed[i]</code> was the <code>ith</code> key pressed in the testing sequence, and a sorted list <code>releaseTimes</code>, where <code>releaseTimes[i]</code> was the time the <code>ith</code> key was released. Both arrays are <strong>0-indexed</strong>. The <code>0th</code> key was pressed at the time <code>0</code>, and every subsequent key was pressed at the <strong>exact</strong> time the previous key was released.</p>
-<p>The tester wants to know the key of the keypress that had the <strong>longest duration</strong>. The <code>ith</code> keypress had a <strong>duration</strong> of <code>releaseTimes[i] - releaseTimes[i - 1]</code>, and the <code>0th</code> keypress had a duration of <code>releaseTimes[0]</code>.</p>
+<p>Given an array <code>nums</code> with <code>n</code> objects colored red, white, or blue, sort them <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a></strong> so that objects of the same color are adjacent, with the colors in the order red, white, and blue.</p>
+<p>We will use the integers <code>0</code>, <code>1</code>, and <code>2</code> to represent the color red, white, and blue, respectively.</p>
+<p>You must solve this problem without using the library’s sort function.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1629-Slowest-Key/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0075-Sort-Colors/#more">more >></a>
         
       
 
@@ -536,6 +639,10 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
@@ -546,7 +653,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1629-Slowest-Key/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0075-Sort-Colors/">展开全文 >></a>
         </p>
       
 
@@ -576,19 +683,19 @@
 
 
   
-    <article id="post-leetcode/1576-Replace-Alls-to-Avoid-Consecutive-Repeating-Characters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0073-Set-Matrix-Zeroes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1576-Replace-Alls-to-Avoid-Consecutive-Repeating-Characters/">1576. Replace Alls to Avoid Consecutive Repeating Characters</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0073-Set-Matrix-Zeroes/">0073. Set Matrix Zeroes</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1576-Replace-Alls-to-Avoid-Consecutive-Repeating-Characters/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0073-Set-Matrix-Zeroes/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -596,13 +703,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1576-replace-all-s-to-avoid-consecutive-repeating-characters"><a class="markdownIt-Anchor" href="#1576-replace-all-s-to-avoid-consecutive-repeating-characters"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/">1576. Replace All ?'s to Avoid Consecutive Repeating Characters</a></h1>
+        <h1 id="0073-set-matrix-zeroes"><a class="markdownIt-Anchor" href="#0073-set-matrix-zeroes"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/set-matrix-zeroes/">0073. Set Matrix Zeroes</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string <code>s</code> containing only lowercase English letters and the <code>'?'</code> character, convert <strong>all</strong> the <code>'?'</code> characters into lowercase letters such that the final string does not contain any <strong>consecutive repeating</strong> characters. You <strong>cannot</strong> modify the non <code>'?'</code> characters.</p>
-<p>It is <strong>guaranteed</strong> that there are no consecutive repeating characters in the given string <strong>except</strong> for <code>'?'</code>.</p>
-<p>Return <em>the final string after all the conversions (possibly zero) have been made</em>. If there is more than one solution, return <strong>any of them</strong>. It can be shown that an answer is always possible with the given constraints.</p>
+<p>Given an <code>m x n</code> integer matrix <code>matrix</code>, if an element is <code>0</code>, set its entire row and column to <code>0</code>’s, and return <em>the matrix</em>.</p>
+<p>You must do it <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/In-place_algorithm">in place</a>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1576-Replace-Alls-to-Avoid-Consecutive-Repeating-Characters/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0073-Set-Matrix-Zeroes/#more">more >></a>
         
       
 
@@ -630,7 +736,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1576-Replace-Alls-to-Avoid-Consecutive-Repeating-Characters/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0073-Set-Matrix-Zeroes/">展开全文 >></a>
         </p>
       
 
@@ -660,19 +766,19 @@
 
 
   
-    <article id="post-leetcode/1606-Find-Servers-That-Handled-Most-Number-of-Requests" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0076-Minimum-Window-Substring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1606-Find-Servers-That-Handled-Most-Number-of-Requests/">1606. Find Servers That Handled Most Number of Requests</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0076-Minimum-Window-Substring/">0076. Minimum Window Substring</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1606-Find-Servers-That-Handled-Most-Number-of-Requests/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0076-Minimum-Window-Substring/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -680,11 +786,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1606-find-servers-that-handled-most-number-of-requests"><a class="markdownIt-Anchor" href="#1606-find-servers-that-handled-most-number-of-requests"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-servers-that-handled-most-number-of-requests/">1606. Find Servers That Handled Most Number of Requests</a></h1>
+        <h1 id="0076-minimum-window-substring"><a class="markdownIt-Anchor" href="#0076-minimum-window-substring"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-window-substring/">0076. Minimum Window Substring</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You have <code>k</code> servers numbered from <code>0</code> to <code>k-1</code> that are being used to handle multiple requests simultaneously. Each server has infinite computational capacity but <strong>cannot handle more than one request at a time</strong>.</p>
+<p>Given two strings <code>s</code> and <code>t</code> of lengths <code>m</code> and <code>n</code> respectively, return <em>the <strong>minimum window substring</strong> of</em> <code>s</code> <em>such that every character in</em> <code>t</code> <em>(<strong>including duplicates</strong>) is included in the window. If there is no such substring</em>*, return the empty string* <code>&quot;&quot;</code><em>.</em></p>
+<p>The testcases will be generated such that the answer is <strong>unique</strong>.</p>
+<p>A <strong>substring</strong> is a contiguous sequence of characters within the string.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1606-Find-Servers-That-Handled-Most-Number-of-Requests/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0076-Minimum-Window-Substring/#more">more >></a>
         
       
 
@@ -712,7 +820,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1606-Find-Servers-That-Handled-Most-Number-of-Requests/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0076-Minimum-Window-Substring/">展开全文 >></a>
         </p>
       
 
@@ -742,19 +850,19 @@
 
 
   
-    <article id="post-leetcode/1672-Richest-Customer-Wealth" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0071-Simplify-Path" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1672-Richest-Customer-Wealth/">1672. Richest Customer Wealth</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0071-Simplify-Path/">0071. Simplify Path</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1672-Richest-Customer-Wealth/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0071-Simplify-Path/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -762,12 +870,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1672-richest-customer-wealth"><a class="markdownIt-Anchor" href="#1672-richest-customer-wealth"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/richest-customer-wealth/">1672. Richest Customer Wealth</a></h1>
+        <h1 id="0071-simplify-path"><a class="markdownIt-Anchor" href="#0071-simplify-path"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplify-path/">0071. Simplify Path</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given an <code>m x n</code> integer grid <code>accounts</code> where <code>accounts[i][j]</code> is the amount of money the <code>i​​​​​​​​​​​th​​​​</code> customer has in the <code>j​​​​​​​​​​​th</code>​​​​ bank. Return <em>the <strong>wealth</strong> that the richest customer has.</em></p>
-<p>A customer’s <strong>wealth</strong> is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum <strong>wealth</strong>.</p>
+<p>Given a string <code>path</code>, which is an <strong>absolute path</strong> (starting with a slash <code>'/'</code>) to a file or directory in a Unix-style file system, convert it to the simplified <strong>canonical path</strong>.</p>
+<p>In a Unix-style file system, a period <code>'.'</code> refers to the current directory, a double period <code>'..'</code> refers to the directory up a level, and any multiple consecutive slashes (i.e. <code>'//'</code>) are treated as a single slash <code>'/'</code>. For this problem, any other format of periods such as <code>'...'</code> are treated as file/directory names.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1672-Richest-Customer-Wealth/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0071-Simplify-Path/#more">more >></a>
         
       
 
@@ -795,7 +903,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1672-Richest-Customer-Wealth/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0071-Simplify-Path/">展开全文 >></a>
         </p>
       
 
@@ -825,19 +933,19 @@
 
 
   
-    <article id="post-leetcode/1414-Find-the-Minimum-Number-of-Fibonacci-Numbers-Whose-Sum-Is-K" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/0078-Subsets" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1414-Find-the-Minimum-Number-of-Fibonacci-Numbers-Whose-Sum-Is-K/">1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K</a>
+      <a class="article-title" href="/2025/01/23/leetcode/0078-Subsets/">0078. Subsets</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/1414-Find-the-Minimum-Number-of-Fibonacci-Numbers-Whose-Sum-Is-K/" class="archive-article-date">
+        <a href="/2025/01/23/leetcode/0078-Subsets/" class="archive-article-date">
   	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
 </a>
         
@@ -845,11 +953,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1414-find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k"><a class="markdownIt-Anchor" href="#1414-find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-minimum-number-of-fibonacci-numbers-whose-sum-is-k/">1414. Find the Minimum Number of Fibonacci Numbers Whose Sum Is K</a></h1>
+        <h1 id="0078-subsets"><a class="markdownIt-Anchor" href="#0078-subsets"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets/">0078. Subsets</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given an integer <code>k</code>, <em>return the minimum number of Fibonacci numbers whose sum is equal to</em> <code>k</code>. The same Fibonacci number can be used multiple times.</p>
+<p>Given an integer array <code>nums</code> of <strong>unique</strong> elements, return <em>all possible subsets (the power set)</em>.</p>
+<p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
         
-          <a class="article-more-a" href="/2025/01/23/leetcode/1414-Find-the-Minimum-Number-of-Fibonacci-Numbers-Whose-Sum-Is-K/#more">more >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0078-Subsets/#more">more >></a>
         
       
 
@@ -877,90 +986,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1414-Find-the-Minimum-Number-of-Fibonacci-Numbers-Whose-Sum-Is-K/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode/1696-Jump-Game-VI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/1696-Jump-Game-VI/">1696. Jump Game VI</a>
-    </h1>
-  
-
-        
-        <a href="/2025/01/23/leetcode/1696-Jump-Game-VI/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1696-jump-game-vi"><a class="markdownIt-Anchor" href="#1696-jump-game-vi"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game-vi/">1696. Jump Game VI</a></h1>
-<h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are given a 0-indexed integer array nums and an integer k.</p>
-<p>You are initially standing at index 0. In one move, you can jump at most k steps forward without going outside the boundaries of the array. That is, you can jump from index i to any index in the range [i + 1, min(n - 1, i + k)] inclusive.</p>
-        
-          <a class="article-more-a" href="/2025/01/23/leetcode/1696-Jump-Game-VI/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/1696-Jump-Game-VI/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/01/23/leetcode/0078-Subsets/">展开全文 >></a>
         </p>
       
 
@@ -992,7 +1018,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/39/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/41/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/39/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="page-number current">40</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><a class="extend next" rel="next" href="/page/41/">Next &raquo;</a>
     </nav>
   
 
@@ -1276,6 +1302,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递推</a>
               </li>
              
@@ -1288,19 +1330,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
               </li>
             
             <div class="clearfix"></div>

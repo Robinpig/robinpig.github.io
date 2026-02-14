@@ -32,6 +32,8 @@
 
   
 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -152,50 +154,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leetcode/0633-Sum-of-Square-Numbers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P2866-Bad-Hair-Day-S" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0633-Sum-of-Square-Numbers/">0633. Sum of Square Numbers</a>
+      <a class="article-title" href="/2026/01/07/luogu/P2866-Bad-Hair-Day-S/">P2866 Bad Hair Day S</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0633-Sum-of-Square-Numbers/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/07/luogu/P2866-Bad-Hair-Day-S/" class="archive-article-date">
+  	<time datetime="2026-01-07T12:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0633-sum-of-square-numbers"><a class="markdownIt-Anchor" href="#0633-sum-of-square-numbers"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-square-numbers/">0633. Sum of Square Numbers</a></h1>
+        <h1 id="p2866-usaco06nov-bad-hair-day-s"><a class="markdownIt-Anchor" href="#p2866-usaco06nov-bad-hair-day-s"></a> P2866 [USACO06NOV] Bad Hair Day S</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a non-negative integer <code>c</code>, decide whether there’re two integers <code>a</code> and <code>b</code> such that <code>a2 + b2 = c</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: c = 5</span><br><span class="line">Output: true</span><br><span class="line">Explanation: 1 * 1 + 2 * 2 = 5</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: c = 3</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: c = 4</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: c = 2</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 5:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: c = 1</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>0 &lt;= c &lt;= 231 - 1</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<p>Fermat’s Christmas theorem</p>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">judgeSquareSum</span><span class="params">(c <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> base := <span class="number">2</span>; base*base &lt;= c; base++ &#123;</span><br><span class="line">        <span class="comment">// 如果不是因子，枚举下一个</span></span><br><span class="line">        <span class="keyword">if</span> c%base &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算 base 的幂</span></span><br><span class="line">        exp := <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> ; c%base == <span class="number">0</span>; c /= base &#123;</span><br><span class="line">            exp++</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 根据 Sum of two squares theorem 验证</span></span><br><span class="line">        <span class="keyword">if</span> base%<span class="number">4</span> == <span class="number">3</span> &amp;&amp; exp%<span class="number">2</span> != <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例如 11 这样的用例，由于上面的 for 循环里 base * base &lt;= c ，base == 11 的时候不会进入循环体</span></span><br><span class="line">    <span class="comment">// 因此在退出循环以后需要再做一次判断</span></span><br><span class="line">    <span class="keyword">return</span> c%<span class="number">4</span> != <span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+<p>农夫约翰有 <em>N</em> 头奶牛正在过乱头发节。</p>
+<p>每一头牛都站在同一排面朝右，它们被从左到右依次编号为 1,2,⋯,<em>N</em>。编号为 <em>i</em> 的牛身高为 <em>h**i</em>。第 <em>N</em> 头牛在最前面，而第 1 头牛在最后面。</p>
+<p>对于第 <em>i</em> 头牛<strong>前面</strong>的第 <em>j</em> 头牛，如果 <em>h**i</em>&gt;<em>h**i</em>+1,<em>h**i</em>&gt;<em>h**i</em>+2,⋯,<em>h**i</em>&gt;<em>h**j</em>，那么认为第 <em>i</em> 头牛可以看到第 <em>i</em>+1 到第 <em>j</em> 头牛。</p>
+<p>定义 <em>C**i</em> 为第 <em>i</em> 头牛所能看到的牛的数量。请帮助农夫约翰求出 <em>C</em>1+<em>C</em>2+⋯+<em>C**N</em>。</p>
+        
+          <a class="article-more-a" href="/2026/01/07/luogu/P2866-Bad-Hair-Day-S/#more">more >></a>
+        
       
 
       
@@ -212,7 +199,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
         		</li>
       		
 		</ul>
@@ -222,7 +213,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0633-Sum-of-Square-Numbers/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/07/luogu/P2866-Bad-Hair-Day-S/">展开全文 >></a>
         </p>
       
 
@@ -252,56 +243,36 @@
 
 
   
-    <article id="post-leetcode/0591-Tag-Validator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P5788-单调栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0591-Tag-Validator/">0591. Tag Validator</a>
+      <a class="article-title" href="/2026/01/06/luogu/P5788-%E5%8D%95%E8%B0%83%E6%A0%88/">P5788 单调栈</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0591-Tag-Validator/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/06/luogu/P5788-%E5%8D%95%E8%B0%83%E6%A0%88/" class="archive-article-date">
+  	<time datetime="2026-01-06T13:12:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0591-tag-validator"><a class="markdownIt-Anchor" href="#0591-tag-validator"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/tag-validator/">0591. Tag Validator</a></h1>
+        <h1 id="p5788-单调栈"><a class="markdownIt-Anchor" href="#p5788-单调栈"></a> P5788 单调栈</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given a string representing a code snippet, implement a tag validator to parse the code and return whether it is valid.</p>
-<p>A code snippet is valid if all the following rules hold:</p>
-<ol>
-<li>The code must be wrapped in a <strong>valid closed tag</strong>. Otherwise, the code is invalid.</li>
-<li>A <strong>closed tag</strong> (not necessarily valid) has exactly the following format : <code>&lt;TAG_NAME&gt;TAG_CONTENT&lt;/TAG_NAME&gt;</code>. Among them, <code>&lt;TAG_NAME&gt;</code> is the start tag, and <code>&lt;/TAG_NAME&gt;</code> is the end tag. The TAG_NAME in start and end tags should be the same. A closed tag is <strong>valid</strong> if and only if the TAG_NAME and TAG_CONTENT are valid.</li>
-<li>A <strong>valid</strong> <code>TAG_NAME</code> only contain <strong>upper-case letters</strong>, and has length in range [1,9]. Otherwise, the <code>TAG_NAME</code> is <strong>invalid</strong>.</li>
-<li>A <strong>valid</strong> <code>TAG_CONTENT</code> may contain other <strong>valid closed tags</strong>, <strong>cdata</strong> and any characters (see note1) <strong>EXCEPT</strong> unmatched <code>&lt;</code>, unmatched start and end tag, and unmatched or closed tags with invalid TAG_NAME. Otherwise, the <code>TAG_CONTENT</code> is <strong>invalid</strong>.</li>
-<li>A start tag is unmatched if no end tag exists with the same TAG_NAME, and vice versa. However, you also need to consider the issue of unbalanced when tags are nested.</li>
-<li>A <code>&lt;</code> is unmatched if you cannot find a subsequent <code>&gt;</code>. And when you find a <code>&lt;</code> or <code>&lt;/</code>, all the subsequent characters until the next <code>&gt;</code> should be parsed as TAG_NAME (not necessarily valid).</li>
-<li>The cdata has the following format : <code>&lt;![CDATA[CDATA_CONTENT]]&gt;</code>. The range of <code>CDATA_CONTENT</code> is defined as the characters between <code>&lt;![CDATA[</code> and the <strong>first subsequent</strong> <code>]]&gt;</code>.</li>
-<li><code>CDATA_CONTENT</code> may contain <strong>any characters</strong>. The function of cdata is to forbid the validator to parse <code>CDATA_CONTENT</code>, so even it has some characters that can be parsed as tag (no matter valid or invalid), you should treat it as <strong>regular characters</strong>.</li>
-</ol>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: code = &quot;&lt;DIV&gt;This is the first line &lt;![CDATA[&lt;div&gt;]]&gt;&lt;/DIV&gt;&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation: </span><br><span class="line">The code is wrapped in a closed tag : &lt;DIV&gt; and &lt;/DIV&gt;. </span><br><span class="line">The TAG_NAME is valid, the TAG_CONTENT consists of some characters and cdata. </span><br><span class="line">Although CDATA_CONTENT has an unmatched start tag with invalid TAG_NAME, it should be considered as plain text, not parsed as a tag.</span><br><span class="line">So TAG_CONTENT is valid, and then the code is valid. Thus return true.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input: code = &quot;&lt;DIV&gt;&gt;&gt;  ![cdata[]] &lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&gt;]&lt;/DIV&gt;&quot;</span><br><span class="line">Output: true</span><br><span class="line">Explanation:</span><br><span class="line">We first separate the code into : start_tag|tag_content|end_tag.</span><br><span class="line">start_tag -&gt; &quot;&lt;DIV&gt;&quot;</span><br><span class="line">end_tag -&gt; &quot;&lt;/DIV&gt;&quot;</span><br><span class="line">tag_content could also be separated into : text1|cdata|text2.</span><br><span class="line">text1 -&gt; &quot;&gt;&gt;  ![cdata[]] &quot;</span><br><span class="line">cdata -&gt; &quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;&quot;, where the CDATA_CONTENT is &quot;&lt;div&gt;]&gt;&quot;</span><br><span class="line">text2 -&gt; &quot;]]&gt;&gt;]&quot;</span><br><span class="line">The reason why start_tag is NOT &quot;&lt;DIV&gt;&gt;&gt;&quot; is because of the rule 6.</span><br><span class="line">The reason why cdata is NOT &quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&quot; is because of the rule 7.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: code = &quot;&lt;A&gt;  &lt;B&gt; &lt;/A&gt;   &lt;/B&gt;&quot;</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Unbalanced. If &quot;&lt;A&gt;&quot; is closed, then &quot;&lt;B&gt;&quot; must be unmatched, and vice versa.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= code.length &lt;= 500</code></li>
-<li><code>code</code> consists of English letters, digits, <code>'&lt;'</code>, <code>'&gt;'</code>, <code>'/'</code>, <code>'!'</code>, <code>'['</code>, <code>']'</code>, <code>'.'</code>, and <code>' '</code>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isValid</span><span class="params">(code <span class="type">string</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    tags := []<span class="type">string</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> code != <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> code[<span class="number">0</span>] != <span class="string">&#x27;&lt;&#x27;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(tags) == <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            code = code[<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(code) == <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> code[<span class="number">1</span>] == <span class="string">&#x27;/&#x27;</span> &#123;</span><br><span class="line">            j := strings.IndexByte(code, <span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> j == <span class="number">-1</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(tags) == <span class="number">0</span> || tags[<span class="built_in">len</span>(tags)<span class="number">-1</span>] != code[<span class="number">2</span>:j] &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            tags = tags[:<span class="built_in">len</span>(tags)<span class="number">-1</span>]</span><br><span class="line">            code = code[j+<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(tags) == <span class="number">0</span> &amp;&amp; code != <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> code[<span class="number">1</span>] == <span class="string">&#x27;!&#x27;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(tags) == <span class="number">0</span> || <span class="built_in">len</span>(code) &lt; <span class="number">9</span> || code[<span class="number">2</span>:<span class="number">9</span>] != <span class="string">&quot;[CDATA[&quot;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            j := strings.Index(code, <span class="string">&quot;]]&gt;&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> j == <span class="number">-1</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            code = code[j+<span class="number">1</span>:]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j := strings.IndexByte(code, <span class="string">&#x27;&gt;&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> j == <span class="number">-1</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            tagName := code[<span class="number">1</span>:j]</span><br><span class="line">            <span class="keyword">if</span> tagName == <span class="string">&quot;&quot;</span> || <span class="built_in">len</span>(tagName) &gt; <span class="number">9</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> _, ch := <span class="keyword">range</span> tagName &#123;</span><br><span class="line">                <span class="keyword">if</span> !unicode.IsUpper(ch) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            tags = <span class="built_in">append</span>(tags, tagName)</span><br><span class="line">            code = code[j+<span class="number">1</span>:]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(tags) == <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>模板题，无背景。</p>
+<p><strong>题目描述</strong></p>
+<p>给出项数为 <em>n</em> 的整数数列 <em>a</em>1…<em>n</em>。</p>
+<p>定义函数 <em>f</em>(<em>i</em>) 代表数列中第 <em>i</em> 个元素之后第一个大于 <em>a**i</em> 的元素的<strong>下标</strong>，即 <em>f</em>(<em>i</em>)=min<em>i</em>&lt;<em>j</em>≤<em>n</em>,<em>a**j</em>&gt;<em>a**i</em>{<em>j</em>}。若不存在，则 <em>f</em>(<em>i</em>)=0。</p>
+<p>试求出 <em>f</em>(1…<em>n</em>)。</p>
+        
+          <a class="article-more-a" href="/2026/01/06/luogu/P5788-%E5%8D%95%E8%B0%83%E6%A0%88/#more">more >></a>
+        
       
 
       
@@ -318,7 +289,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
         		</li>
       		
 		</ul>
@@ -328,7 +303,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0591-Tag-Validator/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/06/luogu/P5788-%E5%8D%95%E8%B0%83%E6%A0%88/">展开全文 >></a>
         </p>
       
 
@@ -358,46 +333,33 @@
 
 
   
-    <article id="post-leetcode/0668-Kth-Smallest-Number-in-Multiplication-Table" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-luogu/P1901-Transmitter-Stations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0668-Kth-Smallest-Number-in-Multiplication-Table/">0668. Kth Smallest Number in Multiplication Table</a>
+      <a class="article-title" href="/2026/01/06/luogu/P1901-Transmitter-Stations/">P1901 Transmitter Stations</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0668-Kth-Smallest-Number-in-Multiplication-Table/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/06/luogu/P1901-Transmitter-Stations/" class="archive-article-date">
+  	<time datetime="2026-01-06T13:06:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0668-kth-smallest-number-in-multiplication-table"><a class="markdownIt-Anchor" href="#0668-kth-smallest-number-in-multiplication-table"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/kth-smallest-number-in-multiplication-table/">0668. Kth Smallest Number in Multiplication Table</a></h1>
+        <h1 id="p1901-transmitter-stations"><a class="markdownIt-Anchor" href="#p1901-transmitter-stations"></a> P1901 Transmitter Stations</h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Nearly everyone has used the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multiplication_table">Multiplication Table</a>. The multiplication table of size <code>m x n</code> is an integer matrix <code>mat</code> where <code>mat[i][j] == i * j</code> (<strong>1-indexed</strong>).</p>
-<p>Given three integers <code>m</code>, <code>n</code>, and <code>k</code>, return <em>the</em> <code>kth</code> <em>smallest element in the</em> <code>m x n</code> <em>multiplication table</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: m = 3, n = 3, k = 5</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The 5th smallest number is 3.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/05/02/multtable2-grid.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: m = 2, n = 3, k = 6</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: The 6th smallest number is 6.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= m, n &lt;= 3 * 104</code></li>
-<li><code>1 &lt;= k &lt;= m * n</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findKthNumber</span><span class="params">(m, n, k <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sort.Search(m*n, <span class="function"><span class="keyword">func</span><span class="params">(x <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">        count := x / n * n</span><br><span class="line">        <span class="keyword">for</span> i := x / n + <span class="number">1</span>; i &lt;= m; i++ &#123;</span><br><span class="line">            count += x / i</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count &gt;= k</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>某地有 <em>N</em> 个能量发射站排成一行，每个发射站 <em>i</em> 都有不相同的高度 <em>H**i</em>，并能向两边（两端的发射站只能向一边）同时发射能量值为 <em>V**i</em> 的能量，发出的能量只被两边<strong>最近的且比它高</strong>的发射站接收。显然，每个发射站发来的能量有可能被 0 或 1 或 2 个其他发射站所接受。</p>
+<p>请计算出接收最多能量的发射站接收的能量是多少。</p>
+        
+          <a class="article-more-a" href="/2026/01/06/luogu/P1901-Transmitter-Stations/#more">more >></a>
+        
       
 
       
@@ -414,7 +376,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">洛谷</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单调栈</a>
         		</li>
       		
 		</ul>
@@ -424,7 +390,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0668-Kth-Smallest-Number-in-Multiplication-Table/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/06/luogu/P1901-Transmitter-Stations/">展开全文 >></a>
         </p>
       
 
@@ -454,49 +420,38 @@
 
 
   
-    <article id="post-leetcode/0661-Image-Smoother" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/3321-Find-X-Sum-of-All-K-Long-Subarrays-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0661-Image-Smoother/">0661. Image Smoother</a>
+      <a class="article-title" href="/2026/01/06/leetcode/3321-Find-X-Sum-of-All-K-Long-Subarrays-II/">3321. Find X-Sum of All K-Long Subarrays II</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0661-Image-Smoother/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/06/leetcode/3321-Find-X-Sum-of-All-K-Long-Subarrays-II/" class="archive-article-date">
+  	<time datetime="2026-01-06T12:06:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0661-image-smoother"><a class="markdownIt-Anchor" href="#0661-image-smoother"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/image-smoother/">0661. Image Smoother</a></h1>
+        <h1 id="3321-find-x-sum-of-all-k-long-subarrays-ii"><a class="markdownIt-Anchor" href="#3321-find-x-sum-of-all-k-long-subarrays-ii"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-x-sum-of-all-k-long-subarrays-ii/">3321. Find X-Sum of All K-Long Subarrays II</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>An <strong>image smoother</strong> is a filter of the size <code>3 x 3</code> that can be applied to each cell of an image by rounding down the average of the cell and the eight surrounding cells (i.e., the average of the nine cells in the blue smoother). If one or more of the surrounding cells of a cell is not present, we do not consider it in the average (i.e., the average of the four cells in the red smoother).</p>
-<p><img src="https://assets.leetcode.com/uploads/2021/05/03/smoother-grid.jpg" alt="img" /></p>
-<p>Given an <code>m x n</code> integer matrix <code>img</code> representing the grayscale of an image, return <em>the image after applying the smoother on each cell of it</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/05/03/smooth-grid.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: img = [[1,1,1],[1,0,1],[1,1,1]]</span><br><span class="line">Output: [[0,0,0],[0,0,0],[0,0,0]]</span><br><span class="line">Explanation:</span><br><span class="line">For the points (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0</span><br><span class="line">For the points (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0</span><br><span class="line">For the point (1,1): floor(8/9) = floor(0.88888889) = 0</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/05/03/smooth2-grid.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: img = [[100,200,100],[200,50,200],[100,200,100]]</span><br><span class="line">Output: [[137,141,137],[141,138,141],[137,141,137]]</span><br><span class="line">Explanation:</span><br><span class="line">For the points (0,0), (0,2), (2,0), (2,2): floor((100+200+200+50)/4) = floor(137.5) = 137</span><br><span class="line">For the points (0,1), (1,0), (1,2), (2,1): floor((200+200+50+200+100+100)/6) = floor(141.666667) = 141</span><br><span class="line">For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.888889) = 138</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
+<p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code>，以及两个整数 <code>k</code> 和 <code>x</code>。</p>
+<p>数组的 <strong>x-sum</strong> 计算按照以下步骤进行：</p>
 <ul>
-<li><code>m == img.length</code></li>
-<li><code>n == img[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 200</code></li>
-<li><code>0 &lt;= img[i][j] &lt;= 255</code></li>
+<li>统计数组中所有元素的出现次数。</li>
+<li>仅保留出现频率最高的前 <code>x</code> 种元素。如果两种元素的出现次数相同，则数值 <strong>较大</strong> 的元素被认为出现次数更多。</li>
+<li>计算结果数组的和。</li>
 </ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">imageSmoother</span><span class="params">(img [][]<span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">    m, n := <span class="built_in">len</span>(img), <span class="built_in">len</span>(img[<span class="number">0</span>])</span><br><span class="line">    ans := <span class="built_in">make</span>([][]<span class="type">int</span>, m)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> ans &#123;</span><br><span class="line">        ans[i] = <span class="built_in">make</span>([]<span class="type">int</span>, n)</span><br><span class="line">        <span class="keyword">for</span> j := <span class="keyword">range</span> ans[i] &#123;</span><br><span class="line">            sum, num := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> _, row := <span class="keyword">range</span> img[max(i<span class="number">-1</span>, <span class="number">0</span>):min(i+<span class="number">2</span>, m)] &#123;</span><br><span class="line">                <span class="keyword">for</span> _, v := <span class="keyword">range</span> row[max(j<span class="number">-1</span>, <span class="number">0</span>):min(j+<span class="number">2</span>, n)] &#123;</span><br><span class="line">                    sum += v</span><br><span class="line">                    num++</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i][j] = sum / num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> b &gt; a &#123;</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">        <span class="keyword">return</span> b</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+        
+          <a class="article-more-a" href="/2026/01/06/leetcode/3321-Find-X-Sum-of-All-K-Long-Subarrays-II/#more">more >></a>
+        
       
 
       
@@ -513,7 +468,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">滑动窗口</a>
         		</li>
       		
 		</ul>
@@ -523,7 +494,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0661-Image-Smoother/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/06/leetcode/3321-Find-X-Sum-of-All-K-Long-Subarrays-II/">展开全文 >></a>
         </p>
       
 
@@ -553,58 +524,33 @@
 
 
   
-    <article id="post-leetcode/0675-Cut-Off-Trees-for-Golf-Event" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1161-Maximum-Level-Sum-of-a-Binary-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0675-Cut-Off-Trees-for-Golf-Event/">0675. Cut Off Trees for Golf Event</a>
+      <a class="article-title" href="/2026/01/06/leetcode/1161-Maximum-Level-Sum-of-a-Binary-Tree/">1161. Maximum Level Sum of a Binary Tree</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0675-Cut-Off-Trees-for-Golf-Event/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/06/leetcode/1161-Maximum-Level-Sum-of-a-Binary-Tree/" class="archive-article-date">
+  	<time datetime="2026-01-06T12:02:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0675-cut-off-trees-for-golf-event"><a class="markdownIt-Anchor" href="#0675-cut-off-trees-for-golf-event"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/cut-off-trees-for-golf-event/">0675. Cut Off Trees for Golf Event</a></h1>
+        <h1 id="1161-maximum-level-sum-of-a-binary-tree"><a class="markdownIt-Anchor" href="#1161-maximum-level-sum-of-a-binary-tree"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-level-sum-of-a-binary-tree/">1161. Maximum Level Sum of a Binary Tree</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an <code>m x n</code> matrix. In this matrix:</p>
-<ul>
-<li><code>0</code> means the cell cannot be walked through.</li>
-<li><code>1</code> represents an empty cell that can be walked through.</li>
-<li>A number greater than <code>1</code> represents a tree in a cell that can be walked through, and this number is the tree’s height.</li>
-</ul>
-<p>In one step, you can walk in any of the four directions: north, east, south, and west. If you are standing in a cell with a tree, you can choose whether to cut it off.</p>
-<p>You must cut off the trees in order from shortest to tallest. When you cut off a tree, the value at its cell becomes <code>1</code> (an empty cell).</p>
-<p>Starting from the point <code>(0, 0)</code>, return <em>the minimum steps you need to walk to cut off all the trees</em>. If you cannot cut off all the trees, return <code>-1</code>.</p>
-<p>You are guaranteed that no two trees have the same height, and there is at least one tree needs to be cut off.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/26/trees1.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: forest = [[1,2,3],[0,0,4],[7,6,5]]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: Following the path above allows you to cut off the trees from shortest to tallest in 6 steps.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/26/trees2.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: forest = [[1,2,3],[0,0,0],[7,6,5]]</span><br><span class="line">Output: -1</span><br><span class="line">Explanation: The trees in the bottom row cannot be accessed as the middle row is blocked.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: forest = [[2,3,4],[0,0,5],[8,7,6]]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: You can follow the same path as Example 1 to cut off all the trees.</span><br><span class="line">Note that you can cut off the first tree at (0, 0) before making any steps.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>m == forest.length</code></li>
-<li><code>n == forest[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 50</code></li>
-<li><code>0 &lt;= forest[i][j] &lt;= 109</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dir4 = []<span class="keyword">struct</span>&#123; x, y <span class="type">int</span> &#125;&#123;&#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cutOffTree</span><span class="params">(forest [][]<span class="type">int</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">type</span> pair <span class="keyword">struct</span>&#123; dis, x, y <span class="type">int</span> &#125;</span><br><span class="line">    trees := []pair&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i, row := <span class="keyword">range</span> forest &#123;</span><br><span class="line">        <span class="keyword">for</span> j, h := <span class="keyword">range</span> row &#123;</span><br><span class="line">            <span class="keyword">if</span> h &gt; <span class="number">1</span> &#123;</span><br><span class="line">                trees = <span class="built_in">append</span>(trees, pair&#123;h, i, j&#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort.Slice(trees, <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123; <span class="keyword">return</span> trees[i].dis &lt; trees[j].dis &#125;)</span><br><span class="line"></span><br><span class="line">    bfs := <span class="function"><span class="keyword">func</span><span class="params">(sx, sy, tx, ty <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">        m, n := <span class="built_in">len</span>(forest), <span class="built_in">len</span>(forest[<span class="number">0</span>])</span><br><span class="line">        vis := <span class="built_in">make</span>([][]<span class="type">bool</span>, m)</span><br><span class="line">        <span class="keyword">for</span> i := <span class="keyword">range</span> vis &#123;</span><br><span class="line">            vis[i] = <span class="built_in">make</span>([]<span class="type">bool</span>, n)</span><br><span class="line">        &#125;</span><br><span class="line">        vis[sx][sy] = <span class="literal">true</span></span><br><span class="line">        q := []pair&#123;&#123;<span class="number">0</span>, sx, sy&#125;&#125;</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">len</span>(q) &gt; <span class="number">0</span> &#123;</span><br><span class="line">            p := q[<span class="number">0</span>]</span><br><span class="line">            q = q[<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">if</span> p.x == tx &amp;&amp; p.y == ty &#123;</span><br><span class="line">                <span class="keyword">return</span> p.dis</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> _, d := <span class="keyword">range</span> dir4 &#123;</span><br><span class="line">                <span class="keyword">if</span> x, y := p.x+d.x, p.y+d.y; <span class="number">0</span> &lt;= x &amp;&amp; x &lt; m &amp;&amp; <span class="number">0</span> &lt;= y &amp;&amp; y &lt; n &amp;&amp; !vis[x][y] &amp;&amp; forest[x][y] &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    vis[x][y] = <span class="literal">true</span></span><br><span class="line">                    q = <span class="built_in">append</span>(q, pair&#123;p.dis + <span class="number">1</span>, x, y&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    preX, preY := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, t := <span class="keyword">range</span> trees &#123;</span><br><span class="line">        d := bfs(preX, preY, t.x, t.y)</span><br><span class="line">        <span class="keyword">if</span> d &lt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        &#125;</span><br><span class="line">        ans += d</span><br><span class="line">        preX, preY = t.x, t.y</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>给你一个二叉树的根节点 <code>root</code>。设根节点位于二叉树的第 <code>1</code> 层，而根节点的子节点位于第 <code>2</code> 层，依此类推。</p>
+<p>返回总和 <strong>最大</strong> 的那一层的层号 <code>x</code>。如果有多层的总和一样大，返回其中 <strong>最小</strong> 的层号 <code>x</code>。</p>
+        
+          <a class="article-more-a" href="/2026/01/06/leetcode/1161-Maximum-Level-Sum-of-a-Binary-Tree/#more">more >></a>
+        
       
 
       
@@ -621,7 +567,23 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二叉树</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度优先搜索</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">广度优先搜索</a>
         		</li>
       		
 		</ul>
@@ -631,7 +593,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0675-Cut-Off-Trees-for-Golf-Event/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/06/leetcode/1161-Maximum-Level-Sum-of-a-Binary-Tree/">展开全文 >></a>
         </p>
       
 
@@ -661,47 +623,37 @@
 
 
   
-    <article id="post-leetcode/0653-Two-Sum-IV-Input-is-a-BST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1975-Maximum-Matrix-Sum" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0653-Two-Sum-IV-Input-is-a-BST/">0653. Two Sum IV - Input is a BST</a>
+      <a class="article-title" href="/2026/01/05/leetcode/1975-Maximum-Matrix-Sum/">1975. Maximum Matrix Sum</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0653-Two-Sum-IV-Input-is-a-BST/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/05/leetcode/1975-Maximum-Matrix-Sum/" class="archive-article-date">
+  	<time datetime="2026-01-04T22:53:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0653-two-sum-iv-input-is-a-bst"><a class="markdownIt-Anchor" href="#0653-two-sum-iv-input-is-a-bst"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/">0653. Two Sum IV - Input is a BST</a></h1>
+        <h1 id="1975-maximum-matrix-sum"><a class="markdownIt-Anchor" href="#1975-maximum-matrix-sum"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-matrix-sum/">1975. Maximum Matrix Sum</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given the <code>root</code> of a Binary Search Tree and a target number <code>k</code>, return <em><code>true</code> if there exist two elements in the BST such that their sum is equal to the given target</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/21/sum_tree_1.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,7], k = 9</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/21/sum_tree_2.jpg" alt="img" /></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,7], k = 28</span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
+<p>给你一个 <code>n x n</code> 的整数方阵 <code>matrix</code> 。你可以执行以下操作 <strong>任意次</strong> ：</p>
 <ul>
-<li>The number of nodes in the tree is in the range <code>[1, 104]</code>.</li>
-<li><code>-104 &lt;= Node.val &lt;= 104</code></li>
-<li><code>root</code> is guaranteed to be a <strong>valid</strong> binary search tree.</li>
-<li><code>-105 &lt;= k &lt;= 105</code></li>
+<li>选择 <code>matrix</code> 中 <strong>相邻</strong> 两个元素，并将它们都 <strong>乘以</strong> <code>-1</code> 。</li>
 </ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findTarget</span><span class="params">(root *TreeNode, k <span class="type">int</span>)</span></span> <span class="type">bool</span> &#123;</span><br><span class="line">    left, right := root, root</span><br><span class="line">    leftStk := []*TreeNode&#123;left&#125;</span><br><span class="line">    <span class="keyword">for</span> left.Left != <span class="literal">nil</span> &#123;</span><br><span class="line">        leftStk = <span class="built_in">append</span>(leftStk, left.Left)</span><br><span class="line">        left = left.Left</span><br><span class="line">    &#125;</span><br><span class="line">    rightStk := []*TreeNode&#123;right&#125;</span><br><span class="line">    <span class="keyword">for</span> right.Right != <span class="literal">nil</span> &#123;</span><br><span class="line">        rightStk = <span class="built_in">append</span>(rightStk, right.Right)</span><br><span class="line">        right = right.Right</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> left != right &#123;</span><br><span class="line">        sum := left.Val + right.Val</span><br><span class="line">        <span class="keyword">if</span> sum == k &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> sum &lt; k &#123;</span><br><span class="line">            left = leftStk[<span class="built_in">len</span>(leftStk)<span class="number">-1</span>]</span><br><span class="line">            leftStk = leftStk[:<span class="built_in">len</span>(leftStk)<span class="number">-1</span>]</span><br><span class="line">            <span class="keyword">for</span> node := left.Right; node != <span class="literal">nil</span>; node = node.Left &#123;</span><br><span class="line">                leftStk = <span class="built_in">append</span>(leftStk, node)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right = rightStk[<span class="built_in">len</span>(rightStk)<span class="number">-1</span>]</span><br><span class="line">            rightStk = rightStk[:<span class="built_in">len</span>(rightStk)<span class="number">-1</span>]</span><br><span class="line">            <span class="keyword">for</span> node := right.Left; node != <span class="literal">nil</span>; node = node.Right &#123;</span><br><span class="line">                rightStk = <span class="built_in">append</span>(rightStk, node)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>如果两个元素有 <strong>公共边</strong> ，那么它们就是 <strong>相邻</strong> 的。</p>
+<p>你的目的是 <strong>最大化</strong> 方阵元素的和。请你在执行以上操作之后，返回方阵的 <strong>最大</strong> 和。</p>
+        
+          <a class="article-more-a" href="/2026/01/05/leetcode/1975-Maximum-Matrix-Sum/#more">more >></a>
+        
       
 
       
@@ -718,7 +670,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">矩阵</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
         		</li>
       		
 		</ul>
@@ -728,7 +692,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0653-Two-Sum-IV-Input-is-a-BST/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/05/leetcode/1975-Maximum-Matrix-Sum/">展开全文 >></a>
         </p>
       
 
@@ -758,55 +722,33 @@
 
 
   
-    <article id="post-leetcode/0638-Shopping-Offers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/2048-Next-Greater-Numerically-Balanced-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0638-Shopping-Offers/">0638. Shopping Offers</a>
+      <a class="article-title" href="/2026/01/04/leetcode/2048-Next-Greater-Numerically-Balanced-Number/">2048. Next Greater Numerically Balanced Number</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0638-Shopping-Offers/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/04/leetcode/2048-Next-Greater-Numerically-Balanced-Number/" class="archive-article-date">
+  	<time datetime="2026-01-04T13:12:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0638-shopping-offers"><a class="markdownIt-Anchor" href="#0638-shopping-offers"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shopping-offers/">0638. Shopping Offers</a></h1>
+        <h1 id="2048-next-greater-numerically-balanced-number"><a class="markdownIt-Anchor" href="#2048-next-greater-numerically-balanced-number"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/next-greater-numerically-balanced-number/">2048. Next Greater Numerically Balanced Number</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>In LeetCode Store, there are <code>n</code> items to sell. Each item has a price. However, there are some special offers, and a special offer consists of one or more different kinds of items with a sale price.</p>
-<p>You are given an integer array <code>price</code> where <code>price[i]</code> is the price of the <code>ith</code> item, and an integer array <code>needs</code> where <code>needs[i]</code> is the number of pieces of the <code>ith</code> item you want to buy.</p>
-<p>You are also given an array <code>special</code> where <code>special[i]</code> is of size <code>n + 1</code> where <code>special[i][j]</code> is the number of pieces of the <code>jth</code> item in the <code>ith</code> offer and <code>special[i][n]</code> (i.e., the last integer in the array) is the price of the <code>ith</code> offer.</p>
-<p>Return <em>the lowest price you have to pay for exactly certain items as given, where you could make optimal use of the special offers</em>. You are not allowed to buy more items than you want, even if that would lower the overall price. You could use any of the special offers as many times as you want.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: price = [2,5], special = [[3,0,5],[1,2,10]], needs = [3,2]</span><br><span class="line">Output: 14</span><br><span class="line">Explanation: There are two kinds of items, A and B. Their prices are $2 and $5 respectively. </span><br><span class="line">In special offer 1, you can pay $5 for 3A and 0B</span><br><span class="line">In special offer 2, you can pay $10 for 1A and 2B. </span><br><span class="line">You need to buy 3A and 2B, so you may pay $10 for 1A and 2B (special offer #2), and $4 for 2A.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: price = [2,3,4], special = [[1,1,0,4],[2,2,1,9]], needs = [1,2,1]</span><br><span class="line">Output: 11</span><br><span class="line">Explanation: The price of A is $2, and $3 for B, $4 for C. </span><br><span class="line">You may pay $4 for 1A and 1B, and $9 for 2A ,2B and 1C. </span><br><span class="line">You need to buy 1A ,2B and 1C, so you may pay $4 for 1A and 1B (special offer #1), and $3 for 1B, $4 for 1C. </span><br><span class="line">You cannot add more items, though only $9 for 2A ,2B and 1C.</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == price.length</code></li>
-<li><code>n == needs.length</code></li>
-<li><code>1 &lt;= n &lt;= 6</code></li>
-<li><code>0 &lt;= price[i] &lt;= 10</code></li>
-<li><code>0 &lt;= needs[i] &lt;= 10</code></li>
-<li><code>1 &lt;= special.length &lt;= 100</code></li>
-<li><code>special[i].length == n + 1</code></li>
-<li><code>0 &lt;= special[i][j] &lt;= 50</code></li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="c"><a class="markdownIt-Anchor" href="#c"></a> <strong>C++</strong></h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; needs_;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; price_;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt; &gt; special_;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    map&lt;vector&lt;<span class="type">int</span>&gt;, <span class="type">int</span>&gt; dp;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">shoppingOffers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; price, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; special, vector&lt;<span class="type">int</span>&gt;&amp; needs)</span> </span>&#123;</span><br><span class="line">        price_ = price;</span><br><span class="line">        special_ = special;</span><br><span class="line">        n = needs.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dfs</span>(needs);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt; needs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dp.<span class="built_in">count</span>(needs) != <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> dp[needs];</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> Min = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; needs.<span class="built_in">size</span>(); i++)</span><br><span class="line">            Min += needs[i] * price_[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; special_.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; nextNeeds = needs;</span><br><span class="line">            <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (special_[i][j] &gt; nextNeeds[j])</span><br><span class="line">                    flag = <span class="literal">false</span>;</span><br><span class="line">                nextNeeds[j] -= special_[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!flag)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            Min = <span class="built_in">min</span>(Min, <span class="built_in">dfs</span>(nextNeeds) + special_[i][n]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[needs] = Min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="java"><a class="markdownIt-Anchor" href="#java"></a> <strong>Java</strong></h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    Map&lt;List&lt;Integer&gt;, Integer&gt; memo = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;List&lt;Integer&gt;, Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">shoppingOffers</span><span class="params">(List&lt;Integer&gt; price, List&lt;List&lt;Integer&gt;&gt; special, List&lt;Integer&gt; needs)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> price.size();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 过滤不需要计算的大礼包，只保留需要计算的大礼包</span></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; filterSpecial = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (List&lt;Integer&gt; sp : special) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">totalCount</span> <span class="operator">=</span> <span class="number">0</span>, totalPrice = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">                totalCount += sp.get(i);</span><br><span class="line">                totalPrice += sp.get(i) * price.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (totalCount &gt; <span class="number">0</span> &amp;&amp; totalPrice &gt; sp.get(n)) &#123;</span><br><span class="line">                filterSpecial.add(sp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dfs(price, special, needs, filterSpecial, n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 记忆化搜索计算满足购物清单所需花费的最低价格</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">dfs</span><span class="params">(List&lt;Integer&gt; price, List&lt;List&lt;Integer&gt;&gt; special, List&lt;Integer&gt; curNeeds, List&lt;List&lt;Integer&gt;&gt; filterSpecial, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!memo.containsKey(curNeeds)) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">minPrice</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">                minPrice += curNeeds.get(i) * price.get(i); <span class="comment">// 不购买任何大礼包，原价购买购物清单中的所有物品</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (List&lt;Integer&gt; curSpecial : filterSpecial) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">specialPrice</span> <span class="operator">=</span> curSpecial.get(n);</span><br><span class="line">                List&lt;Integer&gt; nxtNeeds = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (curSpecial.get(i) &gt; curNeeds.get(i)) &#123; <span class="comment">// 不能购买超出购物清单指定数量的物品</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    nxtNeeds.add(curNeeds.get(i) - curSpecial.get(i));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (nxtNeeds.size() == n) &#123; <span class="comment">// 大礼包可以购买</span></span><br><span class="line">                    minPrice = Math.min(minPrice, dfs(price, special, nxtNeeds, filterSpecial, n) + specialPrice);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            memo.put(curNeeds, minPrice);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo.get(curNeeds);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+<p>如果整数 <code>x</code> 满足：对于每个数位 <code>d</code> ，这个数位 <strong>恰好</strong> 在 <code>x</code> 中出现 <code>d</code> 次。那么整数 <code>x</code> 就是一个 <strong>数值平衡数</strong> 。</p>
+<p>给你一个整数 <code>n</code> ，请你返回 <strong>严格大于</strong> <code>n</code> 的 <strong>最小数值平衡数</strong> 。</p>
+        
+          <a class="article-more-a" href="/2026/01/04/leetcode/2048-Next-Greater-Numerically-Balanced-Number/#more">more >></a>
+        
       
 
       
@@ -825,6 +767,26 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">枚举</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计数</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -833,7 +795,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0638-Shopping-Offers/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/04/leetcode/2048-Next-Greater-Numerically-Balanced-Number/">展开全文 >></a>
         </p>
       
 
@@ -863,55 +825,32 @@
 
 
   
-    <article id="post-leetcode/0682-Baseball-Game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1390-Four-Divisors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0682-Baseball-Game/">0682. Baseball Game</a>
+      <a class="article-title" href="/2026/01/04/leetcode/1390-Four-Divisors/">1390. Four Divisors</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0682-Baseball-Game/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/04/leetcode/1390-Four-Divisors/" class="archive-article-date">
+  	<time datetime="2026-01-04T12:36:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0682-baseball-game"><a class="markdownIt-Anchor" href="#0682-baseball-game"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/baseball-game/">0682. Baseball Game</a></h1>
+        <h1 id="1390-four-divisors"><a class="markdownIt-Anchor" href="#1390-four-divisors"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/four-divisors/">1390. Four Divisors</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>You are keeping score for a baseball game with strange rules. The game consists of several rounds, where the scores of past rounds may affect future rounds’ scores.</p>
-<p>At the beginning of the game, you start with an empty record. You are given a list of strings <code>ops</code>, where <code>ops[i]</code> is the <code>ith</code> operation you must apply to the record and is one of the following:</p>
-<ol>
-<li>An integer <code>x</code> - Record a new score of <code>x</code>.</li>
-<li><code>&quot;+&quot;</code> - Record a new score that is the sum of the previous two scores. It is guaranteed there will always be two previous scores.</li>
-<li><code>&quot;D&quot;</code> - Record a new score that is double the previous score. It is guaranteed there will always be a previous score.</li>
-<li><code>&quot;C&quot;</code> - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.</li>
-</ol>
-<p>Return <em>the sum of all the scores on the record</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;5&quot;,&quot;2&quot;,&quot;C&quot;,&quot;D&quot;,&quot;+&quot;]</span><br><span class="line">Output: 30</span><br><span class="line">Explanation:</span><br><span class="line">&quot;5&quot; - Add 5 to the record, record is now [5].</span><br><span class="line">&quot;2&quot; - Add 2 to the record, record is now [5, 2].</span><br><span class="line">&quot;C&quot; - Invalidate and remove the previous score, record is now [5].</span><br><span class="line">&quot;D&quot; - Add 2 * 5 = 10 to the record, record is now [5, 10].</span><br><span class="line">&quot;+&quot; - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].</span><br><span class="line">The total sum is 5 + 10 + 15 = 30.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;5&quot;,&quot;-2&quot;,&quot;4&quot;,&quot;C&quot;,&quot;D&quot;,&quot;9&quot;,&quot;+&quot;,&quot;+&quot;]</span><br><span class="line">Output: 27</span><br><span class="line">Explanation:</span><br><span class="line">&quot;5&quot; - Add 5 to the record, record is now [5].</span><br><span class="line">&quot;-2&quot; - Add -2 to the record, record is now [5, -2].</span><br><span class="line">&quot;4&quot; - Add 4 to the record, record is now [5, -2, 4].</span><br><span class="line">&quot;C&quot; - Invalidate and remove the previous score, record is now [5, -2].</span><br><span class="line">&quot;D&quot; - Add 2 * -2 = -4 to the record, record is now [5, -2, -4].</span><br><span class="line">&quot;9&quot; - Add 9 to the record, record is now [5, -2, -4, 9].</span><br><span class="line">&quot;+&quot; - Add -4 + 9 = 5 to the record, record is now [5, -2, -4, 9, 5].</span><br><span class="line">&quot;+&quot; - Add 9 + 5 = 14 to the record, record is now [5, -2, -4, 9, 5, 14].</span><br><span class="line">The total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: ops = [&quot;1&quot;]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= ops.length &lt;= 1000</code></li>
-<li><code>ops[i]</code> is <code>&quot;C&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;+&quot;</code>, or a string representing an integer in the range <code>[-3 * 104, 3 * 104]</code>.</li>
-<li>For operation <code>&quot;+&quot;</code>, there will always be at least two previous scores on the record.</li>
-<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calPoints</span><span class="params">(ops []<span class="type">string</span>)</span></span> (ans <span class="type">int</span>) &#123;</span><br><span class="line">    points := []<span class="type">int</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> _, op := <span class="keyword">range</span> ops &#123;</span><br><span class="line">        n := <span class="built_in">len</span>(points)</span><br><span class="line">        <span class="keyword">switch</span> op[<span class="number">0</span>] &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">            ans += points[n<span class="number">-1</span>] + points[n<span class="number">-2</span>]</span><br><span class="line">            points = <span class="built_in">append</span>(points, points[n<span class="number">-1</span>]+points[n<span class="number">-2</span>])</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;D&#x27;</span>:</span><br><span class="line">            ans += points[n<span class="number">-1</span>] * <span class="number">2</span></span><br><span class="line">            points = <span class="built_in">append</span>(points, <span class="number">2</span>*points[n<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;C&#x27;</span>:</span><br><span class="line">            ans -= points[n<span class="number">-1</span>]</span><br><span class="line">            points = points[:<span class="built_in">len</span>(points)<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            pt, _ := strconv.Atoi(op)</span><br><span class="line">            ans += pt</span><br><span class="line">            points = <span class="built_in">append</span>(points, pt)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
+<p>给你一个整数数组 <code>nums</code>，请你返回该数组中恰有四个因数的这些整数的各因数之和。如果数组中不存在满足题意的整数，则返回 <code>0</code> 。</p>
+        
+          <a class="article-more-a" href="/2026/01/04/leetcode/1390-Four-Divisors/#more">more >></a>
+        
       
 
       
@@ -928,7 +867,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
@@ -938,7 +885,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0682-Baseball-Game/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/04/leetcode/1390-Four-Divisors/">展开全文 >></a>
         </p>
       
 
@@ -968,54 +915,34 @@
 
 
   
-    <article id="post-leetcode/0677-Map-Sum-Pairs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/1411-Number-of-Ways-to-Paint-N-×-3-Grid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0677-Map-Sum-Pairs/">0677. Map Sum Pairs</a>
+      <a class="article-title" href="/2026/01/03/leetcode/1411-Number-of-Ways-to-Paint-N-%C3%97-3-Grid/">1411. Number of Ways to Paint N × 3 Grid</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0677-Map-Sum-Pairs/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/03/leetcode/1411-Number-of-Ways-to-Paint-N-%C3%97-3-Grid/" class="archive-article-date">
+  	<time datetime="2026-01-03T05:42:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0677-map-sum-pairs"><a class="markdownIt-Anchor" href="#0677-map-sum-pairs"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/map-sum-pairs/">0677. Map Sum Pairs</a></h1>
+        <h1 id="1411-number-of-ways-to-paint-n-3-grid"><a class="markdownIt-Anchor" href="#1411-number-of-ways-to-paint-n-3-grid"></a> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/">1411. Number of Ways to Paint N × 3 Grid</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Design a map that allows you to do the following:</p>
-<ul>
-<li>Maps a string key to a given value.</li>
-<li>Returns the sum of the values that have a key with a prefix equal to a given string.</li>
-</ul>
-<p>Implement the <code>MapSum</code> class:</p>
-<ul>
-<li><code>MapSum()</code> Initializes the <code>MapSum</code> object.</li>
-<li><code>void insert(String key, int val)</code> Inserts the <code>key-val</code> pair into the map. If the <code>key</code> already existed, the original <code>key-value</code> pair will be overridden to the new one.</li>
-<li><code>int sum(string prefix)</code> Returns the sum of all the pairs’ value whose <code>key</code> starts with the <code>prefix</code>.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[&quot;MapSum&quot;, &quot;insert&quot;, &quot;sum&quot;, &quot;insert&quot;, &quot;sum&quot;]</span><br><span class="line">[[], [&quot;apple&quot;, 3], [&quot;ap&quot;], [&quot;app&quot;, 2], [&quot;ap&quot;]]</span><br><span class="line">Output</span><br><span class="line">[null, null, 3, null, 5]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MapSum mapSum = new MapSum();</span><br><span class="line">mapSum.insert(&quot;apple&quot;, 3);  </span><br><span class="line">mapSum.sum(&quot;ap&quot;);           // return 3 (apple = 3)</span><br><span class="line">mapSum.insert(&quot;app&quot;, 2);    </span><br><span class="line">mapSum.sum(&quot;ap&quot;);           // return 5 (apple + app = 3 + 2 = 5)</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= key.length, prefix.length &lt;= 50</code></li>
-<li><code>key</code> and <code>prefix</code> consist of only lowercase English letters.</li>
-<li><code>1 &lt;= val &lt;= 1000</code></li>
-<li>At most <code>50</code> calls will be made to <code>insert</code> and <code>sum</code>.</li>
-</ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MapSum object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.Insert(key,val);</span></span><br><span class="line"><span class="comment"> * param_2 := obj.Sum(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">type</span> MapSum <span class="keyword">struct</span> &#123;</span><br><span class="line">    root <span class="keyword">map</span>[<span class="type">byte</span>]*node</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> node <span class="keyword">struct</span> &#123;</span><br><span class="line">    cnt <span class="type">int</span> </span><br><span class="line">    isEnd <span class="type">bool</span> </span><br><span class="line">    next <span class="keyword">map</span>[<span class="type">byte</span>]*node</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">()</span></span> MapSum &#123;</span><br><span class="line">    <span class="keyword">var</span> a MapSum </span><br><span class="line">    a.root = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">byte</span>]*node)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MapSum)</span></span> Insert(key <span class="type">string</span>, val <span class="type">int</span>)  &#123;</span><br><span class="line">    cur := this.root</span><br><span class="line">    end := <span class="built_in">len</span>(key)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> key &#123;</span><br><span class="line">        <span class="keyword">if</span> _,ok := cur[key[i]];!ok &#123;</span><br><span class="line">            newNode := node&#123;</span><br><span class="line">                next : <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">byte</span>]*node),</span><br><span class="line">            &#125;</span><br><span class="line">            cur[key[i]] = &amp;newNode</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> i == end &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        cur = cur[key[i]].next</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cur[key[end]].cnt = val</span><br><span class="line">    cur[key[end]].isEnd = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MapSum)</span></span> Sum(prefix <span class="type">string</span>) <span class="type">int</span> &#123;</span><br><span class="line">    cur := this.root</span><br><span class="line">    end := <span class="built_in">len</span>(prefix)<span class="number">-1</span></span><br><span class="line">    <span class="keyword">var</span> ret <span class="type">int</span> </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> prefix &#123;</span><br><span class="line">        <span class="keyword">if</span> _, ok := cur[prefix[i]];!ok &#123;</span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> i == end &amp;&amp; cur[prefix[end]].isEnd&#123;</span><br><span class="line">                ret += cur[prefix[end]].cnt</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur[prefix[i]].next</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> dfs <span class="function"><span class="keyword">func</span><span class="params">(<span class="keyword">map</span>[<span class="type">byte</span>]*node)</span></span></span><br><span class="line">    dfs = <span class="function"><span class="keyword">func</span><span class="params">(n <span class="keyword">map</span>[<span class="type">byte</span>]*node)</span></span>  &#123;</span><br><span class="line">    <span class="keyword">if</span> n == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _,v := <span class="keyword">range</span>  n &#123;</span><br><span class="line">        <span class="keyword">if</span> v.isEnd &#123;</span><br><span class="line">            ret +=v.cnt</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(v.next)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dfs(cur)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+<p>你有一个 <code>n x 3</code> 的网格图 <code>grid</code> ，你需要用 <strong>红，黄，绿</strong> 三种颜色之一给每一个格子上色，且确保相邻格子颜色不同（也就是有相同水平边或者垂直边的格子颜色不同）。</p>
+<p>给你网格图的行数 <code>n</code> 。</p>
+<p>请你返回给 <code>grid</code> 涂色的方案数。由于答案可能会非常大，请你返回答案对 <code>10^9 + 7</code> 取余的结果。</p>
+        
+          <a class="article-more-a" href="/2026/01/03/leetcode/1411-Number-of-Ways-to-Paint-N-%C3%97-3-Grid/#more">more >></a>
+        
       
 
       
@@ -1034,6 +961,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1042,7 +973,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0677-Map-Sum-Pairs/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/03/leetcode/1411-Number-of-Ways-to-Paint-N-%C3%97-3-Grid/">展开全文 >></a>
         </p>
       
 
@@ -1072,50 +1003,39 @@
 
 
   
-    <article id="post-leetcode/0686-Repeated-String-Match" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/01/23/leetcode/0686-Repeated-String-Match/">0686. Repeated String Match</a>
+      <a class="article-title" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/">2904. Shortest and Lexicographically Smallest Beautiful String</a>
     </h1>
   
 
         
-        <a href="/2025/01/23/leetcode/0686-Repeated-String-Match/" class="archive-article-date">
-  	<time datetime="2025-01-22T22:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-01-23</time>
+        <a href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/" class="archive-article-date">
+  	<time datetime="2026-01-01T12:31:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-01-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0686-repeated-string-match"><a class="markdownIt-Anchor" href="#0686-repeated-string-match"></a> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-string-match/">0686. Repeated String Match</a></h1>
+        <h1 id="2904-shortest-and-lexicographically-smallest-beautiful-string"><a class="markdownIt-Anchor" href="#2904-shortest-and-lexicographically-smallest-beautiful-string"></a> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/">2904. Shortest and Lexicographically Smallest Beautiful String</a></h1>
 <h2 id="description"><a class="markdownIt-Anchor" href="#description"></a> Description</h2>
-<p>Given two strings <code>a</code> and <code>b</code>, return the minimum number of times you should repeat string <code>a</code> so that string <code>b</code> is a substring of it. If it is impossible for <code>b</code> to be a substring of <code>a</code> after repeating it, return <code>-1</code>.</p>
-<p><strong>Notice:</strong> string <code>&quot;abc&quot;</code> repeated 0 times is <code>&quot;&quot;</code>, repeated 1 time is <code>&quot;abc&quot;</code> and repeated 2 times is <code>&quot;abcabc&quot;</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;abcd&quot;, b = &quot;cdabcdab&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: We return 3 because by repeating a three times &quot;abcdabcdabcd&quot;, b is a substring of it.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;a&quot;, b = &quot;aa&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;a&quot;, b = &quot;a&quot;</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-<p><strong>Example 4:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: a = &quot;abc&quot;, b = &quot;wxyz&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
-<p><strong>Constraints:</strong></p>
+<p>给你一个二进制字符串 <code>s</code> 和一个正整数 <code>k</code> 。</p>
+<p>如果 <code>s</code> 的某个子字符串中 <code>1</code> 的个数恰好等于 <code>k</code> ，则称这个子字符串是一个 <strong>美丽子字符串</strong> 。</p>
+<p>令 <code>len</code> 等于 <strong>最短</strong> 美丽子字符串的长度。</p>
+<p>返回长度等于 <code>len</code> 且字典序 <strong>最小</strong> 的美丽子字符串。如果 <code>s</code> 中不含美丽子字符串，则返回一个 <strong>空</strong> 字符串。</p>
+<p>对于相同长度的两个字符串 <code>a</code> 和 <code>b</code> ，如果在 <code>a</code> 和 <code>b</code> 出现不同的第一个位置上，<code>a</code> 中该位置上的字符严格大于 <code>b</code> 中的对应字符，则认为字符串 <code>a</code> 字典序 <strong>大于</strong> 字符串 <code>b</code> 。</p>
 <ul>
-<li><code>1 &lt;= a.length &lt;= 104</code></li>
-<li><code>1 &lt;= b.length &lt;= 104</code></li>
-<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
+<li>例如，<code>&quot;abcd&quot;</code> 的字典序大于 <code>&quot;abcc&quot;</code> ，因为两个字符串出现不同的第一个位置对应第四个字符，而 <code>d</code> 大于 <code>c</code> 。</li>
 </ul>
-<h2 id="solutions"><a class="markdownIt-Anchor" href="#solutions"></a> Solutions</h2>
-<!-- tabs:start -->
-<h3 id="golang"><a class="markdownIt-Anchor" href="#golang"></a> <strong>Golang</strong></h3>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">strStr</span><span class="params">(haystack, needle <span class="type">string</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    n, m := <span class="built_in">len</span>(haystack), <span class="built_in">len</span>(needle)</span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    pi := <span class="built_in">make</span>([]<span class="type">int</span>, m)</span><br><span class="line">    <span class="keyword">for</span> i, j := <span class="number">1</span>, <span class="number">0</span>; i &lt; m; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j &gt; <span class="number">0</span> &amp;&amp; needle[i] != needle[j] &#123;</span><br><span class="line">            j = pi[j<span class="number">-1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> needle[i] == needle[j] &#123;</span><br><span class="line">            j++</span><br><span class="line">        &#125;</span><br><span class="line">        pi[i] = j</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i, j := <span class="number">0</span>, <span class="number">0</span>; i-j &lt; n; i++ &#123; <span class="comment">// b 开始匹配的位置是否超过第一个叠加的 a</span></span><br><span class="line">        <span class="keyword">for</span> j &gt; <span class="number">0</span> &amp;&amp; haystack[i%n] != needle[j] &#123; <span class="comment">// haystack 是循环叠加的字符串，所以取 i % n</span></span><br><span class="line">            j = pi[j<span class="number">-1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> haystack[i%n] == needle[j] &#123;</span><br><span class="line">            j++</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> j == m &#123;</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">repeatedStringMatch</span><span class="params">(a <span class="type">string</span>, b <span class="type">string</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    an, bn := <span class="built_in">len</span>(a), <span class="built_in">len</span>(b)</span><br><span class="line">    index := strStr(a, b)</span><br><span class="line">    <span class="keyword">if</span> index == <span class="number">-1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> an-index &gt;= bn &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (bn+index-an<span class="number">-1</span>)/an + <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<!-- tabs:end -->
-
+        
+          <a class="article-more-a" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/#more">more >></a>
+        
       
 
       
@@ -1132,7 +1052,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">滑动窗口</a>
         		</li>
       		
 		</ul>
@@ -1142,7 +1070,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/01/23/leetcode/0686-Repeated-String-Match/">展开全文 >></a>
+          <a class="article-more-a" href="/2026/01/01/leetcode/2904-Shortest-and-Lexicographically-Smallest-Beautiful-String/">展开全文 >></a>
         </p>
       
 
@@ -1174,7 +1102,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
     </nav>
   
 
@@ -1458,6 +1386,22 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">递推</a>
               </li>
              
@@ -1470,19 +1414,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分治</a>
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串匹配</a>
+                <a href="javascript:void(0)" class="js-tag color1">二叉搜索树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">扫描线</a>
+                <a href="javascript:void(0)" class="js-tag color4">最短路</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+                <a href="javascript:void(0)" class="js-tag color4">字典树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">状压DP</a>
               </li>
             
             <div class="clearfix"></div>
